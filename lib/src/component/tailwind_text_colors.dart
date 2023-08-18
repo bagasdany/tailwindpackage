@@ -293,7 +293,70 @@ class TailwindColors {
   static const Color rose950 = Color(0xFF4C0D2B);
 }
 
-Color? gettextColorFromClassName(String className) {
+double? getFontSize(String tailwindSize) {
+  switch (tailwindSize) {
+    case 'text-xs':
+      return 12.0;
+    case 'text-sm':
+      return 14.0;
+    case 'text-base':
+      return 16.0;
+    case 'text-lg':
+      return 18.0;
+    case 'text-xl':
+      return 20.0;
+    case 'text-2xl':
+      return 24.0;
+    case 'text-3xl':
+      return 30.0;
+    case 'text-4xl':
+      return 36.0;
+    case 'text-5xl':
+      return 48.0;
+    case 'text-6xl':
+      return 60.0;
+    case 'text-7xl':
+      return 72.0;
+    case 'text-8xl':
+      return 96.0;
+    case 'text-9xl':
+      return 128.0;
+    // default:
+    //   return 16.0; // Default font size
+  }
+  return null;
+}
+
+String? getFontFamily(String tailwindFont) {
+  switch (tailwindFont) {
+    case 'font-sans':
+      return 'ui-sans-serif';
+    case 'font-serif':
+      return 'ui-serif';
+    case 'font-mono':
+      return 'ui-monospace';
+    // default:
+    //   return 'ui-sans-serif'; // Default font family
+  }
+  return null;
+}
+
+TextDecoration? getTextDecoration(String tailwindDecoration) {
+  switch (tailwindDecoration) {
+    case 'underline':
+      return TextDecoration.underline;
+    case 'overline':
+      return TextDecoration.overline;
+    case 'line-through':
+      return TextDecoration.lineThrough;
+    case 'no-underline':
+    // default:
+    //   return TextDecoration.none;
+  }
+  return null;
+}
+
+Color? getTextColor(String className) {
   switch (className) {
     //INHERIT
     case 'text-inherit':

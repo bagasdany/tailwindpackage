@@ -2,20 +2,24 @@ library tailwind_style;
 
 import 'package:flutter/material.dart';
 import 'package:tailwind_style/src/component/tailwind_bg_colors.dart';
+import 'package:tailwind_style/src/component/tailwind_text_colors.dart';
 
-class CustomCard extends StatefulWidget {
-  final Widget child;
+class TextTailwind extends StatefulWidget {
+  final String text;
   final String? extClass; // Tambahkan properti extClass
-  const CustomCard({super.key, required this.child, this.extClass});
+  const TextTailwind({super.key, required this.text, this.extClass});
 
   @override
-  State<CustomCard> createState() => _CustomCardState();
+  State<TextTailwind> createState() => _TextTailwindState();
 }
 
-class _CustomCardState extends State<CustomCard> {
+class _TextTailwindState extends State<TextTailwind> {
   @override
   Widget build(BuildContext context) {
     Color? bgColor;
+    TextDecoration? textDecoration;
+    double? fontSize;
+    String? fontFamily;
 
     // Cek apakah properti extClass diberikan
     if (widget.extClass != null) {
@@ -23,23 +27,56 @@ class _CustomCardState extends State<CustomCard> {
       final classes = (widget.extClass ?? "").split(' ');
 
       // Loop melalui setiap kelas warna dan cek apakah ada warna yang sesuai
+      // for (final className in classes) {
+      //   setState(() {
+          
+
+      //    bgColor = getbgColorFromClassName(className);
+      //    textDecoration = getTextDecoration(className);
+      //    fontSize = getFontSize(className);
+      //    fontFamily = getFontFamily(className);
+      //   });
+      // }
       for (final className in classes) {
-        final color = getbgColorFromClassName(className);
+        final color = getTextColor(className);
         if (color != null) {
           bgColor = color;
-          break;
+          
         }
+        final decoration = getTextDecoration(className);
+
+          print("decoration $decoration");
+        if (decoration != null) {
+          textDecoration = decoration;
+          
+          
+        }
+        final fontsize = getFontSize(className);
+        if (fontsize != null) {
+          print("fontsize $fontsize");
+          fontSize = fontsize;
+          
+        }
+        final fontfamily = getFontFamily(className);
+
+        print("fontfamily $fontfamily");
+        if (fontfamily != null) {
+          fontFamily = fontfamily;
+          
+        }
+        
       }
     }
 
     return Column(
       children: [
         Text(
-              'Hello, CustomCard!',
+              widget.text,
               style: TextStyle(
-                fontSize: 16,
+                decoration: textDecoration,
+                fontSize: fontSize,
                 color: bgColor,
-                fontWeight: FontWeight.bold,
+                fontFamily: fontFamily
               ),
             ),
       ],

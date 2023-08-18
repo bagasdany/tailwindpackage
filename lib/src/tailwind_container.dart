@@ -24,7 +24,7 @@ class _CustomCardState extends State<CustomCard> {
 
       // Loop melalui setiap kelas warna dan cek apakah ada warna yang sesuai
       for (final className in classes) {
-        final color = gettextColorFromClassName(className);
+        final color = getTextColor(className);
         if (color != null) {
           bgColor = color;
           break;
