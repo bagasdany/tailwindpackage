@@ -1,7 +1,7 @@
 library tailwind_style;
 
 import 'package:flutter/material.dart';
-import 'package:tailwind_style/src/component/tailwind_text_colors.dart';
+import 'package:tailwind_style/src/component/tailwind_bg_colors.dart';
 
 class CustomCard extends StatefulWidget {
   final Widget child;
@@ -24,7 +24,7 @@ class _CustomCardState extends State<CustomCard> {
 
       // Loop melalui setiap kelas warna dan cek apakah ada warna yang sesuai
       for (final className in classes) {
-        final color = gettextColorFromClassName(className);
+        final color = getbgColorFromClassName(className);
         if (color != null) {
           bgColor = color;
           break;
@@ -34,22 +34,6 @@ class _CustomCardState extends State<CustomCard> {
 
     return Column(
       children: [
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: bgColor ?? Colors.white, // Gunakan warna kustom jika ada
-            borderRadius: BorderRadius.circular(5),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.3),
-                blurRadius: 7,
-                offset: const Offset(1, 3),
-              )
-            ],
-          ),
-          child: widget.child,
-        ),
         Text(
               'Hello, CustomCard!',
               style: TextStyle(

@@ -2,7 +2,6 @@ name: tailwind_style
 description: Deskripsi package
 version: 0.0.1
 homepage: https://kliknss.co.id
-homepage:
 
 environment:
   sdk: '>=3.0.5 <4.0.0'

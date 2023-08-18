@@ -7,4 +7,4 @@
 // }
 library tailwind_style;
 
-export 'src/tailwind_container.dart';
+export "src/tailwind_container.dart";
