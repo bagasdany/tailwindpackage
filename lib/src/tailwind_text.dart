@@ -1,5 +1,7 @@
 library tailwind_style;
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:tailwind_style/src/component/tailwind_bg_colors.dart';
 import 'package:tailwind_style/src/component/tailwind_text_colors.dart';
@@ -20,6 +22,9 @@ class _TextTailwindState extends State<TextTailwind> {
     TextDecoration? textDecoration;
     double? fontSize;
     String? fontFamily;
+    FontWeight? fontWeight;
+    dynamic fontFeature;
+    EdgeInsetsGeometry padding;
 
     // Cek apakah properti extClass diberikan
     if (widget.extClass != null) {
@@ -38,11 +43,13 @@ class _TextTailwindState extends State<TextTailwind> {
       //   });
       // }
       for (final className in classes) {
+        
         final color = getTextColor(className);
         if (color != null) {
           bgColor = color;
           
         }
+        
         final decoration = getTextDecoration(className);
 
           print("decoration $decoration");
@@ -51,19 +58,38 @@ class _TextTailwindState extends State<TextTailwind> {
           
           
         }
+        
         final fontsize = getFontSize(className);
         if (fontsize != null) {
           print("fontsize $fontsize");
           fontSize = fontsize;
           
         }
+        
         final fontfamily = getFontFamily(className);
-
         print("fontfamily $fontfamily");
         if (fontfamily != null) {
           fontFamily = fontfamily;
-          
         }
+        
+        final fontweight = getFontWeight(className);
+        print("fontweight $fontweight");
+        if (fontweight != null) {
+          fontWeight = fontweight;
+        }
+
+        final fontfeatures = getFontFeatures(className);
+        print("fontfeatures $fontfeatures");
+        if (fontfeatures != null) {
+          fontFeature = fontfeatures;
+        }
+        final paddings = getPadding(className);
+        print("paddings $paddings");
+        if (paddings != null) {
+          padding = paddings;
+        }
+
+        
         
       }
     }
@@ -71,14 +97,17 @@ class _TextTailwindState extends State<TextTailwind> {
     return Column(
       children: [
         Text(
-              widget.text,
-              style: TextStyle(
-                decoration: textDecoration,
-                fontSize: fontSize,
-                color: bgColor,
-                fontFamily: fontFamily
-              ),
-            ),
+          widget.text,
+          style: TextStyle(
+            decoration: textDecoration,
+            fontSize: fontSize,
+            color: bgColor,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontFeatures: fontFeature,
+            // letterSpacing: get
+          ),
+        ),
       ],
     );
   }

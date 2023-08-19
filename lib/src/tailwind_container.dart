@@ -3,19 +3,20 @@ library tailwind_style;
 import 'package:flutter/material.dart';
 import 'package:tailwind_style/src/component/tailwind_text_colors.dart';
 
-class CustomCard extends StatefulWidget {
+class ContainerTailwind extends StatefulWidget {
   final Widget child;
   final String? extClass; // Tambahkan properti extClass
-  const CustomCard({super.key, required this.child, this.extClass});
+  const ContainerTailwind({super.key, required this.child, this.extClass});
 
   @override
-  State<CustomCard> createState() => _CustomCardState();
+  State<ContainerTailwind> createState() => _ContainerTailwindState();
 }
 
-class _CustomCardState extends State<CustomCard> {
+class _ContainerTailwindState extends State<ContainerTailwind> {
   @override
   Widget build(BuildContext context) {
     Color? bgColor;
+    EdgeInsetsGeometry? padding;
 
     // Cek apakah properti extClass diberikan
     if (widget.extClass != null) {
@@ -29,6 +30,12 @@ class _CustomCardState extends State<CustomCard> {
           bgColor = color;
           break;
         }
+
+        final paddings = getPadding(className);
+        print("paddings $paddings");
+        if (paddings != null) {
+          padding = paddings;
+        }
       }
     }
 
@@ -36,7 +43,7 @@ class _CustomCardState extends State<CustomCard> {
       children: [
         Container(
           width: double.infinity,
-          padding: const EdgeInsets.all(10),
+          padding: padding,
           decoration: BoxDecoration(
             color: bgColor ?? Colors.white, // Gunakan warna kustom jika ada
             borderRadius: BorderRadius.circular(5),
@@ -51,7 +58,7 @@ class _CustomCardState extends State<CustomCard> {
           child: widget.child,
         ),
         Text(
-              'Hello, CustomCard!',
+              'Hello, ContainerTailwind!',
               style: TextStyle(
                 fontSize: 16,
                 color: bgColor,
