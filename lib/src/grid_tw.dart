@@ -33,15 +33,17 @@ class _GridTWState extends State<GridTW> {
   Widget buildGridRows(int rowCount) {
     // Di sini Anda bisa mengatur grid rows sesuai dengan rowCount
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      padding: EdgeInsets.zero,
+      // padding: EdgeInsets.symmetric(horizontal: 16),
       itemCount: widget.itemCount ?? 0,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: rowCount ?? 1,
-        //  crossAxisCount: colCount ,
-        // mainAxisSpacing: 1,
-        // crossAxisSpacing: 1,
+        // crossAxisCount: rowCount ?? 1,
+        // //  crossAxisCount: colCount ,
+        // mainAxisSpacing: 0,
+        crossAxisCount: rowCount ??1 ,
+        mainAxisSpacing: 0,
+        crossAxisSpacing: rowCount  <3 ? 20 : 1 ,
         // mainAxisExtent: rowCount == 1 ? 180 : null
       ),
       itemBuilder: widget.itemBuilder ?? (context, index) {
@@ -56,18 +58,18 @@ class _GridTWState extends State<GridTW> {
   Widget buildGridColumns(int colCount) {
     // Di sini Anda bisa mengatur grid columns sesuai dengan colCount
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       // padding: EdgeInsets.zero,
       itemCount: widget.itemCount ?? 0,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: colCount ,
-        // mainAxisSpacing: 1,
-        // crossAxisSpacing: 1,
-        mainAxisExtent: colCount == 1 ? 140 : null
+        mainAxisSpacing: 0,
+        crossAxisSpacing: colCount  <3 ? 20 : 1 ,
+        // mainAxisExtent: colCount == 1 ? 140 : null
 
         // width / height: fixed for *all* items
-        // childAspectRatio: colCount == 1 ? 3 : 1,
+        childAspectRatio: colCount == 1 ? 3 : colCount > 3 ? 0.45: 1,
       ),
       itemBuilder: widget.itemBuilder ?? (context, index) {
         return Container(
