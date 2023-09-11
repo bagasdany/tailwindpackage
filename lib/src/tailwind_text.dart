@@ -28,7 +28,6 @@ class _TextTailwindState extends State<TextTailwind> {
     TextAlign? textAlign;
     FontWeight? fontWeight;
     dynamic fontFeature;
-    EdgeInsetsGeometry padding;
     
 
     // Cek apakah properti mainClass diberikan
@@ -67,10 +66,6 @@ class _TextTailwindState extends State<TextTailwind> {
         if (fontfeatures != null) {
           fontFeature = fontfeatures;
         }
-        final paddings = getPadding(className);
-        if (paddings != null) {
-          padding = paddings;
-        } 
         final textAligns = getTextAlignment(className);
         if (textAligns != null) {
           textAlign = textAligns;
@@ -78,20 +73,22 @@ class _TextTailwindState extends State<TextTailwind> {
       }
     }
 
-    return Text(
-      widget.text,
-      style: widget.textStyle ?? TextStyle(
-        decoration: textDecoration,
-        fontSize: fontSize,
-        color: bgColor,
-        fontFamily: fontFamily,
-        fontWeight: fontWeight,
-        fontFeatures: fontFeature,
-        
-        // letterSpacing: get
-      ) ,textAlign: widget.textAlign?? textAlign ,
-      // maxLines: 50,
-      // overflow: TextOverflow.ellipsis,
+    return Container(
+      child: Text(
+        widget.text,
+        style: widget.textStyle ?? TextStyle(
+          decoration: textDecoration,
+          fontSize: fontSize,
+          color: bgColor,
+          fontFamily: fontFamily,
+          fontWeight: fontWeight,
+          fontFeatures: fontFeature,
+          
+          // letterSpacing: get
+        ) ,textAlign: widget.textAlign?? textAlign ,
+        // maxLines: 50,
+        // overflow: TextOverflow.ellipsis,
+      ),
     );
   }
 }

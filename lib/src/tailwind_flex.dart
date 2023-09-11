@@ -19,8 +19,6 @@ class _FlexTailwindState extends State<FlexTailwind> {
   @override
   Widget build(BuildContext context) {
     Color? bgColor;
-    Map? paddingMap;
-    EdgeInsetsGeometry? padding;
     dynamic maxWidthContainer;
     dynamic widthContainer;
     EdgeInsetsGeometry? margin;
@@ -43,11 +41,6 @@ class _FlexTailwindState extends State<FlexTailwind> {
         if (colors != null) {
           bgColor = colors;
         }
-        final paddings = getPadding(className);
-        if (paddings != null) {
-          padding = paddings;
-          print("padding $padding");
-        }
         final widths = getWidthFromTailwindClass(className);
         if (widths != null) {
           widthContainer = widths;
@@ -69,42 +62,27 @@ class _FlexTailwindState extends State<FlexTailwind> {
       }
     }
 
-    return Container(
-      margin: margin ?? const EdgeInsets.all(0),
-      constraints: BoxConstraints(maxWidth: maxWidthContainer is int ? maxWidthContainer.toDouble(): maxWidthContainer ?? double.infinity),
-      width: widthContainer is int ? 
-      widthContainer.toDouble() : widthContainer is double ? 
-        MediaQuery.of(context).size.width * (widthContainer *0.01) 
-        : widthContainer,
-      padding: padding,
-      decoration: BoxDecoration(
-        color: bgColor, // Gunakan warna kustom jika ada
-        borderRadius: BorderRadius.circular(5),
-        image: DecorationImage(image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.cover),
-        
-      ),
-      child:Flex(
-      direction: direction ?? Axis.vertical, 
-      children: [
+    return Flex(
+    direction: direction ?? Axis.vertical, 
+    children: [
 
-      direction == Axis.vertical ? SingleChildScrollView(
-        child: Column(
-          children: widget.children,
-        ),
-      ) : direction == Axis.horizontal ? 
-      Expanded(
-        child: ListView(
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          children: widget.children),
-      ) 
-      
-      :  Column(
+    direction == Axis.vertical ? SingleChildScrollView(
+      child: Column(
         children: widget.children,
-      )
-       
-      ]
-      )
+      ),
+    ) : direction == Axis.horizontal ? 
+    Expanded(
+      child: ListView(
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        children: widget.children),
+    ) 
+    
+    :  Column(
+      children: widget.children,
+    )
+     
+    ]
     );
   }
 }

@@ -294,7 +294,291 @@ class TailwindStyle {
   static const Color rose800 = Color(0xFF9F1239);
   static const Color rose900 = Color(0xFF881337);
   static const Color rose950 = Color(0xFF4C0D2B);
+
+  
 }
+
+Color? getBorderColor(String className) {
+  switch (className) {
+    case 'border-inherit': return TailwindColors.inherit;
+    case 'border-current': return TailwindColors.currentColor;
+    case 'border-transparent': return Colors.transparent;
+    case 'border-black': return Colors.black;
+    case 'border-white': return Colors.white;
+    case 'border-slate-50': return TailwindColors.slate50;
+    case 'border-slate-100': return TailwindColors.slate100;
+    case 'border-slate-200': return TailwindColors.slate200;
+    case 'border-slate-300': return TailwindColors.slate300;
+    case 'border-slate-400': return TailwindColors.slate400;
+    case 'border-slate-500': return TailwindColors.slate500;
+    case 'border-slate-600': return TailwindColors.slate600;
+    case 'border-slate-700': return TailwindColors.slate700;
+    case 'border-slate-800': return TailwindColors.slate800;
+    case 'border-slate-900': return TailwindColors.slate900;
+    case 'border-slate-950': return TailwindColors.slate950;
+    //gray
+    case 'border-gray-50': return TailwindColors.gray50;
+    case 'border-gray-100': return TailwindColors.gray100;
+    case 'border-gray-200': return TailwindColors.gray200;
+    case 'border-gray-300': return TailwindColors.gray300;
+    case 'border-gray-400': return TailwindColors.gray400;
+    case 'border-gray-500': return TailwindColors.gray500;
+    case 'border-gray-600': return TailwindColors.gray600;
+    case 'border-gray-700': return TailwindColors.gray700;
+    case 'border-gray-800': return TailwindColors.gray800;
+    case 'border-gray-900': return TailwindColors.gray900;
+    case 'border-gray-950': return TailwindColors.gray950;
+    //red
+    case 'border-red-50': return TailwindColors.red50;
+    case 'border-red-100': return TailwindColors.red100;
+    case 'border-red-200': return TailwindColors.red200;
+    case 'border-red-300': return TailwindColors.red300;
+    case 'border-red-400': return TailwindColors.red400;
+    case 'border-red-500': return TailwindColors.red500;
+    case 'border-red-600': return TailwindColors.red600;
+    case 'border-red-700': return TailwindColors.red700;
+    case 'border-red-800': return TailwindColors.red800;
+    case 'border-red-900': return TailwindColors.red900;
+    case 'border-red-950': return TailwindColors.red950;
+    //zinc
+    case 'border-zinc-50': return TailwindColors.zinc50;
+    case 'border-zinc-100': return TailwindColors.zinc100;
+    case 'border-zinc-200': return TailwindColors.zinc200;
+    case 'border-zinc-300': return TailwindColors.zinc300;
+    case 'border-zinc-400': return TailwindColors.zinc400;
+    case 'border-zinc-500': return TailwindColors.zinc500;
+    case 'border-zinc-600': return TailwindColors.zinc600;
+    case 'border-zinc-700': return TailwindColors.zinc700;
+    case 'border-zinc-800': return TailwindColors.zinc800;
+    case 'border-zinc-900': return TailwindColors.zinc900;
+    case 'border-zinc-950': return TailwindColors.zinc950;
+    //neutral
+    case 'border-neutral-50': return TailwindColors.neutral50;
+    case 'border-neutral-100': return TailwindColors.neutral100;
+    case 'border-neutral-200': return TailwindColors.neutral200;
+    case 'border-neutral-300': return TailwindColors.neutral300;
+    case 'border-neutral-400': return TailwindColors.neutral400;
+    case 'border-neutral-500': return TailwindColors.neutral500;
+    case 'border-neutral-600': return TailwindColors.neutral600;
+    case 'border-neutral-700': return TailwindColors.neutral700;
+    case 'border-neutral-800': return TailwindColors.neutral800;
+    case 'border-neutral-900': return TailwindColors.neutral900;
+    case 'border-neutral-950': return TailwindColors.neutral950;
+    //stone
+    case 'border-stone-50': return TailwindColors.stone50;
+    case 'border-stone-100': return TailwindColors.stone100;
+    case 'border-stone-200': return TailwindColors.stone200;
+    case 'border-stone-300': return TailwindColors.stone300;
+    case 'border-stone-400': return TailwindColors.stone400;
+    case 'border-stone-500': return TailwindColors.stone500;
+    case 'border-stone-600': return TailwindColors.stone600;
+
+    case 'border-stone-700': return TailwindColors.stone700;
+    case 'border-stone-800': return TailwindColors.stone800;
+    case 'border-stone-900': return TailwindColors.stone900;
+    case 'border-stone-950': return TailwindColors.stone950;
+    //orange
+    case 'border-orange-50': return TailwindColors.orange50;
+    case 'border-orange-100': return TailwindColors.orange100;
+    case 'border-orange-200': return TailwindColors.orange200;
+    case 'border-orange-300': return TailwindColors.orange300;
+    case 'border-orange-400': return TailwindColors.orange400;
+    case 'border-orange-500': return TailwindColors.orange500;
+    case 'border-orange-600': return TailwindColors.orange600;
+    case 'border-orange-700': return TailwindColors.orange700;
+    case 'border-orange-800': return TailwindColors.orange800;
+    case 'border-orange-900': return TailwindColors.orange900;
+    case 'border-orange-950': return TailwindColors.orange950;
+    //amber
+    case 'border-amber-50': return TailwindColors.amber50;
+    case 'border-amber-100': return TailwindColors.amber100;
+    case 'border-amber-200': return TailwindColors.amber200;
+    case 'border-amber-300': return TailwindColors.amber300;
+    case 'border-amber-400': return TailwindColors.amber400;
+    case 'border-amber-500': return TailwindColors.amber500;
+    case 'border-amber-600': return TailwindColors.amber600;
+    case 'border-amber-700': return TailwindColors.amber700;
+    case 'border-amber-800': return TailwindColors.amber800;
+    case 'border-amber-900': return TailwindColors.amber900;
+    case 'border-amber-950': return TailwindColors.amber950;
+    //yellow
+    case 'border-yellow-50': return TailwindColors.yellow50;
+    case 'border-yellow-100': return TailwindColors.yellow100;
+    case 'border-yellow-200': return TailwindColors.yellow200;
+    case 'border-yellow-300': return TailwindColors.yellow300;
+    case 'border-yellow-400': return TailwindColors.yellow400;
+    case 'border-yellow-500': return TailwindColors.yellow500;
+    case 'border-yellow-600': return TailwindColors.yellow600;
+    case 'border-yellow-700': return TailwindColors.yellow700;
+    case 'border-yellow-800': return TailwindColors.yellow800;
+    case 'border-yellow-900': return TailwindColors.yellow900;
+    case 'border-yellow-950': return TailwindColors.yellow950;
+    //lime
+    case 'border-lime-50': return TailwindColors.lime50;
+    case 'border-lime-100': return TailwindColors.lime100;
+    case 'border-lime-200': return TailwindColors.lime200;
+    case 'border-lime-300': return TailwindColors.lime300;
+    case 'border-lime-400': return TailwindColors.lime400;
+    case 'border-lime-500': return TailwindColors.lime500;
+    case 'border-lime-600': return TailwindColors.lime600;
+    case 'border-lime-700': return TailwindColors.lime700;
+    case 'border-lime-800': return TailwindColors.lime800;
+    case 'border-lime-900': return TailwindColors.lime900;
+    case 'border-lime-950': return TailwindColors.lime950;
+    //green
+    case 'border-green-50': return TailwindColors.green50;
+    case 'border-green-100': return TailwindColors.green100;
+    case 'border-green-200': return TailwindColors.green200;
+    case 'border-green-300': return TailwindColors.green300;
+    case 'border-green-400': return TailwindColors.green400;
+    case 'border-green-500': return TailwindColors.green500;
+    case 'border-green-600': return TailwindColors.green600;
+    case 'border-green-700': return TailwindColors.green700;
+    case 'border-green-800': return TailwindColors.green800;
+    case 'border-green-900': return TailwindColors.green900;
+    case 'border-green-950': return TailwindColors.green950;
+    //emerald
+    case 'border-emerald-50': return TailwindColors.emerald50;
+    case 'border-emerald-100': return TailwindColors.emerald100;
+    case 'border-emerald-200': return TailwindColors.emerald200;
+    case 'border-emerald-300': return TailwindColors.emerald300;
+    case 'border-emerald-400': return TailwindColors.emerald400;
+    case 'border-emerald-500': return TailwindColors.emerald500;
+    case 'border-emerald-600': return TailwindColors.emerald600;
+    case 'border-emerald-700': return TailwindColors.emerald700;
+    case 'border-emerald-800': return TailwindColors.emerald800;
+    case 'border-emerald-900': return TailwindColors.emerald900;
+    case 'border-emerald-950': return TailwindColors.emerald950;
+    //teal  
+    case 'border-teal-50': return TailwindColors.teal50;
+    case 'border-teal-100': return TailwindColors.teal100;
+    case 'border-teal-200': return TailwindColors.teal200;
+    case 'border-teal-300': return TailwindColors.teal300;
+    case 'border-teal-400': return TailwindColors.teal400;
+    case 'border-teal-500': return TailwindColors.teal500;
+    case 'border-teal-600': return TailwindColors.teal600;
+    case 'border-teal-700': return TailwindColors.teal700;
+    case 'border-teal-800': return TailwindColors.teal800;
+    case 'border-teal-900': return TailwindColors.teal900;
+    case 'border-teal-950': return TailwindColors.teal950;
+    //cyan
+    case 'border-cyan-50': return TailwindColors.cyan50;
+    case 'border-cyan-100': return TailwindColors.cyan100;
+    case 'border-cyan-200': return TailwindColors.cyan200;
+    case 'border-cyan-300': return TailwindColors.cyan300;
+    case 'border-cyan-400': return TailwindColors.cyan400;
+    case 'border-cyan-500': return TailwindColors.cyan500;
+    case 'border-cyan-600': return TailwindColors.cyan600;
+    case 'border-cyan-700': return TailwindColors.cyan700;
+    case 'border-cyan-800': return TailwindColors.cyan800;
+    case 'border-cyan-900': return TailwindColors.cyan900;
+    case 'border-cyan-950': return TailwindColors.cyan950;
+    //sky
+    case 'border-sky-50': return TailwindColors.sky50;
+    case 'border-sky-100': return TailwindColors.sky100;
+    case 'border-sky-200': return TailwindColors.sky200;
+    case 'border-sky-300': return TailwindColors.sky300;
+    case 'border-sky-400': return TailwindColors.sky400;
+    case 'border-sky-500': return TailwindColors.sky500;
+    case 'border-sky-600': return TailwindColors.sky600;
+    case 'border-sky-700': return TailwindColors.sky700;
+    case 'border-sky-800': return TailwindColors.sky800;
+    case 'border-sky-900': return TailwindColors.sky900;
+    case 'border-sky-950': return TailwindColors.sky950;
+    //blue
+    case 'border-blue-50': return TailwindColors.blue50;
+    case 'border-blue-100': return TailwindColors.blue100;
+    case 'border-blue-200': return TailwindColors.blue200;
+    case 'border-blue-300': return TailwindColors.blue300;
+    case 'border-blue-400': return TailwindColors.blue400;
+    case 'border-blue-500': return TailwindColors.blue500;
+    case 'border-blue-600': return TailwindColors.blue600;
+    case 'border-blue-700': return TailwindColors.blue700;
+    case 'border-blue-800': return TailwindColors.blue800;
+    case 'border-blue-900': return TailwindColors.blue900;
+    case 'border-blue-950': return TailwindColors.blue950;
+    //indigo
+    case 'border-indigo-50': return TailwindColors.indigo50;
+    case 'border-indigo-100': return TailwindColors.indigo100;
+    case 'border-indigo-200': return TailwindColors.indigo200;
+    case 'border-indigo-300': return TailwindColors.indigo300;
+    case 'border-indigo-400': return TailwindColors.indigo400;
+    case 'border-indigo-500': return TailwindColors.indigo500;
+    case 'border-indigo-600': return TailwindColors.indigo600;
+    case 'border-indigo-700': return TailwindColors.indigo700;
+    case 'border-indigo-800': return TailwindColors.indigo800;
+    case 'border-indigo-900': return TailwindColors.indigo900;
+    case 'border-indigo-950': return TailwindColors.indigo950;
+    //violet
+    case 'border-violet-50': return TailwindColors.violet50;
+    case 'border-violet-100': return TailwindColors.violet100;
+    case 'border-violet-200': return TailwindColors.violet200;
+    case 'border-violet-300': return TailwindColors.violet300;
+    case 'border-violet-400': return TailwindColors.violet400;
+    case 'border-violet-500': return TailwindColors.violet500;
+    case 'border-violet-600': return TailwindColors.violet600;
+    case 'border-violet-700': return TailwindColors.violet700;
+    case 'border-violet-800': return TailwindColors.violet800;
+    case 'border-violet-900': return TailwindColors.violet900;
+    case 'border-violet-950': return TailwindColors.violet950;
+    //purple
+    case 'border-purple-50': return TailwindColors.purple50;
+    case 'border-purple-100': return TailwindColors.purple100;
+    case 'border-purple-200': return TailwindColors.purple200;
+    case 'border-purple-300': return TailwindColors.purple300;
+    case 'border-purple-400': return TailwindColors.purple400;
+    case 'border-purple-500': return TailwindColors.purple500;
+    case 'border-purple-600': return TailwindColors.purple600;
+    case 'border-purple-700': return TailwindColors.purple700;
+    case 'border-purple-800': return TailwindColors.purple800;
+    case 'border-purple-900': return TailwindColors.purple900;
+    case 'border-purple-950': return TailwindColors.purple950;
+    //fuchsia
+    case 'border-fuchsia-50': return TailwindColors.fuchsia50;
+    case 'border-fuchsia-100': return TailwindColors.fuchsia100;
+    case 'border-fuchsia-200': return TailwindColors.fuchsia200;
+    case 'border-fuchsia-300': return TailwindColors.fuchsia300;
+    case 'border-fuchsia-400': return TailwindColors.fuchsia400;
+    case 'border-fuchsia-500': return TailwindColors.fuchsia500;
+    case 'border-fuchsia-600': return TailwindColors.fuchsia600;
+    case 'border-fuchsia-700': return TailwindColors.fuchsia700;
+    case 'border-fuchsia-800': return TailwindColors.fuchsia800;
+    case 'border-fuchsia-900': return TailwindColors.fuchsia900;
+    case 'border-fuchsia-950': return TailwindColors.fuchsia950;
+
+    //pink
+    case 'border-pink-50': return TailwindColors.pink50;
+    case 'border-pink-100': return TailwindColors.pink100;
+    case 'border-pink-200': return TailwindColors.pink200;
+    case 'border-pink-300': return TailwindColors.pink300;
+    case 'border-pink-400': return TailwindColors.pink400;
+    case 'border-pink-500': return TailwindColors.pink500;
+    case 'border-pink-600': return TailwindColors.pink600;
+    case 'border-pink-700': return TailwindColors.pink700;
+    case 'border-pink-800': return TailwindColors.pink800;
+    case 'border-pink-900': return TailwindColors.pink900;
+    case 'border-pink-950': return TailwindColors.pink950;
+    //rose
+    case 'border-rose-50': return TailwindColors.rose50;
+    case 'border-rose-100': return TailwindColors.rose100;
+    case 'border-rose-200': return TailwindColors.rose200;
+    case 'border-rose-300': return TailwindColors.rose300;
+    case 'border-rose-400': return TailwindColors.rose400;
+    case 'border-rose-500': return TailwindColors.rose500;
+    case 'border-rose-600': return TailwindColors.rose600;
+    case 'border-rose-700': return TailwindColors.rose700;
+    case 'border-rose-800': return TailwindColors.rose800;
+    case 'border-rose-900': return TailwindColors.rose900;
+    case 'border-rose-950': return TailwindColors.rose950;
+    default:
+      // Return a default color if the class name doesn't match any case
+      return null; // You can choose any default color you prefer
+
+
+  }
+}
+
+  
 
 double? getFontSize(String tailwindSize) {
   switch (tailwindSize) {
@@ -1336,6 +1620,10 @@ BorderRadius? getRadius(String className) {
     }
   }
   EdgeInsetsGeometry? getPadding(String tailwindPadding) {
+
+    // function untuk menentukan symetric / only / all / fromltrb
+    // mperlu main class, 
+    // cek if p-1
     switch (tailwindPadding) {
       case 'p-0': return const EdgeInsets.all(0);
       case 'px-0': return const EdgeInsets.symmetric(horizontal: 0);
@@ -1658,6 +1946,668 @@ BorderRadius? getRadius(String className) {
     }
   }
 
+  double? getPaddingDouble(String? className){
+    switch(className){
+       case 'p-0': return 0;
+      case 'px-0': return  0;
+      case 'py-0': return  0;
+      case 'ps-0': return 0;
+      case 'pe-0': return  0;
+      case 'pt-0': return  0;
+      case 'pr-0': return  0;
+      case 'pb-0': return  0;
+      case 'pl-0': return  0;
+      case 'p-px': return  1;
+      case 'px-px': return  1;
+      case 'py-px': return  1;
+      case 'ps-px': return  1;
+      case 'pe-px': return  1;
+      case 'pt-px': return  1;
+      case 'pr-px': return  1;
+      case 'pb-px': return  1;
+      case 'pl-px': return  1;
+      case 'p-0.5': return  2;
+      case 'px-0.5': return  2;
+      case 'py-0.5': return  2;
+      case 'ps-0.5': return  2;
+      case 'pe-0.5': return  2;
+      case 'pt-0.5': return  2;
+      case 'pr-0.5': return  2;
+      case 'pb-0.5': return  2;
+      case 'pl-0.5': return  2;
+      case 'p-1': return  4;
+      case 'px-1': return  4;
+      case 'py-1': return  4;
+      case 'ps-1': return  4;
+      case 'pe-1': return  4;
+      case 'pt-1': return  4;
+      case 'pr-1': return  4;
+      case 'pb-1': return  4;
+      case 'pl-1': return  4;
+      case 'p-1.5': return  6;
+      case 'px-1.5': return  6;
+      case 'py-1.5': return  6;
+      case 'ps-1.5': return  6;
+      case 'pe-1.5': return  6;
+      case 'pt-1.5': return  6;
+      case 'pr-1.5': return  6;
+      case 'pb-1.5': return  6;
+      case 'pl-1.5': return  6;
+      case 'p-2': return  8;
+      case 'px-2': return  8;
+      case 'py-2': return  8;
+      case 'ps-2': return  8;
+      case 'pe-2': return  8;
+      case 'pt-2': return  8;
+      case 'pr-2': return  8;
+      case 'pb-2': return  8;
+      case 'pl-2': return  8;
+      case 'p-2.5': return  10;
+      case 'px-2.5': return  10;
+      case 'py-2.5': return  10;
+      case 'ps-2.5': return  10;
+      case 'pe-2.5': return  10;
+      case 'pt-2.5': return  10;
+      case 'pr-2.5': return  10;
+      case 'pb-2.5': return  10;
+      case 'pl-2.5': return  10;
+      case 'p-3': return  12;
+      case 'px-3': return  12;
+      case 'py-3': return  12;
+      case 'ps-3': return  12;
+      case 'pe-3': return  12;
+      case 'pt-3': return  12;
+      case 'pr-3': return  12;
+      case 'pb-3': return  12;
+      case 'pl-3': return  12;
+      case 'p-3.5': return  14;
+      case 'px-3.5': return  14;
+      case 'py-3.5': return  14;
+      case 'ps-3.5': return  14;
+      case 'pe-3.5': return  14;
+      case 'pt-3.5': return  14;
+      case 'pr-3.5': return  14;
+      case 'pb-3.5': return  14;
+      case 'pl-3.5': return  14;
+      case 'p-4': return  16;
+      case 'px-4': return  16;
+      case 'py-4': return  16;
+      case 'ps-4': return  16;
+      case 'pe-4': return  16;
+      case 'pt-4': return  16;
+      case 'pr-4': return  16;
+      case 'pb-4': return  16;
+      case 'pl-4': return  16;
+      case 'p-5': return  20;
+      case 'px-5': return  20;
+      case 'py-5': return  20;
+      case 'ps-5': return  20;
+      case 'pe-5': return  20;
+      case 'pt-5': return  20;
+      case 'pr-5': return  20;
+      case 'pb-5': return  20;
+      case 'pl-5': return  20;
+      case 'p-6': return  24;
+      case 'px-6': return  24;
+      case 'py-6': return  24;
+      case 'ps-6': return  24;
+      case 'pe-6': return  24;
+      case 'pt-6': return  24;
+      case 'pr-6': return  24;
+      case 'pb-6': return  24;
+      case 'pl-6': return  24;
+      case 'p-7': return  28;
+      case 'px-7': return  28;
+      case 'py-7': return  28;
+      case 'ps-7': return  28;
+      case 'pe-7': return  28;
+      case 'pt-7': return  28;
+      case 'pr-7': return  28;
+      case 'pb-7': return  28;
+      case 'pl-7': return  28;
+      case 'p-8': return  32;
+      case 'px-8': return  32;
+      case 'py-8': return  32;
+      case 'ps-8': return  32;
+      case 'pe-8': return  32;
+      case 'pt-8': return  32;
+      case 'pr-8': return  32;
+      case 'pb-8': return  32;
+      case 'pl-8': return  32;
+      case 'p-9': return  36;
+      case 'px-9': return  36;
+      case 'py-9': return  36;
+      case 'ps-9': return  36;
+      case 'pe-9': return  36;
+      case 'pt-9': return  36;
+      case 'pr-9': return  36;
+      case 'pb-9': return  36;
+      case 'pl-9': return  36;
+      case 'p-10': return  40;
+      case 'px-10': return  40;
+      case 'py-10': return  40;
+      case 'ps-10': return  40;
+      case 'pe-10': return  40;
+      case 'pt-10': return  40;
+      case 'pr-10': return  40;
+      case 'pb-10': return  40;
+      case 'pl-10': return  40;
+      case 'p-11': return  44;
+      case 'px-11': return  44;
+      case 'py-11': return  44;
+      case 'ps-11': return  44;
+      case 'pe-11': return  44;
+      case 'pt-11': return  44;
+      case 'pr-11': return  44;
+      case 'pb-11': return  44;
+      case 'pl-11': return  44;
+      case 'p-12': return  48;
+      case 'px-12': return  48;
+      case 'py-12': return  48;
+      case 'ps-12': return  48;
+      case 'pe-12': return  48;
+      case 'pt-12': return  48;
+      case 'pr-12': return  48;
+      case 'pb-12': return  48;
+      case 'pl-12': return  48;
+      case 'p-14': return  56;
+      case 'px-14': return  56;
+      case 'py-14': return  56;
+      case 'ps-14': return  56;
+      case 'pe-14': return  56;
+      case 'pt-14': return  56;
+      case 'pr-14': return  56;
+      case 'pb-14': return  56;
+      case 'pl-14': return  56;
+      case 'p-16': return  64;
+      case 'px-16': return  64;
+      case 'py-16': return  64;
+      case 'ps-16': return  64;
+      case 'pe-16': return  64;
+      case 'pt-16': return  64;
+      case 'pr-16': return  64;
+      case 'pb-16': return  64;
+      case 'pl-16': return  64;
+      case 'pl-18': return  72;
+      case 'p-20': return  80;
+      case 'px-20': return  80;
+      case 'py-20': return  80;
+      case 'ps-20': return  80;
+      case 'pe-20': return  80;
+      case 'pt-20': return  80;
+      case 'pr-20': return  80;
+      case 'pb-20': return  80;
+      case 'pl-20': return  80;
+      case 'p-24': return  96;
+      case 'px-24': return  96;
+      case 'py-24': return  96;
+      case 'ps-24': return  96;
+      case 'pe-24': return  96;
+      case 'pt-24': return  96;
+      case 'pr-24': return  96;
+      case 'pb-24': return  96;
+      case 'pl-24': return  96;
+      case 'p-28': return  112;
+      case 'px-28': return  112;
+      case 'py-28': return  112;
+      case 'ps-28': return  112;
+      case 'pe-28': return  112;
+      case 'pt-28': return  112;
+      case 'pr-28': return  112;
+      case 'pb-28': return  112;
+      case 'pl-28': return  112;
+      case 'p-32': return  128;
+      case 'px-32': return  128;
+      case 'py-32': return  128;
+      case 'ps-32': return  128;
+      case 'pe-32': return  128;
+      case 'pt-32': return  128;
+      case 'pr-32': return  128;
+      case 'pb-32': return  128;
+      case 'pl-32': return  128;
+      case 'p-36': return  144;
+      case 'px-36': return  144;
+      case 'py-36': return  144;
+      case 'ps-36': return  144;
+      case 'pe-36': return  144;
+      case 'pt-36': return  144;
+      case 'pr-36': return  144;
+      case 'pb-36': return  144;
+      case 'pl-36': return  144;
+      case 'p-40': return  160;
+      case 'px-40': return  160;
+      case 'py-40': return  160;
+      case 'ps-40': return  160;
+      case 'pe-40': return  160;
+      case 'pt-40': return  160;
+      case 'pr-40': return  160;
+      case 'pb-40': return  160;
+      case 'pl-40': return  160;
+      case 'p-44': return  176;
+      case 'px-44': return  176;
+      case 'py-44': return  176;
+      case 'ps-44': return  176;
+      case 'pe-44': return  176;
+      case 'pt-44': return  176;
+      case 'pr-44': return  176;
+      case 'pb-44': return  176;
+      case 'pl-44': return  176;
+      case 'p-48': return  192;
+      case 'px-48': return  192;
+      case 'py-48': return  192;
+      case 'ps-48': return  192;
+      case 'pe-48': return  192;
+      case 'pt-48': return  192;
+      case 'pr-48': return  192;
+      case 'pb-48': return  192;
+      case 'pl-48': return  192;
+      case 'p-52': return  208;
+      case 'px-52': return  208;
+      case 'py-52': return  208;
+      case 'ps-52': return  208;
+      case 'pe-52': return  208;
+      case 'pt-52': return  208;
+      case 'pr-52': return  208;
+      case 'pb-52': return  208;
+      case 'pl-52': return  208;
+      case 'p-56': return  224;
+      case 'px-56': return  224;
+      case 'py-56': return  224;
+      case 'ps-56': return  224;
+      case 'pe-56': return  224;
+      case 'pt-56': return  224;
+      case 'pr-56': return  224;
+      case 'pb-56': return  224;
+      case 'pl-56': return  224;
+      case 'p-60': return  240;
+      case 'px-60': return  240;
+      case 'py-60': return  240;
+      case 'ps-60': return  240;
+      case 'pe-60': return  240;
+      case 'pt-60': return  240;
+      case 'pr-60': return  240;
+      case 'pb-60': return  240;
+      case 'pl-60': return  240;
+      case 'p-64': return  256;
+      case 'px-64': return  256;
+      case 'py-64': return  256;
+      case 'ps-64': return  256;
+      case 'pe-64': return  256;
+      case 'pt-64': return  256;
+      case 'pr-64': return  256;
+      case 'pb-64': return  256;
+      case 'pl-64': return  256;
+      case 'p-72': return  288;
+      case 'px-72': return  288;
+      case 'py-72': return  288;
+      case 'ps-72': return  288;
+      case 'pe-72': return  288;
+      case 'pt-72': return  288;
+      case 'pr-72': return  288;
+      case 'pb-72': return  288;
+      case 'pl-72': return  288;
+      case 'p-80': return  320;
+      case 'px-80': return  320;
+      case 'py-80': return  320;
+      case 'ps-80': return  320;
+      case 'pe-80': return  320;
+      case 'pt-80': return  320;
+      case 'pr-80': return  320;
+      case 'pb-80': return  320;
+      case 'pl-80': return  320;
+      case 'p-96': return  384;
+      case 'px-96': return  384;
+      case 'py-96': return  384;
+      case 'ps-96': return  384;
+      case 'pe-96': return  384;
+      case 'pt-96': return  384;
+      case 'pr-96': return  384;
+      case 'pb-96': return  384;
+      case 'pl-96': return  384;
+      default: return null;// Default jika kode tidak cocok
+      
+      
+
+    }
+    // return null;
+  }
+
+  double? getMarginDouble(String? className){
+    switch(className){
+       case 'm-0': return 0;
+      case 'mx-0': return  0;
+      case 'my-0': return  0;
+      case 'ms-0': return 0;
+      case 'me-0': return  0;
+      case 'mt-0': return  0;
+      case 'mr-0': return  0;
+      case 'mb-0': return  0;
+      case 'ml-0': return  0;
+      case 'm-px': return  1;
+      case 'mx-px': return  1;
+      case 'my-px': return  1;
+      case 'ms-px': return  1;
+      case 'me-px': return  1;
+      case 'mt-px': return  1;
+      case 'mr-px': return  1;
+      case 'mb-px': return  1;
+      case 'ml-px': return  1;
+      case 'm-0.5': return  2;
+      case 'mx-0.5': return  2;
+      case 'my-0.5': return  2;
+      case 'ms-0.5': return  2;
+      case 'me-0.5': return  2;
+      case 'mt-0.5': return  2;
+      case 'mr-0.5': return  2;
+      case 'mb-0.5': return  2;
+      case 'ml-0.5': return  2;
+      case 'm-1': return  4;
+      case 'mx-1': return  4;
+      case 'my-1': return  4;
+      case 'ms-1': return  4;
+      case 'me-1': return  4;
+      case 'mt-1': return  4;
+      case 'mr-1': return  4;
+      case 'mb-1': return  4;
+      case 'ml-1': return  4;
+      case 'm-1.5': return  6;
+      case 'mx-1.5': return  6;
+      case 'my-1.5': return  6;
+      case 'ms-1.5': return  6;
+      case 'me-1.5': return  6;
+      case 'mt-1.5': return  6;
+      case 'mr-1.5': return  6;
+      case 'mb-1.5': return  6;
+      case 'ml-1.5': return  6;
+      case 'm-2': return  8;
+      case 'mx-2': return  8;
+      case 'my-2': return  8;
+      case 'ms-2': return  8;
+      case 'me-2': return  8;
+      case 'mt-2': return  8;
+      case 'mr-2': return  8;
+      case 'mb-2': return  8;
+      case 'ml-2': return  8;
+      case 'm-2.5': return  10;
+      case 'mx-2.5': return  10;
+      case 'my-2.5': return  10;
+      case 'ms-2.5': return  10;
+      case 'me-2.5': return  10;
+      case 'mt-2.5': return  10;
+      case 'mr-2.5': return  10;
+      case 'mb-2.5': return  10;
+      case 'ml-2.5': return  10;
+      case 'm-3': return  12;
+      case 'mx-3': return  12;
+      case 'my-3': return  12;
+      case 'ms-3': return  12;
+      case 'me-3': return  12;
+      case 'mt-3': return  12;
+      case 'mr-3': return  12;
+      case 'mb-3': return  12;
+      case 'ml-3': return  12;
+      case 'm-3.5': return  14;
+      case 'mx-3.5': return  14;
+      case 'my-3.5': return  14;
+      case 'ms-3.5': return  14;
+      case 'me-3.5': return  14;
+      case 'mt-3.5': return  14;
+      case 'mr-3.5': return  14;
+      case 'mb-3.5': return  14;
+      case 'ml-3.5': return  14;
+      case 'm-4': return  16;
+      case 'mx-4': return  16;
+      case 'my-4': return  16;
+      case 'ms-4': return  16;
+      case 'me-4': return  16;
+      case 'mt-4': return  16;
+      case 'mr-4': return  16;
+      case 'mb-4': return  16;
+      case 'ml-4': return  16;
+      case 'm-5': return  20;
+      case 'mx-5': return  20;
+      case 'my-5': return  20;
+      case 'ms-5': return  20;
+      case 'me-5': return  20;
+      case 'mt-5': return  20;
+      case 'mr-5': return  20;
+      case 'mb-5': return  20;
+      case 'ml-5': return  20;
+      case 'm-6': return  24;
+      case 'mx-6': return  24;
+      case 'my-6': return  24;
+      case 'ms-6': return  24;
+      case 'me-6': return  24;
+      case 'mt-6': return  24;
+      case 'mr-6': return  24;
+      case 'mb-6': return  24;
+      case 'ml-6': return  24;
+      case 'm-7': return  28;
+      case 'mx-7': return  28;
+      case 'my-7': return  28;
+      case 'ms-7': return  28;
+      case 'me-7': return  28;
+      case 'mt-7': return  28;
+      case 'mr-7': return  28;
+      case 'mb-7': return  28;
+      case 'ml-7': return  28;
+      case 'm-8': return  32;
+      case 'mx-8': return  32;
+      case 'my-8': return  32;
+      case 'ms-8': return  32;
+      case 'me-8': return  32;
+      case 'mt-8': return  32;
+      case 'mr-8': return  32;
+      case 'mb-8': return  32;
+      case 'ml-8': return  32;
+      case 'm-9': return  36;
+      case 'mx-9': return  36;
+      case 'my-9': return  36;
+      case 'ms-9': return  36;
+      case 'me-9': return  36;
+      case 'mt-9': return  36;
+      case 'mr-9': return  36;
+      case 'mb-9': return  36;
+      case 'ml-9': return  36;
+      case 'm-10': return  40;
+      case 'mx-10': return  40;
+      case 'my-10': return  40;
+      case 'ms-10': return  40;
+      case 'me-10': return  40;
+      case 'mt-10': return  40;
+      case 'mr-10': return  40;
+      case 'mb-10': return  40;
+      case 'ml-10': return  40;
+      case 'm-11': return  44;
+      case 'mx-11': return  44;
+      case 'my-11': return  44;
+      case 'ms-11': return  44;
+      case 'me-11': return  44;
+      case 'mt-11': return  44;
+      case 'mr-11': return  44;
+      case 'mb-11': return  44;
+      case 'ml-11': return  44;
+      case 'm-12': return  48;
+      case 'mx-12': return  48;
+      case 'my-12': return  48;
+      case 'ms-12': return  48;
+      case 'me-12': return  48;
+      case 'mt-12': return  48;
+      case 'mr-12': return  48;
+      case 'mb-12': return  48;
+      case 'ml-12': return  48;
+      case 'm-14': return  56;
+      case 'mx-14': return  56;
+      case 'my-14': return  56;
+      case 'ms-14': return  56;
+      case 'me-14': return  56;
+      case 'mt-14': return  56;
+      case 'mr-14': return  56;
+      case 'mb-14': return  56;
+      case 'ml-14': return  56;
+      case 'm-16': return  64;
+      case 'mx-16': return  64;
+      case 'my-16': return  64;
+      case 'ms-16': return  64;
+      case 'me-16': return  64;
+      case 'mt-16': return  64;
+      case 'mr-16': return  64;
+      case 'mb-16': return  64;
+      case 'ml-16': return  64;
+      case 'ml-18': return  72;
+      case 'm-20': return  80;
+      case 'mx-20': return  80;
+      case 'my-20': return  80;
+      case 'ms-20': return  80;
+      case 'me-20': return  80;
+      case 'mt-20': return  80;
+      case 'mr-20': return  80;
+      case 'mb-20': return  80;
+      case 'ml-20': return  80;
+      case 'm-24': return  96;
+      case 'mx-24': return  96;
+      case 'my-24': return  96;
+      case 'ms-24': return  96;
+      case 'me-24': return  96;
+      case 'mt-24': return  96;
+      case 'mr-24': return  96;
+      case 'mb-24': return  96;
+      case 'ml-24': return  96;
+      case 'm-28': return  112;
+      case 'mx-28': return  112;
+      case 'my-28': return  112;
+      case 'ms-28': return  112;
+      case 'me-28': return  112;
+      case 'mt-28': return  112;
+      case 'mr-28': return  112;
+      case 'mb-28': return  112;
+      case 'ml-28': return  112;
+      case 'm-32': return  128;
+      case 'mx-32': return  128;
+      case 'my-32': return  128;
+      case 'ms-32': return  128;
+      case 'me-32': return  128;
+      case 'mt-32': return  128;
+      case 'mr-32': return  128;
+      case 'mb-32': return  128;
+      case 'ml-32': return  128;
+      case 'm-36': return  144;
+      case 'mx-36': return  144;
+      case 'my-36': return  144;
+      case 'ms-36': return  144;
+      case 'me-36': return  144;
+      case 'mt-36': return  144;
+      case 'mr-36': return  144;
+      case 'mb-36': return  144;
+      case 'ml-36': return  144;
+      case 'm-40': return  160;
+      case 'mx-40': return  160;
+      case 'my-40': return  160;
+      case 'ms-40': return  160;
+      case 'me-40': return  160;
+      case 'mt-40': return  160;
+      case 'mr-40': return  160;
+      case 'mb-40': return  160;
+      case 'ml-40': return  160;
+      case 'm-44': return  176;
+      case 'mx-44': return  176;
+      case 'my-44': return  176;
+      case 'ms-44': return  176;
+      case 'me-44': return  176;
+      case 'mt-44': return  176;
+      case 'mr-44': return  176;
+      case 'mb-44': return  176;
+      case 'ml-44': return  176;
+      case 'm-48': return  192;
+      case 'mx-48': return  192;
+      case 'my-48': return  192;
+      case 'ms-48': return  192;
+      case 'me-48': return  192;
+      case 'mt-48': return  192;
+      case 'mr-48': return  192;
+      case 'mb-48': return  192;
+      case 'ml-48': return  192;
+      case 'm-52': return  208;
+      case 'mx-52': return  208;
+      case 'my-52': return  208;
+      case 'ms-52': return  208;
+      case 'me-52': return  208;
+      case 'mt-52': return  208;
+      case 'mr-52': return  208;
+      case 'mb-52': return  208;
+      case 'ml-52': return  208;
+      case 'm-56': return  224;
+      case 'mx-56': return  224;
+      case 'my-56': return  224;
+      case 'ms-56': return  224;
+      case 'me-56': return  224;
+      case 'mt-56': return  224;
+      case 'mr-56': return  224;
+      case 'mb-56': return  224;
+      case 'ml-56': return  224;
+      case 'm-60': return  240;
+      case 'mx-60': return  240;
+      case 'my-60': return  240;
+      case 'ms-60': return  240;
+      case 'me-60': return  240;
+      case 'mt-60': return  240;
+      case 'mr-60': return  240;
+      case 'mb-60': return  240;
+      case 'ml-60': return  240;
+      case 'm-64': return  256;
+      case 'mx-64': return  256;
+      case 'my-64': return  256;
+      case 'ms-64': return  256;
+      case 'me-64': return  256;
+      case 'mt-64': return  256;
+      case 'mr-64': return  256;
+      case 'mb-64': return  256;
+      case 'ml-64': return  256;
+      case 'm-72': return  288;
+      case 'mx-72': return  288;
+      case 'my-72': return  288;
+      case 'ms-72': return  288;
+      case 'me-72': return  288;
+      case 'mt-72': return  288;
+      case 'mr-72': return  288;
+      case 'mb-72': return  288;
+      case 'ml-72': return  288;
+      case 'm-80': return  320;
+      case 'mx-80': return  320;
+      case 'my-80': return  320;
+      case 'ms-80': return  320;
+      case 'me-80': return  320;
+      case 'mt-80': return  320;
+      case 'mr-80': return  320;
+      case 'mb-80': return  320;
+      case 'ml-80': return  320;
+      case 'm-96': return  384;
+      case 'mx-96': return  384;
+      case 'my-96': return  384;
+      case 'ms-96': return  384;
+      case 'me-96': return  384;
+      case 'mt-96': return  384;
+      case 'mr-96': return  384;
+      case 'mb-96': return  384;
+      case 'ml-96': return  384;
+      case 'mx-auto' : return 0.0;
+      case 'my-auto' : return 0;
+      case 'ms-auto' : return 0;
+      case 'me-auto' : return 0;
+      case 'mt-auto' : return 0;
+      case 'mr-auto' : return 0;
+      case 'mb-auto' : return 0;
+      case 'ml-auto' : return 0;
+
+      
+      default: return null;// Default jika kode tidak cocok
+      
+      
+
+    }
+    // return null;
+  }
+
   TextAlign? getTextAlignment(String tailwindClass) {
   switch (tailwindClass) {
     case 'text-left':
@@ -1674,6 +2624,42 @@ BorderRadius? getRadius(String className) {
       return TextAlign.end;
     default:
       return null; // Default alignment jika kelas tidak cocok
+  }
+}
+
+CrossAxisAlignment? convertAlignItemsToCrossAxisAlignment(String alignItems) {
+  switch (alignItems) {
+    case 'items-start':
+      return CrossAxisAlignment.start;
+    case 'items-end':
+      return CrossAxisAlignment.end;
+    case 'items-center':
+      return CrossAxisAlignment.center;
+    case 'items-baseline':
+      return CrossAxisAlignment.baseline;
+    case 'items-stretch':
+      return CrossAxisAlignment.stretch;
+    default:
+      // Default case, return MainAxisAlignment.start or handle it accordingly.
+      return null;
+  }
+}
+
+MainAxisAlignment? convertAlignItemsToMainAxisAlignment(String alignItems) {
+  switch (alignItems) {
+    case 'items-start':
+      return MainAxisAlignment.start;
+    case 'items-end':
+      return MainAxisAlignment.end;
+    case 'items-center':
+      return MainAxisAlignment.center;
+    case 'items-baseline':
+      return MainAxisAlignment.start;
+    case 'items-stretch':
+      return MainAxisAlignment.start;
+    default:
+      // Default case, return MainAxisAlignment.start or handle it accordingly.
+      return null;
   }
 }
 

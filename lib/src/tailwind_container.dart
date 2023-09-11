@@ -8,8 +8,9 @@ class ContainerTailwind extends StatefulWidget {
   final Widget? child;
   final EdgeInsetsGeometry? padding,margin;
   final BorderRadiusGeometry? borderRadius;
+  final Color? color,borderColor;
   final String? extClass,bgImage; // Tambahkan properti extClass
-  const ContainerTailwind({super.key,this.padding,this.borderRadius, this.margin,this.bgImage,  this.child, this.extClass});
+  const ContainerTailwind({super.key,this.padding,this.borderColor,this.color,this.borderRadius, this.margin,this.bgImage,  this.child, this.extClass});
 
   @override
   State<ContainerTailwind> createState() => _ContainerTailwindState();
@@ -18,8 +19,8 @@ class ContainerTailwind extends StatefulWidget {
 class _ContainerTailwindState extends State<ContainerTailwind> {
   @override
   Widget build(BuildContext context) {
-    Color? bgColor;
-    Color? textColor;
+    Color? bgColor,textColor,borderColor;
+    // Color? textColor;
     Map? paddingMap;
 
     BorderRadiusGeometry? borderRadius;
@@ -32,47 +33,81 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
     if (widget.extClass != null) {
       // Split properti extClass menjadi kelas-kelas warna
       final classes = (widget.extClass ?? "").split(' ');
-      // Loop melalui setiap kelas warna dan cek apakah ada warna yang sesuai
       for (final className in classes) {
         final color = getTextColor(className);
         if (color != null) {
           textColor = color;
+          
         }
-
         final colors = getbgColorFromClassName(className);
         if (colors != null) {
-
-          print("bgColor2 mainclass ${widget.extClass}");
-          print("bgColor2 $bgColor");
           bgColor = colors;
-
-          // break;
-        }
-        // final paddings = getPaddingAll(className: className,paddingMap : paddingMap);
-        final paddings = getPadding(className);
-        if (paddings != null) {
-          padding = paddings;
-          print("padding33 $padding");
+          
         }
         final borders = getRadius(className);
         if (borders != null) {
           borderRadius = borders;
-          print("padding33 $padding");
+          
         }
+
         final widths = getWidthFromTailwindClass(className);
         if (widths != null) {
           widthContainer = widths;
+          
         }
+
         final maxwidths = getMaxWidthFromTailwindClass(className);
         if (maxwidths != null) {
           maxWidthContainer = maxwidths;
-        }
-        final margins = getMargin(className);
-        if (margins != null) {
-          margin = margins;
+          
         }
       }
     }
+    List<String> classNames = (widget.extClass ?? "").split(" ");
+
+      if (classNames.any((cls) => cls.startsWith("p-"))) {
+        padding = EdgeInsets.all( getPaddingDouble("p-${int.parse(classNames.firstWhere((cls) => cls.startsWith("p-")).substring(2))}") ?? 0.0);  
+        } else if (classNames.any((cls) => cls.startsWith("px-")) && classNames.any((cls) => cls.startsWith("py-"))) {
+        double horizontalPaddingValue = getPaddingDouble("px-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("px-")).substring(3)))}") ?? 0.0;
+        double verticalPaddingValue = getPaddingDouble("py-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("py-")).substring(3)))}") ?? 0.0;
+        padding = EdgeInsets.symmetric(horizontal: horizontalPaddingValue.toDouble(), vertical: verticalPaddingValue.toDouble());
+      } else if(classNames.any((cls) => cls.endsWith("auto")) && classNames.any((cls) => cls.endsWith("auto"))) {
+       padding=  EdgeInsets.zero;
+      } 
+      
+      else {
+        var leftPadding = classNames.any((cls) => cls.startsWith("pl-")) ? getPaddingDouble("pl-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pl-")).substring(3)))}") ?? 0.0 : 0.0;
+        var topPadding = classNames.any((cls) => cls.startsWith("pt-")) ? getPaddingDouble("pt-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pt-")).substring(3)))}") ?? 0.0 : 0.0;
+        var rightPadding = classNames.any((cls) => cls.startsWith("pr-")) ? getPaddingDouble("pr-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pr-")).substring(3)))}") ?? 0.0 : 0.0;
+        var bottomPadding = classNames.any((cls) => cls.startsWith("pb-")) ? getPaddingDouble("pb-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pb-")).substring(3)))}") ?? 0.0 : 0.0;
+        padding = EdgeInsets.fromLTRB(leftPadding, topPadding, rightPadding, bottomPadding);
+        } 
+
+    if (classNames.any((cls) => cls.startsWith("m-"))) {
+        margin = EdgeInsets.all( getMarginDouble("m-${int.parse(classNames.firstWhere((cls) => cls.startsWith("m-")).substring(2))}") ?? 0.0);  
+        }
+        else if(classNames.any((cls) => cls.endsWith("auto")) && classNames.any((cls) => cls.endsWith("auto"))) {
+        margin = EdgeInsets.zero;
+      }
+         else if (classNames.any((cls) => cls.startsWith("mx-")) && classNames.any((cls) => cls.startsWith("my-"))) {
+        double horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0;
+        double verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0;
+        margin = EdgeInsets.symmetric(horizontal: horizontalMarginValue.toDouble(), vertical: verticalMarginValue.toDouble());
+      } 
+      else {
+        var leftMargin = classNames.any((cls) => cls.startsWith("ml-")) ? getMarginDouble("ml-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("ml-")).substring(3)))}") ?? 0.0 : 0.0;
+        var topMargin = classNames.any((cls) => cls.startsWith("mt-")) ? getMarginDouble("mt-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mt-")).substring(3)))}") ?? 0.0 : 0.0;
+        var rightMargin = classNames.any((cls) => cls.startsWith("mr-")) ? getMarginDouble("mr-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mr-")).substring(3)))}") ?? 0.0 : 0.0;
+        var bottomMargin = classNames.any((cls) => cls.startsWith("mb-")) ? getMarginDouble("mb-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mb-")).substring(3)))}") ?? 0.0 : 0.0;
+        margin = EdgeInsets.fromLTRB(leftMargin, topMargin, rightMargin, bottomMargin);
+        } 
+
+    if (classNames.any((cls) => cls.startsWith("rounded-"))) {
+        borderRadius =( getRadius((classNames.firstWhere((cls) => cls.startsWith("rounded-")))) ); } 
+    if (classNames.any((cls) => cls.startsWith("border-"))) {
+        borderColor =( getBorderColor((classNames.firstWhere((cls) => cls.startsWith("border-")))) );  
+       } 
+
 
     return Container(
       margin: widget.margin ?? margin ?? const EdgeInsets.all(0),
@@ -81,25 +116,14 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
       widthContainer.toDouble() : widthContainer is double ? 
         MediaQuery.of(context).size.width * (widthContainer *0.01) 
         : widthContainer,
-      padding:widget.padding ??  padding ,
-      
-      // height: ,
-      // height:  widthContainer is int ? 
-      // widthContainer.toDouble() : widthContainer is double ? 
-      //   MediaQuery.of(context).size.height * (widthContainer *0.01) 
-      //   : widthContainer,
+      padding:widget.padding ??  padding,
       decoration: BoxDecoration(
-        color: bgColor ?? Colors.transparent, // Gunakan warna kustom jika ada
-        borderRadius: borderRadius,
-        border: Border.all(color: Colors.transparent),
+        color: widget.color ?? bgColor ?? Colors.transparent, 
+        borderRadius: borderRadius ?? BorderRadius.circular(0),
+        
+        // shape: BoxShape.circle,
+    border: Border.all(color: borderColor ?? Colors.transparent),
         image: DecorationImage(image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.cover),
-        // boxShadow: [
-        //   BoxShadow(
-        //     color: Colors.black.withOpacity(0.3),
-        //     blurRadius: 7,
-        //     offset: const Offset(1, 3),
-        //   )
-        // ],
       ),
       child: widget.child,
     );

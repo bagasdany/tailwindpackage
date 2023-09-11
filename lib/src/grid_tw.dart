@@ -64,12 +64,12 @@ class _GridTWState extends State<GridTW> {
       itemCount: widget.itemCount ?? 0,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: colCount ,
-        mainAxisSpacing: 0,
-        crossAxisSpacing: colCount  <3 ? 20 : 1 ,
+        // mainAxisSpacing: 0,
+        crossAxisSpacing: colCount  <3 ? 1 : 1 ,
         // mainAxisExtent: colCount == 1 ? 140 : null
 
         // width / height: fixed for *all* items
-        childAspectRatio: colCount == 1 ? 3 : colCount > 3 ? 0.45: 1,
+    childAspectRatio: colCount == 1 ? 2 : colCount > 3 ? 0.5: 1,
       ),
       itemBuilder: widget.itemBuilder ?? (context, index) {
         return Container(
@@ -114,20 +114,13 @@ class _GridTWState extends State<GridTW> {
         }
 
         
-        // final color = getbgColorFromClassName(className);
-        // if (color != null) {
-
-        //   print("bgColor mainclass ${widget.mainClass}");
-        //   bgColor = color;
-        //   print("bgColor $bgColor");
-        // }
-        
         
       }
     }
 
     return ContainerTailwind(
-      extClass: widget.mainClass,
+      extClass: widget.mainClass ?? '',
+      bgImage: widget.bgImage,
       child: grid ?? 
       buildGridRows(1),
     );

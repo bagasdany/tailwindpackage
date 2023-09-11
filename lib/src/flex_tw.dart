@@ -8,9 +8,10 @@ import 'package:tailwind_style/tailwind_style.dart';
 
 class FlexTW extends StatefulWidget {
   final List<Widget> children;
+  Axis? direction;
 
   final String? bgImage,mainClass; // Tambahkan properti mainClass
-  const FlexTW({super.key, required this.children, this.mainClass,this.bgImage});
+  FlexTW({super.key, required this.children,this.direction, this.mainClass,this.bgImage});
 
   @override
   State<FlexTW> createState() => _FlexTWState();
@@ -21,6 +22,8 @@ class _FlexTWState extends State<FlexTW> {
   Widget build(BuildContext context) {
     Axis? direction;
     bool? hidden;
+    CrossAxisAlignment? crossAxisAlignment;
+    MainAxisAlignment? mainAxisAlignment;
 
     print("widget.mainClass flexx ${widget.mainClass} oe");
 
@@ -41,17 +44,33 @@ class _FlexTWState extends State<FlexTW> {
         if (hiddens == true) {
           hidden = hiddens;
         }
+        
+        final crossAxisAlignments = convertAlignItemsToCrossAxisAlignment(className);
+        if (crossAxisAlignments != null) {
+          crossAxisAlignment = crossAxisAlignments;
+        }
+        
+        final mainAxisAlignments = convertAlignItemsToMainAxisAlignment(className);
+        if (mainAxisAlignments != null) {
+          mainAxisAlignment = mainAxisAlignments;
+        }
+        
       }
     }
 
-    return ContainerTailwind(
-      extClass: widget.mainClass,
-      bgImage: widget.bgImage,
-      child: hidden == true ? Container() :
-        Flex( mainAxisSize: MainAxisSize.min,
-          direction: direction ?? Axis.vertical, 
+    return hidden == true ? Container() :
+      ContainerTailwind(
+        extClass: widget.mainClass ?? '',
+        bgImage: widget.bgImage,
+        child: Flex( 
+          mainAxisSize: MainAxisSize.min,
+          textBaseline: TextBaseline.alphabetic,
+          // textDirection: TextDirection.rtl,
+          crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
+          mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.center,
+          direction: widget.direction ?? direction ?? Axis.vertical, 
           children:  widget.children
         ),
-    );
+      );
   }
 }
