@@ -86,7 +86,7 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
     if (classNames.any((cls) => cls.startsWith("m-"))) {
         margin = EdgeInsets.all( getMarginDouble("m-${int.parse(classNames.firstWhere((cls) => cls.startsWith("m-")).substring(2))}") ?? 0.0);  
         }
-        else if(classNames.any((cls) => cls.endsWith("auto")) && classNames.any((cls) => cls.endsWith("auto"))) {
+        else if(classNames.any((cls) => cls.endsWith("auto")) && classNames.any((cls) => cls.endsWith("auto") && !classNames.any((cls) => cls.startsWith("md:")))) {
         margin = EdgeInsets.zero;
       }
          else if (classNames.any((cls) => cls.startsWith("mx-")) && classNames.any((cls) => cls.startsWith("my-"))) {
@@ -119,11 +119,11 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
       padding:widget.padding ??  padding,
       decoration: BoxDecoration(
         color: widget.color ?? bgColor ?? Colors.transparent, 
-        borderRadius: borderRadius ?? BorderRadius.circular(0),
+        borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(0),
         
         // shape: BoxShape.circle,
-    border: Border.all(color: borderColor ?? Colors.transparent),
-        image: DecorationImage(image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.cover),
+     border: Border.all(color: borderColor ?? Colors.transparent),
+        image: widget.bgImage == null ? null: DecorationImage(image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.cover),
       ),
       child: widget.child,
     );

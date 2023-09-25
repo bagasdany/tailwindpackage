@@ -8,10 +8,14 @@ import 'package:tailwind_style/component/tailwind_style.dart';
 
 class TextTailwind extends StatefulWidget {
   final String text;
-  final String? mainClass; // Tambahkan properti mainClass
-  final TextStyle? textStyle;
+  final String? mainClass,fontFamily; // Tambahkan properti mainClass
+  // final TextStyle? textStyle;
   final TextAlign? textAlign;
-  const TextTailwind({super.key, required this.text,this.textAlign, this.mainClass,this.textStyle});
+  final Color? fontColor;
+  final FontWeight? fontWeight;
+  final double? fontSize;
+  final FontStyle? fontStyle;
+  const TextTailwind({super.key, required this.text,this.textAlign, this.mainClass,this.fontFamily,this.fontStyle,this.fontColor,this.fontWeight,this.fontSize});
 
   @override
   State<TextTailwind> createState() => _TextTailwindState();
@@ -76,13 +80,13 @@ class _TextTailwindState extends State<TextTailwind> {
     return Container(
       child: Text(
         widget.text,
-        style: widget.textStyle ?? TextStyle(
+        style: TextStyle(
           decoration: textDecoration,
-          fontSize: fontSize,
-          color: bgColor,
-          fontFamily: fontFamily,
-          fontWeight: fontWeight,
-          fontFeatures: fontFeature,
+          fontSize: widget.fontSize ?? fontSize,
+          color: widget.fontColor ?? bgColor,
+          fontFamily: widget.fontFamily ?? fontFamily,
+          fontWeight: widget.fontWeight ??  fontWeight,
+          fontFeatures:  fontFeature,
           
           // letterSpacing: get
         ) ,textAlign: widget.textAlign?? textAlign ,

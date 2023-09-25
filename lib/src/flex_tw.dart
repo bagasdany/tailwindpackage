@@ -65,9 +65,8 @@ class _FlexTWState extends State<FlexTW> {
         child: Flex( 
           mainAxisSize: MainAxisSize.min,
           textBaseline: TextBaseline.alphabetic,
-          // textDirection: TextDirection.rtl,
           crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
-          mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.center,
+          mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.start,
           direction: widget.direction ?? direction ?? Axis.vertical, 
           children:  widget.children
         ),
