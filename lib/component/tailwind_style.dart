@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:tailwind_style/component/tailwind_colors.dart';
 
 class TailwindStyle {
-  static const Color inherit = Color(0);
-  static const Color currentColor = Color(0);
-  static const Color transparent = Colors.transparent;
+  static const Color inherit = Colors.white;
+  static const Color currentColor = Colors.white;
+  static const Color transparent = Colors.white;
   static const Color black = Colors.black;
   static const Color white = Colors.white;
   static const Color slate50 = Color(0xFFF8FAFC);
@@ -302,7 +302,7 @@ Color? getBorderColor(String className) {
   switch (className) {
     case 'border-inherit': return TailwindColors.inherit;
     case 'border-current': return TailwindColors.currentColor;
-    case 'border-transparent': return Colors.transparent;
+    case 'border-transparent': return Colors.white;
     case 'border-black': return Colors.black;
     case 'border-white': return Colors.white;
     case 'border-slate-50': return TailwindColors.slate50;
@@ -623,9 +623,9 @@ Color? getbgColorFromClassName(String className) {
     //INHERIT
     case 'bg-inherit': return TailwindColors.inherit;
     case 'bg-current': return TailwindColors.currentColor;
-    case 'bg-transparent': return TailwindColors.transparent;
-    case 'bg-black': return TailwindColors.white;
-    case 'bg-white': return  TailwindColors.black;
+    case 'bg-transparent': return TailwindColors.white;
+    case 'bg-black': return TailwindColors.black;
+    case 'bg-white': return  TailwindColors.white;
     case 'bg-slate-50': return  TailwindColors.slate50;
     case 'bg-slate-100': return  TailwindColors.slate100;
     case 'bg-slate-200': return  TailwindColors.slate200;

@@ -39,27 +39,32 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
           textColor = color;
           
         }
-        final colors = getbgColorFromClassName(className);
-        if (colors != null) {
-          bgColor = colors;
-          
+        if (className.startsWith('bg-')) {
+          // Ini adalah kelas latar belakang (background)
+          bgColor = getbgColorFromClassName(className);
+          break; // Hentikan loop setelah menemukan kelas latar belakang pertama
         }
+        // final colors = getbgColorFromClassName(className);
+        // if (colors != null) {
+        //   bgColor = colors;
+          
+        // }
         final borders = getRadius(className);
         if (borders != null) {
           borderRadius = borders;
-          
+          // break; 
         }
 
         final widths = getWidthFromTailwindClass(className);
-        if (widths != null) {
+        if (widths  != null) {
           widthContainer = widths;
-          
+          break; 
         }
 
         final maxwidths = getMaxWidthFromTailwindClass(className);
         if (maxwidths != null) {
           maxWidthContainer = maxwidths;
-          
+          // break; 
         }
       }
     }
@@ -89,7 +94,7 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
         else if(classNames.any((cls) => cls.endsWith("auto")) && classNames.any((cls) => cls.endsWith("auto") && !classNames.any((cls) => cls.startsWith("md:")))) {
         margin = EdgeInsets.zero;
       }
-         else if (classNames.any((cls) => cls.startsWith("mx-")) && classNames.any((cls) => cls.startsWith("my-"))) {
+         else if (classNames.any((cls) => cls.startsWith("mx-")) && classNames.any((cls) => cls.startsWith("my-") && !classNames.toString().contains("auto"))) {
         double horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0;
         double verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0;
         margin = EdgeInsets.symmetric(horizontal: horizontalMarginValue.toDouble(), vertical: verticalMarginValue.toDouble());

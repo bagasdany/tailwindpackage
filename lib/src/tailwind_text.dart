@@ -13,9 +13,9 @@ class TextTailwind extends StatefulWidget {
   final TextAlign? textAlign;
   final Color? fontColor;
   final FontWeight? fontWeight;
-  final double? fontSize;
+  final double? fontSize,height;
   final FontStyle? fontStyle;
-  const TextTailwind({super.key, required this.text,this.textAlign, this.mainClass,this.fontFamily,this.fontStyle,this.fontColor,this.fontWeight,this.fontSize});
+  const TextTailwind({super.key, required this.text,this.textAlign,this.height, this.mainClass,this.fontFamily,this.fontStyle,this.fontColor,this.fontWeight,this.fontSize});
 
   @override
   State<TextTailwind> createState() => _TextTailwindState();
@@ -87,6 +87,7 @@ class _TextTailwindState extends State<TextTailwind> {
           fontFamily: widget.fontFamily ?? fontFamily,
           fontWeight: widget.fontWeight ??  fontWeight,
           fontFeatures:  fontFeature,
+          height: widget.height,
           
           // letterSpacing: get
         ) ,textAlign: widget.textAlign?? textAlign ,
