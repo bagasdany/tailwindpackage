@@ -2,7 +2,6 @@
 library tailwind_style;
 
 import 'package:flutter/material.dart';
-import 'package:tailwind_style/component/tailwind_colors.dart';
 import 'package:tailwind_style/component/tailwind_style.dart';
 import 'package:tailwind_style/tailwind_style.dart';
 

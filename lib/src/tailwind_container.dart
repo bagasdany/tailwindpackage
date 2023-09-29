@@ -90,11 +90,9 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
 
     if (classNames.any((cls) => cls.startsWith("m-"))) {
         margin = EdgeInsets.all( getMarginDouble("m-${int.parse(classNames.firstWhere((cls) => cls.startsWith("m-")).substring(2))}") ?? 0.0);  
-        }
-        else if(classNames.any((cls) => cls.endsWith("auto")) && classNames.any((cls) => cls.endsWith("auto") && !classNames.any((cls) => cls.startsWith("md:")))) {
+      }else if(classNames.any((cls) => cls.endsWith("auto")) && classNames.any((cls) => cls.endsWith("auto") && !classNames.any((cls) => cls.startsWith("md:")))) {
         margin = EdgeInsets.zero;
-      }
-         else if (classNames.any((cls) => cls.startsWith("mx-")) && classNames.any((cls) => cls.startsWith("my-") && !classNames.toString().contains("auto"))) {
+      }else if (classNames.any((cls) => cls.startsWith("mx-")) && classNames.any((cls) => cls.startsWith("my-") && !classNames.toString().contains("auto"))) {
         double horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0;
         double verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0;
         margin = EdgeInsets.symmetric(horizontal: horizontalMarginValue.toDouble(), vertical: verticalMarginValue.toDouble());
@@ -123,10 +121,9 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
         : widthContainer,
       padding:widget.padding ??  padding,
       decoration: BoxDecoration(
-        color: widget.color ?? bgColor ?? Colors.transparent, 
+        color:  bgColor ??  widget.color , 
         borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(0),
         
-        // shape: BoxShape.circle,
      border: Border.all(color: borderColor ?? Colors.transparent),
         image: widget.bgImage == null ? null: DecorationImage(image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.cover),
       ),

@@ -28,23 +28,6 @@ class GridTW extends StatefulWidget {
 }
 
 class _GridTWState extends State<GridTW> {
-
-// Widget buildGridRows(int rowCount) {
-//     return Wrap(
-//       spacing: 20.0,
-//       runSpacing: 20.0,
-//       children: List.generate(
-//         widget.itemCount ?? 0,
-//         (index) => Container(
-//           color: Colors.grey,
-//           alignment: Alignment.center,
-//           child: Text('Item $index'),
-//           width: 100, // Sesuaikan dengan lebar yang Anda inginkan
-//           height: 100, // Sesuaikan dengan tinggi yang Anda inginkan
-//         ),
-//       ),
-//     );
-//   }
 Widget buildGridRows(int rowCount, int itemCount) {
   final int colCount = (itemCount / rowCount).ceil();
 
@@ -54,7 +37,7 @@ Widget buildGridRows(int rowCount, int itemCount) {
     shrinkWrap: true,
     itemBuilder: (context, rowIndex) {
       return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(
           colCount,
           (colIndex) {
@@ -62,15 +45,8 @@ Widget buildGridRows(int rowCount, int itemCount) {
             
             if (itemIndex < itemCount) {
               return Expanded(child: widget.child?.call(itemIndex) ?? Container());
-              // return Container(
-              //   color: Colors.grey,
-              //   alignment: Alignment.center,
-              //   child: Text('Item $itemIndex'),
-              //   width: 100, // Sesuaikan dengan lebar yang Anda inginkan
-              //   height: 100, // Sesuaikan dengan tinggi yang Anda inginkan
-              // );
-            } else {
-              return const SizedBox(width: 100, height: 100); // Placeholder untuk item yang tidak ada
+              } else {
+              return const SizedBox(width: 0, height: 0); // Placeholder untuk item yang tidak ada
             }
           },
         ),
@@ -82,10 +58,14 @@ Widget buildGridColumns(int colCount, int itemCount) {
   final int rowCount = (itemCount / colCount).ceil();
 
   return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
     children: List.generate(
       rowCount,
       (rowIndex) {
         return Row(mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
           children: List.generate(
             colCount,
             (colIndex) {
@@ -93,7 +73,7 @@ Widget buildGridColumns(int colCount, int itemCount) {
               if (itemIndex < itemCount) {
                 return Expanded(child: widget.child?.call(itemIndex) ?? Container());
               } else {
-                return const SizedBox(width: 100, height: 100); // Placeholder untuk item yang tidak ada
+                return const SizedBox(width: 0, height: 0); // Placeholder untuk item yang tidak ada
               }
             },
           ),
