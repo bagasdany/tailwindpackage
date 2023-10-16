@@ -4,8 +4,9 @@ class TailwindColors {
   static const Color inherit = Color(0);
   static const Color currentColor = Color(0);
   static const Color transparent = Colors.transparent;
-  static const Color black = Colors.black;
+  static const Color black = Color(0xFF000);
   static const Color white = Color(0xFFFFFFFF);
+
   static const Color slate50 = Color(0xFFF8FAFC);
   static const Color slate100 = Color(0xFFF1F5F9);
   static const Color slate200 = Color(0xFFE2E8F0);
@@ -13,26 +14,11 @@ class TailwindColors {
   static const Color slate400 = Color(0xFF94A3B8);
   static const Color slate500 = Color(0xFF64748B);
   static const Color slate600 = Color(0xFF475569);
-  static const Color slate700 = Color(0xFF333D4B);
+  static const Color slate700 = Color(0xFF334155);
   static const Color slate800 = Color(0xFF1E293B);
-  static const Color slate900 = Color(0xFF0F172A);
-  static const Color slate950 = Color(0xFF020617);
+  static const Color slate900 = Color(0xFF0f172a);
 
-  //RED
-  static const Color red50 = Color(0xFFFFF5F5);
-  static const Color red100 = Color(0xFFFFE3E3);
-  static const Color red200 = Color(0xFFFFBDBD);
-  static const Color red300 = Color(0xFFFF9B9B);
-  static const Color red400 = Color(0xFFFF7D7D);
-  static const Color red500 = Color(0xFFFF6B6B);
-  static const Color red600 = Color(0xFFFA5252);
-  static const Color red700 = Color(0xFFF03E3E);
-  static const Color red800 = Color(0xFFE03131);
-  static const Color red900 = Color(0xFFC92A2A);
-  static const Color red950 = Color(0xFF7A1E1E);
-
-  //GRAY
-  static const Color gray50 = Color(0xFFF9FAFB);
+  static const Color gray50 = Color(0xFFf9fafb);
   static const Color gray100 = Color(0xFFF3F4F6);
   static const Color gray200 = Color(0xFFE5E7EB);
   static const Color gray300 = Color(0xFFD1D5DB);
@@ -42,89 +28,95 @@ class TailwindColors {
   static const Color gray700 = Color(0xFF374151);
   static const Color gray800 = Color(0xFF1F2937);
   static const Color gray900 = Color(0xFF111827);
-  static const Color gray950 = Color(0xFF03045E);
+  //RED
+  static const Color red50 = Color(0xFFfef2f2);
+  static const Color red100 = Color(0xFFfee2e2);
+  static const Color red200 = Color(0xFFfecaca);
+  static const Color red300 = Color(0xFFfca5a5);
+  static const Color red400 = Color(0xFFf87171);
+  static const Color red500 = Color(0xFFef4444);
+  static const Color red600 = Color(0xFFdc2626);
+  static const Color red700 = Color(0xFFb91c1c);
+  static const Color red800 = Color(0xFF991b1b);
+  static const Color red900 = Color(0xFF7f1d1d);
 
+  
   // ZINC
   // Tambahkan definisi warna-warna sesuai kode Anda
   static const Color zinc50 = Color(0xFFFAFAFA);
   static const Color zinc100 = Color(0xFFF4F4F5);
   static const Color zinc200 = Color(0xFFE4E4E7);
   static const Color zinc300 = Color(0xFFD4D4D8);
-  static const Color zinc400 = Color(0xFF9D9D9F);
-  static const Color zinc500 = Color(0xFF717174);
-  static const Color zinc600 = Color(0xFF525255);
-  static const Color zinc700 = Color(0xFF3F3F42);
+  static const Color zinc400 = Color(0xFFa1a1aa);
+  static const Color zinc500 = Color(0xFF71717a);
+  static const Color zinc600 = Color(0xFF52525b);
+  static const Color zinc700 = Color(0xFF3f3f46);
   static const Color zinc800 = Color(0xFF27272A);
   static const Color zinc900 = Color(0xFF18181B);
-  static const Color zinc950 = Color(0xFF09090B);
+  static const Color zinc950 = Color(0xFF18181b);
 
   // Neutral
   static const Color neutral50 = Color(0xFFFAFAFA);
-  static const Color neutral100 = Color(0xFFF4F4F5);
-  static const Color neutral200 = Color(0xFFE4E4E7);
-  static const Color neutral300 = Color(0xFFD4D4D8);
-  static const Color neutral400 = Color(0xFFA1A1AA);
-  static const Color neutral500 = Color(0xFF71717A);
-  static const Color neutral600 = Color(0xFF52525B);
-  static const Color neutral700 = Color(0xFF3F3F46);
-  static const Color neutral800 = Color(0xFF27272A);
-  static const Color neutral900 = Color(0xFF18181B);
-  static const Color neutral950 = Color(0xFF0C0C0E);
+  static const Color neutral100 = Color(0xFFf5f5f5);
+  static const Color neutral200 = Color(0xFFe5e5e5);
+  static const Color neutral300 = Color(0xFFd4d4d4);
+  static const Color neutral400 = Color(0xFFa3a3a3);
+  static const Color neutral500 = Color(0xFF737373);
+  static const Color neutral600 = Color(0xFF525252);
+  static const Color neutral700 = Color(0xFF404040);
+  static const Color neutral800 = Color(0xFF262626);
+  static const Color neutral900 = Color(0xFF171717);
 
   //STONE
-  static const Color stone50 = Color(0xFFF9FAF9);
-  static const Color stone100 = Color(0xFFF5F6F5);
-  static const Color stone200 = Color(0xFFE3E5E3);
-  static const Color stone300 = Color(0xFFD0D3D0);
-  static const Color stone400 = Color(0xFFA3A8A3);
-  static const Color stone500 = Color(0xFF787E78);
-  static const Color stone600 = Color(0xFF575C57);
-  static const Color stone700 = Color(0xFF444844);
-  static const Color stone800 = Color(0xFF292C29);
-  static const Color stone900 = Color(0xFF1C1E1C);
-  static const Color stone950 = Color(0xFF0B0C0B);
+  static const Color stone50 = Color(0xFFfafaf9);
+  static const Color stone100 = Color(0xFFf5f5f4);
+  static const Color stone200 = Color(0xFFe7e5e4);
+  static const Color stone300 = Color(0xFFd6d3d1);
+  static const Color stone400 = Color(0xFFa8a29e);
+  static const Color stone500 = Color(0xFF78716c);
+  static const Color stone600 = Color(0xFF57534e);
+  static const Color stone700 = Color(0xFF44403c);
+  static const Color stone800 = Color(0xFF292524);
+  static const Color stone900 = Color(0xFF1c1917);
 
   //ORANGE
-  static const Color orange50 = Color(0xFFFFF7ED);
-  static const Color orange100 = Color(0xFFFFEDD5);
-  static const Color orange200 = Color(0xFFFED7AA);
-  static const Color orange300 = Color(0xFFFDBA74);
-  static const Color orange400 = Color(0xFFFB923C);
-  static const Color orange500 = Color(0xFFF97316);
-  static const Color orange600 = Color(0xFFEA580C);
-  static const Color orange700 = Color(0xFFC2410C);
-  static const Color orange800 = Color(0xFF9A3412);
-  static const Color orange900 = Color(0xFF7C2D12);
-  static const Color orange950 = Color(0xFF420806);
+  static const Color orange50 = Color(0xFFfff7ed);
+  static const Color orange100 = Color(0xFFffedd5);
+  static const Color orange200 = Color(0xFFfed7aa);
+  static const Color orange300 = Color(0xFFfdba74);
+  static const Color orange400 = Color(0xFFfb923c);
+  static const Color orange500 = Color(0xFFf97316);
+  static const Color orange600 = Color(0xFFea580c);
+  static const Color orange700 = Color(0xFFc2410c);
+  static const Color orange800 = Color(0xFF9a3412);
+  static const Color orange900 = Color(0xFF7c2d12);
 
   //AMBER
-  static const Color amber50 = Color(0xFFFFFBEB);
-  static const Color amber100 = Color(0xFFFEEF98);
-  static const Color amber200 = Color(0xFFFED34E);
-  static const Color amber300 = Color(0xFFFDBA21);
-  static const Color amber400 = Color(0xFFFD7E14);
-  static const Color amber500 = Color(0xFFDD6B20);
-  static const Color amber600 = Color(0xFFC05621);
-  static const Color amber700 = Color(0xFF9C4221);
-  static const Color amber800 = Color(0xFF7B341E);
-  static const Color amber900 = Color(0xFF652B19);
-  static const Color amber950 = Color(0xFF38200B);
+  static const Color amber50 = Color(0xFFfffbeb);
+  static const Color amber100 = Color(0xFFfef3c7);
+  static const Color amber200 = Color(0xFFfde68a);
+  static const Color amber300 = Color(0xFFfcd34d);
+  static const Color amber400 = Color(0xFFfbbf24);
+  static const Color amber500 = Color(0xFFf59e0b);
+  static const Color amber600 = Color(0xFFd97706);
+  static const Color amber700 = Color(0xFFb45309);
+  static const Color amber800 = Color(0xFF92400e);
+  static const Color amber900 = Color(0xFF78350f);
 
   //YELLOW
-  static const Color yellow50 = Color(0xFFFFFBE8);
-  static const Color yellow100 = Color(0xFFFFF3C4);
-  static const Color yellow200 = Color(0xFFFCE588);
-  static const Color yellow300 = Color(0xFFFADB5F);
-  static const Color yellow400 = Color(0xFFF7C948);
-  static const Color yellow500 = Color(0xFFF0B429);
-  static const Color yellow600 = Color(0xFFDE911D);
-  static const Color yellow700 = Color(0xFFCB6E17);
-  static const Color yellow800 = Color(0xFFB44D12);
-  static const Color yellow900 = Color(0xFF8D2B0B);
-  static const Color yellow950 = Color(0xFF743D0B);
+  static const Color yellow50 = Color(0xFFfefce8);
+  static const Color yellow100 = Color(0xFFfef9c3);
+  static const Color yellow200 = Color(0xFFfef08a);
+  static const Color yellow300 = Color(0xFFfde047);
+  static const Color yellow400 = Color(0xFFfacc15);
+  static const Color yellow500 = Color(0xFFeab308);
+  static const Color yellow600 = Color(0xFFca8a04);
+  static const Color yellow700 = Color(0xFFa16207);
+  static const Color yellow800 = Color(0xFF854d0e);
+  static const Color yellow900 = Color(0xFF713f12);
 
   //LIME
-  static const Color lime50 = Color(0xFFF7FEE7);
+  static const Color lime50 = Color(0xFFf7fee7);
   static const Color lime100 = Color(0xFFECFCCB);
   static const Color lime200 = Color(0xFFD9F99D);
   static const Color lime300 = Color(0xFFBEF264);
@@ -134,7 +126,6 @@ class TailwindColors {
   static const Color lime700 = Color(0xFF4D7C0F);
   static const Color lime800 = Color(0xFF3F6212);
   static const Color lime900 = Color(0xFF365314);
-  static const Color lime950 = Color(0xFF1D4014);
 
   //GREEN
   static const Color green50 = Color(0xFFF0FDF4);
@@ -147,72 +138,66 @@ class TailwindColors {
   static const Color green700 = Color(0xFF15803D);
   static const Color green800 = Color(0xFF166534);
   static const Color green900 = Color(0xFF14532D);
-  static const Color green950 = Color(0xFF0D3321);
 
   //EMERALD
-  static const Color emerald50 = Color(0xFFF6FCF9);
-  static const Color emerald100 = Color(0xFFE3F9F1);
-  static const Color emerald200 = Color(0xFFC5F4E0);
-  static const Color emerald300 = Color(0xFF96E6C5);
-  static const Color emerald400 = Color(0xFF63D1A1);
-  static const Color emerald500 = Color(0xFF38BE82);
-  static const Color emerald600 = Color(0xFF1E9D63);
-  static const Color emerald700 = Color(0xFF188F57);
-  static const Color emerald800 = Color(0xFF167749);
-  static const Color emerald900 = Color(0xFF13633E);
-  static const Color emerald950 = Color(0xFF062A1A);
+  static const Color emerald50 = Color(0xFFecfdf5);
+  static const Color emerald100 = Color(0xFFd1fae5);
+  static const Color emerald200 = Color(0xFFa7f3d0);
+  static const Color emerald300 = Color(0xFF6ee7b7);
+  static const Color emerald400 = Color(0xFF34d399);
+  static const Color emerald500 = Color(0xFF10b981);
+  static const Color emerald600 = Color(0xFF059669);
+  static const Color emerald700 = Color(0xFF047857);
+  static const Color emerald800 = Color(0xFF065f46);
+  static const Color emerald900 = Color(0xFF064e3b);
 
   //TEAL
-  static const Color teal50 = Color(0xFFF0FCF9);
-  static const Color teal100 = Color(0xFFC6F7E9);
-  static const Color teal200 = Color(0xFF8EEDD1);
-  static const Color teal300 = Color(0xFF5FE3C0);
-  static const Color teal400 = Color(0xFF2DCCA7);
-  static const Color teal500 = Color(0xFF17B897);
-  static const Color teal600 = Color(0xFF079A82);
-  static const Color teal700 = Color(0xFF048271);
-  static const Color teal800 = Color(0xFF016457);
-  static const Color teal900 = Color(0xFF004440);
-  static const Color teal950 = Color(0xFF001F1D);
+  static const Color teal50 = Color(0xFFf0fdfa);
+  static const Color teal100 = Color(0xFFccfbf1);
+  static const Color teal200 = Color(0xFF99f6e4);
+  static const Color teal300 = Color(0xFF5eead4);
+  static const Color teal400 = Color(0xFF2dd4bf);
+  static const Color teal500 = Color(0xFF14b8a6);
+  static const Color teal600 = Color(0xFF0d9488);
+  static const Color teal700 = Color(0xFF0f766e);
+  static const Color teal800 = Color(0xFF115e59);
+  static const Color teal900 = Color(0xFF134e4a);
 
   //CYAN
   static const Color cyan50 = Color(0xFFECFEFF);
-  static const Color cyan100 = Color(0xFFC3F7FB);
-  static const Color cyan200 = Color(0xFF96E0F4);
-  static const Color cyan300 = Color(0xFF63B3ED);
-  static const Color cyan400 = Color(0xFF4299E1);
-  static const Color cyan500 = Color(0xFF3182CE);
-  static const Color cyan600 = Color(0xFF2B6CB0);
-  static const Color cyan700 = Color(0xFF2C5282);
-  static const Color cyan800 = Color(0xFF2A4365);
-  static const Color cyan900 = Color(0xFF1A365D);
-  static const Color cyan950 = Color(0xFF153E75);
+  static const Color cyan100 = Color(0xFFcffafe);
+  static const Color cyan200 = Color(0xFFa5f3fc);
+  static const Color cyan300 = Color(0xFF67e8f9);
+  static const Color cyan400 = Color(0xFF22d3ee);
+  static const Color cyan500 = Color(0xFF06b6d4);
+  static const Color cyan600 = Color(0xFF0891b2);
+  static const Color cyan700 = Color(0xFF0e7490);
+  static const Color cyan800 = Color(0xFF155e75);
+  static const Color cyan900 = Color(0xFF164e63);
 
   //SKY
   static const Color sky50 = Color(0xFFF0F9FF);
-  static const Color sky100 = Color(0xFFD2E3FC);
-  static const Color sky200 = Color(0xFFA3BFFA);
-  static const Color sky300 = Color(0xFF7F9CF5);
-  static const Color sky400 = Color(0xFF667EEA);
-  static const Color sky500 = Color(0xFF5A67D8);
-  static const Color sky600 = Color(0xFF4C51BF);
-  static const Color sky700 = Color(0xFF434190);
-  static const Color sky800 = Color(0xFF3C366B);
-  static const Color sky900 = Color(0xFF32314F);
-  static const Color sky950 = Color(0xFF1E1E3F);
+  static const Color sky100 = Color(0xFFe0f2fe);
+  static const Color sky200 = Color(0xFFbae6fd);
+  static const Color sky300 = Color(0xFF7dd3fc);
+  static const Color sky400 = Color(0xFF38bdf8);
+  static const Color sky500 = Color(0xFF0ea5e9);
+  static const Color sky600 = Color(0xFF0284c7);
+  static const Color sky700 = Color(0xFF0369a1);
+  static const Color sky800 = Color(0xFF075985);
+  static const Color sky900 = Color(0xFF0c4a6e);
 
   //BLUE
-  static const Color blue50 = Color(0xFFEFF6FF);
-  static const Color blue100 = Color(0xFFDBEAFE);
-  static const Color blue200 = Color(0xFFBFDBFE);
+  static const Color blue50 = Color(0xFFeff6ff);
+  static const Color blue100 = Color(0xFFdbeafe);
+  static const Color blue200 = Color(0xFFbfdbfe);
   static const Color blue300 = Color(0xFF93C5FD);
-  static const Color blue400 = Color(0xFF60A5FA);
-  static const Color blue500 = Color(0xFF3B82F6);
+  static const Color blue400 = Color(0xFF60a5fa);
+  static const Color blue500 = Color(0xFF3b82f6);
   static const Color blue600 = Color(0xFF2563EB);
-  static const Color blue700 = Color(0xFF1D4ED8);
-  static const Color blue800 = Color(0xFF1E40AF);
-  static const Color blue900 = Color(0xFF1E3A8A);
-  static const Color blue950 = Color(0xFF1D1D3B);
+  static const Color blue700 = Color(0xFF1d4ed8);
+  static const Color blue800 = Color(0xFF1e40af);
+  static const Color blue900 = Color(0xFF1e3a8a);
 
   //INDIGO
   static const Color indigo50 = Color(0xFFEEF2FF);
@@ -225,10 +210,9 @@ class TailwindColors {
   static const Color indigo700 = Color(0xFF4338CA);
   static const Color indigo800 = Color(0xFF3730A3);
   static const Color indigo900 = Color(0xFF312E81);
-  static const Color indigo950 = Color(0xFF1C1A52);
 
   //VIOLET
-  static const Color violet50 = Color(0xFFF5F3FF);
+  static const Color violet50 = Color(0xFFf5f3ff);
   static const Color violet100 = Color(0xFFEDE9FE);
   static const Color violet200 = Color(0xFFDDD6FE);
   static const Color violet300 = Color(0xFFC4B5FD);
@@ -238,33 +222,30 @@ class TailwindColors {
   static const Color violet700 = Color(0xFF6D28D9);
   static const Color violet800 = Color(0xFF5B21B6);
   static const Color violet900 = Color(0xFF4C1D95);
-  static const Color violet950 = Color(0xFF321569);
 
   //PURPLE
-  static const Color purple50 = Color(0xFFF5F3FF);
-  static const Color purple100 = Color(0xFFEDE9FE);
-  static const Color purple200 = Color(0xFFDDD6FE);
-  static const Color purple300 = Color(0xFFC4B5FD);
-  static const Color purple400 = Color(0xFFA78BFA);
-  static const Color purple500 = Color(0xFF8B5CF6);
-  static const Color purple600 = Color(0xFF7C3AED);
-  static const Color purple700 = Color(0xFF6D28D9);
-  static const Color purple800 = Color(0xFF5B21B6);
-  static const Color purple900 = Color(0xFF4C1D95);
-  static const Color purple950 = Color(0xFF321569);
+  static const Color purple50 = Color(0xFFfaf5ff);
+  static const Color purple100 = Color(0xFFf3e8ff);
+  static const Color purple200 = Color(0xFFe9d5ff);
+  static const Color purple300 = Color(0xFFd8b4fe);
+  static const Color purple400 = Color(0xFFc084fc);
+  static const Color purple500 = Color(0xFFa855f7);
+  static const Color purple600 = Color(0xFF9333ea);
+  static const Color purple700 = Color(0xFF7e22ce);
+  static const Color purple800 = Color(0xFF6b21a8);
+  static const Color purple900 = Color(0xFF581c87);
 
   //FUCHSIA
-  static const Color fuchsia50 = Color(0xFFFDF4FF);
-  static const Color fuchsia100 = Color(0xFFFAE8FF);
+  static const Color fuchsia50 = Color(0xFFfdf4ff);
+  static const Color fuchsia100 = Color(0xFFfae8ff);
   static const Color fuchsia200 = Color(0xFFF5D0FE);
-  static const Color fuchsia300 = Color(0xFFEDB4FD);
-  static const Color fuchsia400 = Color(0xFFE879F9);
+  static const Color fuchsia300 = Color(0xFFf0abfc);
+  static const Color fuchsia400 = Color(0xFFe879f9);
   static const Color fuchsia500 = Color(0xFFD946EF);
   static const Color fuchsia600 = Color(0xFFC026D3);
   static const Color fuchsia700 = Color(0xFFA21CAF);
   static const Color fuchsia800 = Color(0xFF86198F);
   static const Color fuchsia900 = Color(0xFF701A75);
-  static const Color fuchsia950 = Color(0xFF451225);
 
   //PINK
   static const Color pink50 = Color(0xFFFDF2F8);
@@ -277,7 +258,6 @@ class TailwindColors {
   static const Color pink700 = Color(0xFFBE185D);
   static const Color pink800 = Color(0xFF9D174D);
   static const Color pink900 = Color(0xFF831843);
-  static const Color pink950 = Color(0xFF451225);
 
   //ROSE
   static const Color rose50 = Color(0xFFFFF1F2);
@@ -290,7 +270,6 @@ class TailwindColors {
   static const Color rose700 = Color(0xFFBE123C);
   static const Color rose800 = Color(0xFF9F1239);
   static const Color rose900 = Color(0xFF881337);
-  static const Color rose950 = Color(0xFF4C0D2B);
 }
 
 dynamic getMaxWidthFromTailwindClass(String maxWidthClass) {

@@ -19,7 +19,7 @@ class TailwindStyle {
   static const Color slate700 = Color(0xFF333D4B);
   static const Color slate800 = Color(0xFF1E293B);
   static const Color slate900 = Color(0xFF0F172A);
-  static const Color slate950 = Color(0xFF020617);
+
 
   //RED
   static const Color red50 = Color(0xFFFFF5F5);
@@ -32,7 +32,7 @@ class TailwindStyle {
   static const Color red700 = Color(0xFFF03E3E);
   static const Color red800 = Color(0xFFE03131);
   static const Color red900 = Color(0xFFC92A2A);
-  static const Color red950 = Color(0xFF7A1E1E);
+
 
   //GRAY
   static const Color gray50 = Color(0xFFF9FAFB);
@@ -45,7 +45,7 @@ class TailwindStyle {
   static const Color gray700 = Color(0xFF374151);
   static const Color gray800 = Color(0xFF1F2937);
   static const Color gray900 = Color(0xFF111827);
-  static const Color gray950 = Color(0xFF03045E);
+
 
   // ZINC
   // Tambahkan definisi warna-warna sesuai kode Anda
@@ -59,7 +59,7 @@ class TailwindStyle {
   static const Color zinc700 = Color(0xFF3F3F42);
   static const Color zinc800 = Color(0xFF27272A);
   static const Color zinc900 = Color(0xFF18181B);
-  static const Color zinc950 = Color(0xFF09090B);
+
 
   // Neutral
   static const Color neutral50 = Color(0xFFFAFAFA);
@@ -72,7 +72,7 @@ class TailwindStyle {
   static const Color neutral700 = Color(0xFF3F3F46);
   static const Color neutral800 = Color(0xFF27272A);
   static const Color neutral900 = Color(0xFF18181B);
-  static const Color neutral950 = Color(0xFF0C0C0E);
+
 
   //STONE
   static const Color stone50 = Color(0xFFF9FAF9);
@@ -85,7 +85,7 @@ class TailwindStyle {
   static const Color stone700 = Color(0xFF444844);
   static const Color stone800 = Color(0xFF292C29);
   static const Color stone900 = Color(0xFF1C1E1C);
-  static const Color stone950 = Color(0xFF0B0C0B);
+
 
   //ORANGE
   static const Color orange50 = Color(0xFFFFF7ED);
@@ -98,7 +98,7 @@ class TailwindStyle {
   static const Color orange700 = Color(0xFFC2410C);
   static const Color orange800 = Color(0xFF9A3412);
   static const Color orange900 = Color(0xFF7C2D12);
-  static const Color orange950 = Color(0xFF420806);
+
 
   //AMBER
   static const Color amber50 = Color(0xFFFFFBEB);
@@ -111,7 +111,7 @@ class TailwindStyle {
   static const Color amber700 = Color(0xFF9C4221);
   static const Color amber800 = Color(0xFF7B341E);
   static const Color amber900 = Color(0xFF652B19);
-  static const Color amber950 = Color(0xFF38200B);
+
 
   //YELLOW
   static const Color yellow50 = Color(0xFFFFFBE8);
@@ -124,7 +124,7 @@ class TailwindStyle {
   static const Color yellow700 = Color(0xFFCB6E17);
   static const Color yellow800 = Color(0xFFB44D12);
   static const Color yellow900 = Color(0xFF8D2B0B);
-  static const Color yellow950 = Color(0xFF743D0B);
+
 
   //LIME
   static const Color lime50 = Color(0xFFF7FEE7);
@@ -137,7 +137,7 @@ class TailwindStyle {
   static const Color lime700 = Color(0xFF4D7C0F);
   static const Color lime800 = Color(0xFF3F6212);
   static const Color lime900 = Color(0xFF365314);
-  static const Color lime950 = Color(0xFF1D4014);
+
 
   //GREEN
   static const Color green50 = Color(0xFFF0FDF4);
@@ -150,7 +150,7 @@ class TailwindStyle {
   static const Color green700 = Color(0xFF15803D);
   static const Color green800 = Color(0xFF166534);
   static const Color green900 = Color(0xFF14532D);
-  static const Color green950 = Color(0xFF0D3321);
+
 
   //EMERALD
   static const Color emerald50 = Color(0xFFF6FCF9);
@@ -163,7 +163,7 @@ class TailwindStyle {
   static const Color emerald700 = Color(0xFF188F57);
   static const Color emerald800 = Color(0xFF167749);
   static const Color emerald900 = Color(0xFF13633E);
-  static const Color emerald950 = Color(0xFF062A1A);
+
 
   //TEAL
   static const Color teal50 = Color(0xFFF0FCF9);
@@ -176,7 +176,7 @@ class TailwindStyle {
   static const Color teal700 = Color(0xFF048271);
   static const Color teal800 = Color(0xFF016457);
   static const Color teal900 = Color(0xFF004440);
-  static const Color teal950 = Color(0xFF001F1D);
+
 
   //CYAN
   static const Color cyan50 = Color(0xFFECFEFF);
@@ -189,7 +189,7 @@ class TailwindStyle {
   static const Color cyan700 = Color(0xFF2C5282);
   static const Color cyan800 = Color(0xFF2A4365);
   static const Color cyan900 = Color(0xFF1A365D);
-  static const Color cyan950 = Color(0xFF153E75);
+
 
   //SKY
   static const Color sky50 = Color(0xFFF0F9FF);
@@ -202,7 +202,7 @@ class TailwindStyle {
   static const Color sky700 = Color(0xFF434190);
   static const Color sky800 = Color(0xFF3C366B);
   static const Color sky900 = Color(0xFF32314F);
-  static const Color sky950 = Color(0xFF1E1E3F);
+
 
   //BLUE
   static const Color blue50 = Color(0xFFF7F9FC);
@@ -215,7 +215,7 @@ class TailwindStyle {
   static const Color blue700 = Color(0xFF27303F);
   static const Color blue800 = Color(0xFF1A202E);
   static const Color blue900 = Color(0xFF171B24);
-  static const Color blue950 = Color(0xFF0F121B);
+
 
   //INDIGO
   static const Color indigo50 = Color(0xFFEEF2FF);
@@ -228,7 +228,7 @@ class TailwindStyle {
   static const Color indigo700 = Color(0xFF4338CA);
   static const Color indigo800 = Color(0xFF3730A3);
   static const Color indigo900 = Color(0xFF312E81);
-  static const Color indigo950 = Color(0xFF1C1A52);
+
 
   //VIOLET
   static const Color violet50 = Color(0xFFF5F3FF);
@@ -241,7 +241,7 @@ class TailwindStyle {
   static const Color violet700 = Color(0xFF6D28D9);
   static const Color violet800 = Color(0xFF5B21B6);
   static const Color violet900 = Color(0xFF4C1D95);
-  static const Color violet950 = Color(0xFF321569);
+
 
   //PURPLE
   static const Color purple50 = Color(0xFFF5F3FF);
@@ -254,7 +254,7 @@ class TailwindStyle {
   static const Color purple700 = Color(0xFF6D28D9);
   static const Color purple800 = Color(0xFF5B21B6);
   static const Color purple900 = Color(0xFF4C1D95);
-  static const Color purple950 = Color(0xFF321569);
+
 
   //FUCHSIA
   static const Color fuchsia50 = Color(0xFFFDF4FF);
@@ -267,7 +267,7 @@ class TailwindStyle {
   static const Color fuchsia700 = Color(0xFFA21CAF);
   static const Color fuchsia800 = Color(0xFF86198F);
   static const Color fuchsia900 = Color(0xFF701A75);
-  static const Color fuchsia950 = Color(0xFF451225);
+
 
   //PINK
   static const Color pink50 = Color(0xFFFDF2F8);
@@ -280,7 +280,7 @@ class TailwindStyle {
   static const Color pink700 = Color(0xFFBE185D);
   static const Color pink800 = Color(0xFF9D174D);
   static const Color pink900 = Color(0xFF831843);
-  static const Color pink950 = Color(0xFF451225);
+
 
   //ROSE
   static const Color rose50 = Color(0xFFFFF1F2);
@@ -293,7 +293,19 @@ class TailwindStyle {
   static const Color rose700 = Color(0xFFBE123C);
   static const Color rose800 = Color(0xFF9F1239);
   static const Color rose900 = Color(0xFF881337);
-  static const Color rose950 = Color(0xFF4C0D2B);
+  static const Color primaryColorshade50 = Color(0xFFfde9ea); 
+  static const Color primaryColorshade100 = Color(0xFFfbd2d6);
+  static const Color primaryColorshade200 = Color(0xFFf6a6ac);
+  static const Color primaryColorshade300 = Color(0xFFf27983);
+  static const Color primaryColorshade400 = Color(0xFFed4d59);
+  static const Color primaryColorshade500 = Color(0xFFe92030);
+  static const Color primaryColorshade600 = Color(0xFFd21d2b);
+  static const Color primaryColorshade700 = Color(0xFFba1a26);
+  static const Color primaryColorshade800 = Color(0xFFa31622);
+  static const Color primaryColorshade900 = Color(0xFF8c131d);
+    
+
+
 
   
 }
@@ -315,7 +327,7 @@ Color? getBorderColor(String className) {
     case 'border-slate-700': return TailwindColors.slate700;
     case 'border-slate-800': return TailwindColors.slate800;
     case 'border-slate-900': return TailwindColors.slate900;
-    case 'border-slate-950': return TailwindColors.slate950;
+
     //gray
     case 'border-gray-50': return TailwindColors.gray50;
     case 'border-gray-100': return TailwindColors.gray100;
@@ -327,7 +339,7 @@ Color? getBorderColor(String className) {
     case 'border-gray-700': return TailwindColors.gray700;
     case 'border-gray-800': return TailwindColors.gray800;
     case 'border-gray-900': return TailwindColors.gray900;
-    case 'border-gray-950': return TailwindColors.gray950;
+
     //red
     case 'border-red-50': return TailwindColors.red50;
     case 'border-red-100': return TailwindColors.red100;
@@ -339,7 +351,7 @@ Color? getBorderColor(String className) {
     case 'border-red-700': return TailwindColors.red700;
     case 'border-red-800': return TailwindColors.red800;
     case 'border-red-900': return TailwindColors.red900;
-    case 'border-red-950': return TailwindColors.red950;
+
     //zinc
     case 'border-zinc-50': return TailwindColors.zinc50;
     case 'border-zinc-100': return TailwindColors.zinc100;
@@ -351,7 +363,7 @@ Color? getBorderColor(String className) {
     case 'border-zinc-700': return TailwindColors.zinc700;
     case 'border-zinc-800': return TailwindColors.zinc800;
     case 'border-zinc-900': return TailwindColors.zinc900;
-    case 'border-zinc-950': return TailwindColors.zinc950;
+
     //neutral
     case 'border-neutral-50': return TailwindColors.neutral50;
     case 'border-neutral-100': return TailwindColors.neutral100;
@@ -363,7 +375,7 @@ Color? getBorderColor(String className) {
     case 'border-neutral-700': return TailwindColors.neutral700;
     case 'border-neutral-800': return TailwindColors.neutral800;
     case 'border-neutral-900': return TailwindColors.neutral900;
-    case 'border-neutral-950': return TailwindColors.neutral950;
+
     //stone
     case 'border-stone-50': return TailwindColors.stone50;
     case 'border-stone-100': return TailwindColors.stone100;
@@ -376,7 +388,7 @@ Color? getBorderColor(String className) {
     case 'border-stone-700': return TailwindColors.stone700;
     case 'border-stone-800': return TailwindColors.stone800;
     case 'border-stone-900': return TailwindColors.stone900;
-    case 'border-stone-950': return TailwindColors.stone950;
+
     //orange
     case 'border-orange-50': return TailwindColors.orange50;
     case 'border-orange-100': return TailwindColors.orange100;
@@ -388,7 +400,7 @@ Color? getBorderColor(String className) {
     case 'border-orange-700': return TailwindColors.orange700;
     case 'border-orange-800': return TailwindColors.orange800;
     case 'border-orange-900': return TailwindColors.orange900;
-    case 'border-orange-950': return TailwindColors.orange950;
+
     //amber
     case 'border-amber-50': return TailwindColors.amber50;
     case 'border-amber-100': return TailwindColors.amber100;
@@ -400,7 +412,7 @@ Color? getBorderColor(String className) {
     case 'border-amber-700': return TailwindColors.amber700;
     case 'border-amber-800': return TailwindColors.amber800;
     case 'border-amber-900': return TailwindColors.amber900;
-    case 'border-amber-950': return TailwindColors.amber950;
+
     //yellow
     case 'border-yellow-50': return TailwindColors.yellow50;
     case 'border-yellow-100': return TailwindColors.yellow100;
@@ -412,7 +424,7 @@ Color? getBorderColor(String className) {
     case 'border-yellow-700': return TailwindColors.yellow700;
     case 'border-yellow-800': return TailwindColors.yellow800;
     case 'border-yellow-900': return TailwindColors.yellow900;
-    case 'border-yellow-950': return TailwindColors.yellow950;
+
     //lime
     case 'border-lime-50': return TailwindColors.lime50;
     case 'border-lime-100': return TailwindColors.lime100;
@@ -424,7 +436,7 @@ Color? getBorderColor(String className) {
     case 'border-lime-700': return TailwindColors.lime700;
     case 'border-lime-800': return TailwindColors.lime800;
     case 'border-lime-900': return TailwindColors.lime900;
-    case 'border-lime-950': return TailwindColors.lime950;
+
     //green
     case 'border-green-50': return TailwindColors.green50;
     case 'border-green-100': return TailwindColors.green100;
@@ -436,7 +448,7 @@ Color? getBorderColor(String className) {
     case 'border-green-700': return TailwindColors.green700;
     case 'border-green-800': return TailwindColors.green800;
     case 'border-green-900': return TailwindColors.green900;
-    case 'border-green-950': return TailwindColors.green950;
+
     //emerald
     case 'border-emerald-50': return TailwindColors.emerald50;
     case 'border-emerald-100': return TailwindColors.emerald100;
@@ -448,7 +460,7 @@ Color? getBorderColor(String className) {
     case 'border-emerald-700': return TailwindColors.emerald700;
     case 'border-emerald-800': return TailwindColors.emerald800;
     case 'border-emerald-900': return TailwindColors.emerald900;
-    case 'border-emerald-950': return TailwindColors.emerald950;
+
     //teal  
     case 'border-teal-50': return TailwindColors.teal50;
     case 'border-teal-100': return TailwindColors.teal100;
@@ -460,7 +472,7 @@ Color? getBorderColor(String className) {
     case 'border-teal-700': return TailwindColors.teal700;
     case 'border-teal-800': return TailwindColors.teal800;
     case 'border-teal-900': return TailwindColors.teal900;
-    case 'border-teal-950': return TailwindColors.teal950;
+
     //cyan
     case 'border-cyan-50': return TailwindColors.cyan50;
     case 'border-cyan-100': return TailwindColors.cyan100;
@@ -472,7 +484,7 @@ Color? getBorderColor(String className) {
     case 'border-cyan-700': return TailwindColors.cyan700;
     case 'border-cyan-800': return TailwindColors.cyan800;
     case 'border-cyan-900': return TailwindColors.cyan900;
-    case 'border-cyan-950': return TailwindColors.cyan950;
+
     //sky
     case 'border-sky-50': return TailwindColors.sky50;
     case 'border-sky-100': return TailwindColors.sky100;
@@ -484,7 +496,7 @@ Color? getBorderColor(String className) {
     case 'border-sky-700': return TailwindColors.sky700;
     case 'border-sky-800': return TailwindColors.sky800;
     case 'border-sky-900': return TailwindColors.sky900;
-    case 'border-sky-950': return TailwindColors.sky950;
+
     //blue
     case 'border-blue-50': return TailwindColors.blue50;
     case 'border-blue-100': return TailwindColors.blue100;
@@ -496,7 +508,7 @@ Color? getBorderColor(String className) {
     case 'border-blue-700': return TailwindColors.blue700;
     case 'border-blue-800': return TailwindColors.blue800;
     case 'border-blue-900': return TailwindColors.blue900;
-    case 'border-blue-950': return TailwindColors.blue950;
+
     //indigo
     case 'border-indigo-50': return TailwindColors.indigo50;
     case 'border-indigo-100': return TailwindColors.indigo100;
@@ -508,7 +520,7 @@ Color? getBorderColor(String className) {
     case 'border-indigo-700': return TailwindColors.indigo700;
     case 'border-indigo-800': return TailwindColors.indigo800;
     case 'border-indigo-900': return TailwindColors.indigo900;
-    case 'border-indigo-950': return TailwindColors.indigo950;
+
     //violet
     case 'border-violet-50': return TailwindColors.violet50;
     case 'border-violet-100': return TailwindColors.violet100;
@@ -520,7 +532,7 @@ Color? getBorderColor(String className) {
     case 'border-violet-700': return TailwindColors.violet700;
     case 'border-violet-800': return TailwindColors.violet800;
     case 'border-violet-900': return TailwindColors.violet900;
-    case 'border-violet-950': return TailwindColors.violet950;
+
     //purple
     case 'border-purple-50': return TailwindColors.purple50;
     case 'border-purple-100': return TailwindColors.purple100;
@@ -532,7 +544,7 @@ Color? getBorderColor(String className) {
     case 'border-purple-700': return TailwindColors.purple700;
     case 'border-purple-800': return TailwindColors.purple800;
     case 'border-purple-900': return TailwindColors.purple900;
-    case 'border-purple-950': return TailwindColors.purple950;
+
     //fuchsia
     case 'border-fuchsia-50': return TailwindColors.fuchsia50;
     case 'border-fuchsia-100': return TailwindColors.fuchsia100;
@@ -544,7 +556,7 @@ Color? getBorderColor(String className) {
     case 'border-fuchsia-700': return TailwindColors.fuchsia700;
     case 'border-fuchsia-800': return TailwindColors.fuchsia800;
     case 'border-fuchsia-900': return TailwindColors.fuchsia900;
-    case 'border-fuchsia-950': return TailwindColors.fuchsia950;
+
 
     //pink
     case 'border-pink-50': return TailwindColors.pink50;
@@ -557,7 +569,7 @@ Color? getBorderColor(String className) {
     case 'border-pink-700': return TailwindColors.pink700;
     case 'border-pink-800': return TailwindColors.pink800;
     case 'border-pink-900': return TailwindColors.pink900;
-    case 'border-pink-950': return TailwindColors.pink950;
+
     //rose
     case 'border-rose-50': return TailwindColors.rose50;
     case 'border-rose-100': return TailwindColors.rose100;
@@ -569,7 +581,7 @@ Color? getBorderColor(String className) {
     case 'border-rose-700': return TailwindColors.rose700;
     case 'border-rose-800': return TailwindColors.rose800;
     case 'border-rose-900': return TailwindColors.rose900;
-    case 'border-rose-950': return TailwindColors.rose950;
+
     default:
       // Return a default color if the class name doesn't match any case
       return null; // You can choose any default color you prefer
@@ -623,7 +635,7 @@ Color? getbgColorFromClassName(String className) {
     //INHERIT
     case 'bg-inherit': return TailwindColors.inherit;
     case 'bg-current': return TailwindColors.currentColor;
-    case 'bg-transparent': return TailwindColors.white;
+    case 'bg-transparent': return TailwindColors.transparent;
     case 'bg-black': return TailwindColors.black;
     case 'bg-white': return  TailwindColors.white;
     case 'bg-slate-50': return  TailwindColors.slate50;
@@ -636,7 +648,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-slate-700': return  TailwindColors.slate700;
     case 'bg-slate-800': return  TailwindColors.slate800;
     case 'bg-slate-900': return  TailwindColors.slate900;
-    case 'bg-slate-950': return TailwindColors.slate950;
+
 
     // GRAY
     case 'bg-gray-50': return TailwindColors.gray50;
@@ -649,7 +661,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-gray-700': return TailwindColors.gray700;
     case 'bg-gray-800': return TailwindColors.gray800;
     case 'bg-gray-900': return TailwindColors.gray900;
-    case 'bg-gray-950': return TailwindColors.gray950;
+
 
     //RED
     case 'bg-red-50': return TailwindColors.red50;
@@ -662,7 +674,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-red-700': return TailwindColors.red700;
     case 'bg-red-800': return TailwindColors.red800;
     case 'bg-red-900': return TailwindColors.red900;
-    case 'bg-red-950': return TailwindColors.red950;
+
 
     //ZINC
     case 'bg-zinc-50': return TailwindColors.zinc50;
@@ -675,7 +687,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-zinc-700': return TailwindColors.zinc700;
     case 'bg-zinc-800': return TailwindColors.zinc800;
     case 'bg-zinc-900': return TailwindColors.zinc900;
-    case 'bg-zinc-950': return TailwindColors.zinc950;
+
 
 
     //Neutral
@@ -689,7 +701,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-neutral-700': return TailwindColors.neutral700;
     case 'bg-neutral-800': return TailwindColors.neutral800;
     case 'bg-neutral-900': return TailwindColors.neutral900;
-    case 'bg-neutral-950': return TailwindColors.neutral950;
+
     
     //STONE
     case 'bg-stone-50': return  TailwindColors.stone50;
@@ -713,7 +725,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-orange-700': return TailwindColors.orange700;
     case 'bg-orange-800': return TailwindColors.orange800;
     case 'bg-orange-900': return TailwindColors.orange900;
-    case 'bg-orange-950': return TailwindColors.orange950;
+
 
     //AMBER
     case 'bg-amber-50': return TailwindColors.amber50;
@@ -726,7 +738,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-amber-700': return TailwindColors.amber700;
     case 'bg-amber-800': return TailwindColors.amber800;
     case 'bg-amber-900': return TailwindColors.amber900;
-    case 'bg-amber-950': return TailwindColors.amber950;
+
     
     //YELLOW
     case 'bg-yellow-50': return TailwindColors.yellow50;
@@ -739,7 +751,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-yellow-700': return TailwindColors.yellow700;
     case 'bg-yellow-800': return TailwindColors.yellow800;
     case 'bg-yellow-900': return TailwindColors.yellow900;
-    case 'bg-yellow-950': return TailwindColors.yellow950;
+
 
     //LIME
     case 'bg-lime-50': return TailwindColors.lime50;
@@ -752,7 +764,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-lime-700': return TailwindColors.lime700;
     case 'bg-lime-800': return TailwindColors.lime800;
     case 'bg-lime-900': return TailwindColors.lime900;
-    case 'bg-lime-950': return TailwindColors.lime950;
+
 
     //GREEN
     case 'bg-green-50': return TailwindColors.green50;
@@ -765,7 +777,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-green-700': return TailwindColors.green700;
     case 'bg-green-800': return TailwindColors.green800;
     case 'bg-green-900': return TailwindColors.green900;
-    case 'bg-green-950': return TailwindColors.green950;
+
 
     //EMERALD
     case 'bg-emerald-50': return TailwindColors.emerald50;
@@ -790,7 +802,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-teal-700': return TailwindColors.teal700;
     case 'bg-teal-800': return TailwindColors.teal800;
     case 'bg-teal-900': return TailwindColors.teal900;
-    case 'bg-teal-950': return TailwindColors.teal950;
+
 
     //CYAN
     case 'bg-cyan-50': return TailwindColors.cyan50;
@@ -803,7 +815,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-cyan-700': return TailwindColors.cyan700;
     case 'bg-cyan-800': return TailwindColors.cyan800;
     case 'bg-cyan-900': return TailwindColors.cyan900;
-    case 'bg-cyan-950': return TailwindColors.cyan950;
+
 
     //SKY
     case 'bg-sky-50': return TailwindColors.sky50;
@@ -816,7 +828,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-sky-700': return TailwindColors.sky700;
     case 'bg-sky-800': return TailwindColors.sky800;
     case 'bg-sky-900': return TailwindColors.sky900;
-    case 'bg-sky-950': return TailwindColors.sky950;
+
 
     //BLUE
     case 'bg-blue-50': return TailwindColors.blue50;
@@ -829,7 +841,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-blue-700': return TailwindColors.blue700;
     case 'bg-blue-800': return TailwindColors.blue800;
     case 'bg-blue-900': return TailwindColors.blue900;
-    case 'bg-blue-950': return TailwindColors.blue950;
+
 
     //INDIGO
     case 'bg-indigo-50': return TailwindColors.indigo50;
@@ -842,7 +854,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-indigo-700': return TailwindColors.indigo700;
     case 'bg-indigo-800': return TailwindColors.indigo800;
     case 'bg-indigo-900': return TailwindColors.indigo900;
-    case 'bg-indigo-950': return TailwindColors.indigo950;
+
 
     //VIOLET
     case 'bg-violet-50': return TailwindColors.violet50;
@@ -855,7 +867,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-violet-700': return TailwindColors.violet700;
     case 'bg-violet-800': return TailwindColors.violet800;
     case 'bg-violet-900': return TailwindColors.violet900;
-    case 'bg-violet-950': return TailwindColors.violet950;
+
 
     //PURPLE
     case 'bg-purple-50': return TailwindColors.purple50;
@@ -868,7 +880,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-purple-700': return TailwindColors.purple700;
     case 'bg-purple-800': return TailwindColors.purple800;
     case 'bg-purple-900': return TailwindColors.purple900;
-    case 'bg-purple-950': return TailwindColors.purple950;
+
 
     //FUCHSIA
     case 'bg-fuchsia-50': return TailwindColors.fuchsia50;
@@ -881,7 +893,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-fuchsia-700': return TailwindColors.fuchsia700;
     case 'bg-fuchsia-800': return TailwindColors.fuchsia800;
     case 'bg-fuchsia-900': return TailwindColors.fuchsia900;
-    case 'bg-fuchsia-950': return TailwindColors.fuchsia950;
+
 
     //PINK
     case 'bg-pink-50': return TailwindColors.pink50;
@@ -894,7 +906,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-pink-700': return TailwindColors.pink700;
     case 'bg-pink-800': return TailwindColors.pink800;
     case 'bg-pink-900': return TailwindColors.pink900;
-    case 'bg-pink-950': return TailwindColors.pink950;
+
 
     //ROSE
     case 'bg-rose-50': return TailwindColors.rose50;
@@ -907,7 +919,7 @@ Color? getbgColorFromClassName(String className) {
     case 'bg-rose-700': return TailwindColors.rose700;
     case 'bg-rose-800': return TailwindColors.rose800;
     case 'bg-rose-900': return TailwindColors.rose900;
-    case 'bg-rose-950': return TailwindColors.rose950;
+
 
     // Lanjutkan dengan kasus lain sesuai kelas warna Tailwind
     default:
@@ -1261,23 +1273,34 @@ EdgeInsetsGeometry? getMargin(String className) {
 BorderRadius? getRadius(String className) {
     switch (className) {
       case 'rounded-none':
-        return BorderRadius.circular(0.0);
+        return const BorderRadius.all(Radius.circular(0.0)); 
+        // BorderRadius.circular(0.0);
       case 'rounded-sm':
-        return BorderRadius.circular(2.0);
+        return const BorderRadius.all(Radius.circular(2.0)); 
+        // BorderRadius.circular(2.0);
       case 'rounded':
-        return BorderRadius.circular(4.0);
+        return const BorderRadius.all(Radius.circular(4.0)); 
+        // BorderRadius.circular(4.0);
       case 'rounded-md':
-        return BorderRadius.circular(6.0);
+        return const BorderRadius.all(Radius.circular(6.0)); 
+        // BorderRadius.circular(6.0);
       case 'rounded-lg':
-        return BorderRadius.circular(8.0);
+        return const BorderRadius.all(Radius.circular(8.0)); 
+        // BorderRadius.circular(8.0);
       case 'rounded-xl':
-        return BorderRadius.circular(12.0);
+        return const BorderRadius.all(Radius.circular(12.0)); 
+        // BorderRadius.circular(12.0);
       case 'rounded-2xl':
-        return BorderRadius.circular(16.0);
+        return const BorderRadius.all(Radius.circular(16.0)); 
+        // const 
+        // BorderRadius.all(Radius.circular(16.0));
+        // BorderRadius.circular(16.0);
       case 'rounded-3xl':
-        return BorderRadius.circular(24.0);
+        return 
+        BorderRadius.circular(24.0);
       case 'rounded-full':
-        return BorderRadius.circular(9999.0);
+        return 
+        BorderRadius.circular(9999.0);
       case 'rounded-s-none':
         return const BorderRadius.horizontal(left: Radius.circular(0.0), right: Radius.circular(0.0));
       case 'rounded-s-sm':
@@ -2663,6 +2686,8 @@ MainAxisAlignment? convertAlignItemsToMainAxisAlignment(String alignItems) {
   }
 }
 
+
+
   FontWeight? getFontWeight(String tailwindFontWeight) {
     switch (tailwindFontWeight) {
       case 'font-thin': return FontWeight.w100;
@@ -2679,6 +2704,44 @@ MainAxisAlignment? convertAlignItemsToMainAxisAlignment(String alignItems) {
     }
     return null;
   }
+
+  int? getGap(String className) {
+    switch (className) {
+      case 'gap-0': return 0;
+      case 'gap-1': return 4;
+      case 'gap-2': return 8;
+      case 'gap-3': return 12;
+      case 'gap-4': return 16;
+      case 'gap-5': return 20;
+      case 'gap-6': return 24;
+      case 'gap-7': return 28;
+      case 'gap-8': return 32;
+      case 'gap-9': return 36;
+      case 'gap-10': return 40;
+      case 'gap-11': return 44;
+      case 'gap-12': return 48;
+      case 'gap-14': return 56;
+      case 'gap-16': return 64;
+      case 'gap-20': return 80;
+      case 'gap-24': return 96;
+      case 'gap-28': return 112;
+      case 'gap-32': return 128;
+      case 'gap-36': return 144;
+      case 'gap-40': return 160;
+      case 'gap-44': return 176;
+      case 'gap-48': return 192;
+      case 'gap-52': return 208;
+      case 'gap-56': return 224;
+      case 'gap-60': return 240;
+      case 'gap-64': return 256;
+      case 'gap-72': return 288;
+      case 'gap-80': return 320;
+      case 'gap-96': return 384;
+      default:
+        return null; // Default jika kode tidak cocok
+    }
+  }
+
   FontFeature? getFontFeatures(String fontVariant) {
     switch (fontVariant) {
       case 'normal-nums': return const FontFeature.tabularFigures();
@@ -2698,10 +2761,10 @@ MainAxisAlignment? convertAlignItemsToMainAxisAlignment(String alignItems) {
   }
 
   Map? getPaddingAll({String className = "",Map? paddingMap }) {
-    print("className4 $className");
+    
     final paddingRegex = RegExp(r'p([tblrxy]?)-(\d+)');
     final matches = paddingRegex.allMatches(className);
-    print("className2 $className");
+    
 
 
     for (final match in matches) {
@@ -2711,29 +2774,29 @@ MainAxisAlignment? convertAlignItemsToMainAxisAlignment(String alignItems) {
       switch (direction) {
         case 't':
           paddingMap?['top'] = value.toDouble();
-          print("value $value");
+          
           break;
         case 'b':
           paddingMap?['bottom'] = value.toDouble();
-          print("value $value");
+          
           break;
         case 'l':
           paddingMap?['left'] = value.toDouble();
-          print("value $value");
+          
           break;
         case 'r':
           paddingMap?['right'] = value.toDouble();
-          print("value $value");
+          
           break;
         case 'x':
           paddingMap?['left'] = value.toDouble();
           paddingMap?['right'] = value.toDouble();
-          print("value $value");
+          
           break;
         case 'y':
           paddingMap?['top'] = value.toDouble();
           paddingMap?['bottom'] = value.toDouble();
-          print("value $value");
+          
           break;
       }
     }
@@ -2782,7 +2845,7 @@ Color? getTextColor(String className) {
     case 'text-slate-700': return TailwindStyle.slate700;
     case 'text-slate-800': return TailwindStyle.slate800;
     case 'text-slate-900': return TailwindStyle.slate900;
-    case 'text-slate-950': return TailwindStyle.slate950;
+
     // GRAY
     case 'text-gray-50': return TailwindStyle.gray50;
     case 'text-gray-100': return TailwindStyle.gray100;
@@ -2794,7 +2857,7 @@ Color? getTextColor(String className) {
     case 'text-gray-700': return TailwindStyle.gray700;
     case 'text-gray-800': return TailwindStyle.gray800;
     case 'text-gray-900': return TailwindStyle.gray900;
-    case 'text-gray-950': return TailwindStyle.gray950;
+
     //RED
     case 'text-red-50': return TailwindStyle.red50;
     case 'text-red-100': return TailwindStyle.red100;
@@ -2806,7 +2869,7 @@ Color? getTextColor(String className) {
     case 'text-red-700': return TailwindStyle.red700;
     case 'text-red-800': return TailwindStyle.red800;
     case 'text-red-900': return TailwindStyle.red900;
-    case 'text-red-950': return TailwindStyle.red950;
+
     //ZINC
     case 'text-zinc-50': return TailwindStyle.zinc50;
     case 'text-zinc-100': return TailwindStyle.zinc100;
@@ -2818,7 +2881,7 @@ Color? getTextColor(String className) {
     case 'text-zinc-700': return TailwindStyle.zinc700;
     case 'text-zinc-800': return TailwindStyle.zinc800;
     case 'text-zinc-900': return TailwindStyle.zinc900;
-    case 'text-zinc-950': return TailwindStyle.zinc950;
+
     //Neutral
     case 'text-neutral-50': return TailwindStyle.neutral50;
     case 'text-neutral-100': return TailwindStyle.neutral100;
@@ -2830,7 +2893,7 @@ Color? getTextColor(String className) {
     case 'text-neutral-700': return TailwindStyle.neutral700;
     case 'text-neutral-800': return TailwindStyle.neutral800;
     case 'text-neutral-900': return TailwindStyle.neutral900;
-    case 'text-neutral-950': return TailwindStyle.neutral950;
+
 
     //STONE
     case 'text-stone-50': return TailwindStyle.stone50;
@@ -2843,7 +2906,7 @@ Color? getTextColor(String className) {
     case 'text-stone-700': return TailwindStyle.stone700;
     case 'text-stone-800': return TailwindStyle.stone800;
     case 'text-stone-900': return TailwindStyle.stone900;
-    case 'text-stone-950': return TailwindStyle.stone950;
+
     
     //ORANGE
     case 'text-orange-50': return TailwindStyle.orange50;
@@ -2856,7 +2919,7 @@ Color? getTextColor(String className) {
     case 'text-orange-700': return TailwindStyle.orange700;
     case 'text-orange-800': return TailwindStyle.orange800;
     case 'text-orange-900': return TailwindStyle.orange900;
-    case 'text-orange-950': return TailwindStyle.orange950;
+
     
     //AMBER
     case 'text-amber-50': return TailwindStyle.amber50;
@@ -2869,7 +2932,7 @@ Color? getTextColor(String className) {
     case 'text-amber-700': return TailwindStyle.amber700;
     case 'text-amber-800': return TailwindStyle.amber800;
     case 'text-amber-900': return TailwindStyle.amber900;
-    case 'text-amber-950': return TailwindStyle.amber950;
+
 
     //YELLOW
     case 'text-yellow-50': return TailwindStyle.yellow50;
@@ -2882,7 +2945,7 @@ Color? getTextColor(String className) {
     case 'text-yellow-700': return TailwindStyle.yellow700;
     case 'text-yellow-800': return TailwindStyle.yellow800;
     case 'text-yellow-900': return TailwindStyle.yellow900;
-    case 'text-yellow-950': return TailwindStyle.yellow950;
+
     
     //LIME
     case 'text-lime-50': return TailwindStyle.lime50;
@@ -2895,7 +2958,7 @@ Color? getTextColor(String className) {
     case 'text-lime-700': return TailwindStyle.lime700;
     case 'text-lime-800': return TailwindStyle.lime800;
     case 'text-lime-900': return TailwindStyle.lime900;
-    case 'text-lime-950': return TailwindStyle.lime950;
+
 
     //GREEN
     case 'text-green-50': return TailwindStyle.green50;
@@ -2908,7 +2971,7 @@ Color? getTextColor(String className) {
     case 'text-green-700': return TailwindStyle.green700;
     case 'text-green-800': return TailwindStyle.green800;
     case 'text-green-900': return TailwindStyle.green900;
-    case 'text-green-950': return TailwindStyle.green950;
+
     
     //EMERALD
     case 'text-emerald-50': return TailwindStyle.emerald50;
@@ -2921,7 +2984,7 @@ Color? getTextColor(String className) {
     case 'text-emerald-700': return TailwindStyle.emerald700;
     case 'text-emerald-800': return TailwindStyle.emerald800;
     case 'text-emerald-900': return TailwindStyle.emerald900;
-    case 'text-emerald-950': return TailwindStyle.emerald950;
+
 
     //TEAL
     case 'text-teal-50': return TailwindStyle.teal50;
@@ -2934,7 +2997,7 @@ Color? getTextColor(String className) {
     case 'text-teal-700': return TailwindStyle.teal700;
     case 'text-teal-800': return TailwindStyle.teal800;
     case 'text-teal-900': return TailwindStyle.teal900;
-    case 'text-teal-950': return TailwindStyle.teal950;
+
     
     //CYAN
     case 'text-cyan-50': return TailwindStyle.cyan50;
@@ -2947,7 +3010,7 @@ Color? getTextColor(String className) {
     case 'text-cyan-700': return TailwindStyle.cyan700;
     case 'text-cyan-800': return TailwindStyle.cyan800;
     case 'text-cyan-900': return TailwindStyle.cyan900;
-    case 'text-cyan-950': return TailwindStyle.cyan950;
+
     
     //SKY
     case 'text-sky-50': return TailwindStyle.sky50;
@@ -2960,7 +3023,7 @@ Color? getTextColor(String className) {
     case 'text-sky-700': return TailwindStyle.sky700;
     case 'text-sky-800': return TailwindStyle.sky800;
     case 'text-sky-900': return TailwindStyle.sky900;
-    case 'text-sky-950': return TailwindStyle.sky950;
+
 
     //BLUE
     case 'text-blue-50': return TailwindStyle.blue50;
@@ -2973,7 +3036,7 @@ Color? getTextColor(String className) {
     case 'text-blue-700': return TailwindStyle.blue700;
     case 'text-blue-800': return TailwindStyle.blue800;
     case 'text-blue-900': return TailwindStyle.blue900;
-    case 'text-blue-950': return TailwindStyle.blue950;
+
 
     //INDIGO
     case 'text-indigo-50': return TailwindStyle.indigo50;
@@ -2986,7 +3049,7 @@ Color? getTextColor(String className) {
     case 'text-indigo-700': return TailwindStyle.indigo700;
     case 'text-indigo-800': return TailwindStyle.indigo800;
     case 'text-indigo-900': return TailwindStyle.indigo900;
-    case 'text-indigo-950': return TailwindStyle.indigo950;
+
     
     //VIOLET
     case 'text-violet-50': return TailwindStyle.violet50;
@@ -2999,7 +3062,7 @@ Color? getTextColor(String className) {
     case 'text-violet-700': return TailwindStyle.violet700;
     case 'text-violet-800': return TailwindStyle.violet800;
     case 'text-violet-900': return TailwindStyle.violet900;
-    case 'text-violet-950': return TailwindStyle.violet950;
+
 
     //PURPLE
     case 'text-purple-50': return TailwindStyle.purple50;
@@ -3012,7 +3075,7 @@ Color? getTextColor(String className) {
     case 'text-purple-700': return TailwindStyle.purple700;
     case 'text-purple-800': return TailwindStyle.purple800;
     case 'text-purple-900': return TailwindStyle.purple900;
-    case 'text-purple-950': return TailwindStyle.purple950;
+
 
     //FUCHSIA
     case 'text-fuchsia-50': return TailwindStyle.fuchsia50;
@@ -3025,7 +3088,7 @@ Color? getTextColor(String className) {
     case 'text-fuchsia-700': return TailwindStyle.fuchsia700;
     case 'text-fuchsia-800': return TailwindStyle.fuchsia800;
     case 'text-fuchsia-900': return TailwindStyle.fuchsia900;
-    case 'text-fuchsia-950': return TailwindStyle.fuchsia950;
+
     //PINK
     case 'text-pink-50': return TailwindStyle.pink50;
     case 'text-pink-100': return TailwindStyle.pink100;
@@ -3037,7 +3100,7 @@ Color? getTextColor(String className) {
     case 'text-pink-700': return TailwindStyle.pink700;
     case 'text-pink-800': return TailwindStyle.pink800;
     case 'text-pink-900': return TailwindStyle.pink900;
-    case 'text-pink-950': return TailwindStyle.pink950;
+
 
     //ROSE
     case 'text-rose-50': return TailwindStyle.rose50;
@@ -3050,7 +3113,33 @@ Color? getTextColor(String className) {
     case 'text-rose-700': return TailwindStyle.rose700;
     case 'text-rose-800': return TailwindStyle.rose800;
     case 'text-rose-900': return TailwindStyle.rose900;
-    case 'text-rose-950': return TailwindStyle.rose950;
+
+    //PRIMARY COLOR
+    case 'text-primary-50': return TailwindStyle.primaryColorshade50;
+    case 'text-primary-100': return TailwindStyle.primaryColorshade100;
+    case 'text-primary-200': return TailwindStyle.primaryColorshade200;
+    case 'text-primary-300': return TailwindStyle.primaryColorshade300;
+    case 'text-primary-400': return TailwindStyle.primaryColorshade400;
+    case 'text-primary-500': return TailwindStyle.primaryColorshade500;
+    case 'text-primary-600': return TailwindStyle.primaryColorshade600;
+    case 'text-primary-700': return TailwindStyle.primaryColorshade700;
+    case 'text-primary-800': return TailwindStyle.primaryColorshade800;
+    case 'text-primary-900': return TailwindStyle.primaryColorshade900;
+
+    
+  //   static const MaterialColor primaryColor = MaterialColor(0xffe92030, <int, Color>{
+  //   50: Color(0xfffde9ea),
+  //   100: Color(0xfffbd2d6),
+  //   200: Color(0xfff6a6ac),
+  //   300: Color(0xfff27983),
+  //   400: Color(0xffed4d59),
+  //   500: Color(0xffe92030),
+  //   600: Color(0xffd21d2b),
+  //   700: Color(0xffba1a26),
+  //   800: Color(0xffa31622),
+  //   900: Color(0xff8c131d)
+  // });
+
     
     // Lanjutkan dengan kasus lain sesuai kelas warna Tailwind
     default: return null;

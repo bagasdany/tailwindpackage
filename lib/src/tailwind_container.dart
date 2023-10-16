@@ -9,8 +9,9 @@ class ContainerTailwind extends StatefulWidget {
   final EdgeInsetsGeometry? padding,margin;
   final BorderRadiusGeometry? borderRadius;
   final Color? color,borderColor;
+  final double? width,maxWidthContainer,borderWidth;
   final String? extClass,bgImage; // Tambahkan properti extClass
-  const ContainerTailwind({super.key,this.padding,this.borderColor,this.color,this.borderRadius, this.margin,this.bgImage,  this.child, this.extClass});
+  const ContainerTailwind({super.key,this.padding,this.borderWidth,this.maxWidthContainer, this.borderColor,this.color,this.width,this.borderRadius, this.margin,this.bgImage,  this.child, this.extClass});
 
   @override
   State<ContainerTailwind> createState() => _ContainerTailwindState();
@@ -42,23 +43,12 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
         if (className.startsWith('bg-')) {
           // Ini adalah kelas latar belakang (background)
           bgColor = getbgColorFromClassName(className);
-          break; // Hentikan loop setelah menemukan kelas latar belakang pertama
-        }
-        // final colors = getbgColorFromClassName(className);
-        // if (colors != null) {
-        //   bgColor = colors;
-          
-        // }
-        final borders = getRadius(className);
-        if (borders != null) {
-          borderRadius = borders;
-          // break; 
         }
 
         final widths = getWidthFromTailwindClass(className);
         if (widths  != null) {
           widthContainer = widths;
-          break; 
+          // break; 
         }
 
         final maxwidths = getMaxWidthFromTailwindClass(className);
@@ -76,17 +66,19 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
         double horizontalPaddingValue = getPaddingDouble("px-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("px-")).substring(3)))}") ?? 0.0;
         double verticalPaddingValue = getPaddingDouble("py-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("py-")).substring(3)))}") ?? 0.0;
         padding = EdgeInsets.symmetric(horizontal: horizontalPaddingValue.toDouble(), vertical: verticalPaddingValue.toDouble());
-      } else if(classNames.any((cls) => cls.endsWith("auto")) && classNames.any((cls) => cls.endsWith("auto"))) {
+      } else if(classNames.any((cls) => cls.endsWith("auto")) && classNames.any((cls) => cls.endsWith("auto")) && !classNames.toString().contains("md:")) {
        padding=  EdgeInsets.zero;
-      } 
-      
-      else {
+      } else if(classNames.any((cls) => cls.startsWith("pl-"))) {
         var leftPadding = classNames.any((cls) => cls.startsWith("pl-")) ? getPaddingDouble("pl-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pl-")).substring(3)))}") ?? 0.0 : 0.0;
         var topPadding = classNames.any((cls) => cls.startsWith("pt-")) ? getPaddingDouble("pt-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pt-")).substring(3)))}") ?? 0.0 : 0.0;
         var rightPadding = classNames.any((cls) => cls.startsWith("pr-")) ? getPaddingDouble("pr-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pr-")).substring(3)))}") ?? 0.0 : 0.0;
         var bottomPadding = classNames.any((cls) => cls.startsWith("pb-")) ? getPaddingDouble("pb-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pb-")).substring(3)))}") ?? 0.0 : 0.0;
         padding = EdgeInsets.fromLTRB(leftPadding, topPadding, rightPadding, bottomPadding);
         } 
+        else{
+          padding = widget.padding ?? const EdgeInsets.all(0);
+          
+        }
 
     if (classNames.any((cls) => cls.startsWith("m-"))) {
         margin = EdgeInsets.all( getMarginDouble("m-${int.parse(classNames.firstWhere((cls) => cls.startsWith("m-")).substring(2))}") ?? 0.0);  
@@ -97,13 +89,17 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
         double verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0;
         margin = EdgeInsets.symmetric(horizontal: horizontalMarginValue.toDouble(), vertical: verticalMarginValue.toDouble());
       } 
-      else {
+      else if(classNames.any((cls) => cls.startsWith("ml-")) ) {
         var leftMargin = classNames.any((cls) => cls.startsWith("ml-")) ? getMarginDouble("ml-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("ml-")).substring(3)))}") ?? 0.0 : 0.0;
         var topMargin = classNames.any((cls) => cls.startsWith("mt-")) ? getMarginDouble("mt-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mt-")).substring(3)))}") ?? 0.0 : 0.0;
         var rightMargin = classNames.any((cls) => cls.startsWith("mr-")) ? getMarginDouble("mr-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mr-")).substring(3)))}") ?? 0.0 : 0.0;
         var bottomMargin = classNames.any((cls) => cls.startsWith("mb-")) ? getMarginDouble("mb-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mb-")).substring(3)))}") ?? 0.0 : 0.0;
         margin = EdgeInsets.fromLTRB(leftMargin, topMargin, rightMargin, bottomMargin);
-        } 
+        
+      }
+      else{
+        margin = widget.margin  ?? const EdgeInsets.all(0);
+      }
 
     if (classNames.any((cls) => cls.startsWith("rounded-"))) {
         borderRadius =( getRadius((classNames.firstWhere((cls) => cls.startsWith("rounded-")))) ); } 
@@ -112,22 +108,21 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
        } 
 
 
-    return Container(
-      margin: widget.margin ?? margin ?? const EdgeInsets.all(0),
-      constraints: BoxConstraints(maxWidth: maxWidthContainer is int ? maxWidthContainer.toDouble(): maxWidthContainer ?? double.infinity),
-      width: widthContainer is int ? 
-      widthContainer.toDouble() : widthContainer is double ? 
-        MediaQuery.of(context).size.width * (widthContainer *0.01) 
-        : widthContainer,
-      padding:widget.padding ??  padding,
-      decoration: BoxDecoration(
-        color:  bgColor ??  widget.color , 
-        borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(0),
-        
-     border: Border.all(color: borderColor ?? Colors.transparent),
-        image: widget.bgImage == null ? null: DecorationImage(image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.cover),
+    return ClipRRect(
+      borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(0),
+      child: Container(
+        margin: margin,
+        constraints: BoxConstraints(maxWidth: maxWidthContainer is int ? maxWidthContainer.toDouble(): maxWidthContainer ?? widget.maxWidthContainer ?? double.infinity),
+        width: widthContainer is int ? widthContainer.toDouble() : widthContainer is double ? MediaQuery.of(context).size.width * (widthContainer *0.01) :  widthContainer ?? widget.width,
+        padding: padding ?? widget.padding,
+        decoration: BoxDecoration(
+          borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(0),
+          color:  bgColor ??  widget.color,
+          border: Border.all(color: borderColor ?? widget.borderColor ?? Colors.transparent,width: widget.borderWidth ?? 1),
+          image: widget.bgImage == null ? null: DecorationImage(image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.cover),
+        ),
+        child: widget.child,
       ),
-      child: widget.child,
     );
   }
 }

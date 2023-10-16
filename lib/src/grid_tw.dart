@@ -12,6 +12,8 @@
 library tailwind_style;
 
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:tailwind_style/component/tailwind_style.dart';
 import 'package:tailwind_style/tailwind_style.dart';
 
 class GridTW extends StatefulWidget {
@@ -28,6 +30,7 @@ class GridTW extends StatefulWidget {
 }
 
 class _GridTWState extends State<GridTW> {
+  int? gapVertical,gapHorizontal;
 Widget buildGridRows(int rowCount, int itemCount) {
   final int colCount = (itemCount / rowCount).ceil();
 
@@ -44,7 +47,16 @@ Widget buildGridRows(int rowCount, int itemCount) {
             final itemIndex = (rowIndex * colCount) + colIndex;
             
             if (itemIndex < itemCount) {
-              return Expanded(child: widget.child?.call(itemIndex) ?? Container());
+              return 
+              Expanded(child:  widget.child?.call(itemIndex) ?? Container(),
+              //   child: Row(
+              //   children: [
+                 
+
+              //        colIndex == (colCount -1) ? Gap(0): Gap((gapVertical ?? 0.0).toDouble())
+              //   ],
+              // )
+              );
               } else {
               return const SizedBox(width: 0, height: 0); // Placeholder untuk item yang tidak ada
             }
@@ -54,28 +66,68 @@ Widget buildGridRows(int rowCount, int itemCount) {
     },
   );
 }
-Widget buildGridColumns(int colCount, int itemCount) {
-  final int rowCount = (itemCount / colCount).ceil();
-
+Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow) {
+  final int colDownCount = (itemCount / rightColCount).ceil();
+  var gapRow;
+  if((GapCol ?? 0) > 2 ) {
+    print("gapRow GapCol $GapCol");
+    gapRow = (GapCol ?? 2) / 2 ;
+    print("gapRow $gapRow");
+  }
   return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
     children: List.generate(
-      rowCount,
+      colDownCount,
       (rowIndex) {
-        return Row(mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-          children: List.generate(
-            colCount,
-            (colIndex) {
-              final itemIndex = (rowIndex * colCount) + colIndex;
-              if (itemIndex < itemCount) {
-                return Expanded(child: widget.child?.call(itemIndex) ?? Container());
-              } else {
-                return const SizedBox(width: 0, height: 0); // Placeholder untuk item yang tidak ada
-              }
-            },
+        return Container(
+                        
+          child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+            children: List.generate(
+              rightColCount,
+              (colIndex) {
+                print("rowIndex-rightColCount $rowIndex-$rowIndex");
+                final itemIndex = (rowIndex * rightColCount) + colIndex;
+                if (itemIndex < itemCount) {
+                  return Flexible(
+                    fit: FlexFit.loose,
+                    child: Column(
+                      children: [
+                        Container(
+                          // margin: rowIndex != (rightColCount - 1) ?EdgeInsets.only(right: 20) :  EdgeInsets.zero,
+          
+                              
+                          child: Row(
+                            children: [
+                              // on dev for gap-x-8 gap-y-4
+                              // Gap(24,crossAxisExtent: 20,color: Colors.blue,),
+                              itemIndex % rightColCount != 0 ? Container(color: Colors.red,width:gapRow?.toDouble() ?? 0.0,height: 1,):SizedBox(width: 0,),
+                              
+                              Flexible(child: Container(
+                                child: widget.child?.call(itemIndex) ?? Container())),
+                              // itemIndex % 2 == 1 ? Gap(0):  Gap((20.0).toDouble(),crossAxisExtent: GapCol?.toDouble(),color: Colors.blue,)
+                              // Gap(10) ,// membuat gap sebesar 10 logical pixels
+                              // Gap(24,crossAxisExtent: 20,color: Colors.red,),
+                              itemIndex % rightColCount == 0 ? Container(color: Colors.red,width: gapRow?.toDouble() ?? 0.0,height: 1,):SizedBox(width: 0,),
+                              // itemIndex == (rightColCount -1) ||
+                              //  itemIndex == (itemCount -1) ? Container():  Gap(20,crossAxisExtent: 20,color: Colors.amber,)
+                            ],
+                          ),
+                        ),
+                        
+                        rowIndex == (colDownCount -1) ? Gap(0):  Gap((GapCol ?? 0.0).toDouble(),crossAxisExtent: 0,color: Colors.amber,)
+                      
+                      //  Gap(30,crossAxisExtent: 10,color: Colors.black,)
+                      ],
+                    ));
+                } else {
+                  return const SizedBox(width: 0, height: 0); // Placeholder untuk item yang tidak ada
+                }
+              },
+            ),
           ),
         );
       },
@@ -93,8 +145,12 @@ Widget buildGridColumns(int colCount, int itemCount) {
     Axis? direction;
 
     Widget? grid;
+    List<String> classNames = (widget.mainClass ?? "").split(" ");
+
     // Cek apakah properti mainClass diberikan
     if (widget.mainClass != null) {
+      
+    
       // Split properti mainClass menjadi kelas-kelas warna
       final classes = (widget.mainClass ?? "").split(' ');
       // Loop melalui setiap kelas warna dan cek apakah ada warna yang sesuai
@@ -103,18 +159,22 @@ Widget buildGridColumns(int colCount, int itemCount) {
             // Ini adalah pengaturan grid baris
            rowCount = int.parse(className.replaceAll('grid-rows-', ''));
           grid = buildGridRows(rowCount,widget.itemCount ?? 0);
-        } else if (className.startsWith('grid-cols')) {
-           // Ini adalah pengaturan grid kolom
-           colCount = int.parse(className.replaceAll('grid-cols-', ''));
-          grid = buildGridColumns(colCount, widget.itemCount ?? 0 );
         }
-
-        
-        
-      }
+        if (className.startsWith('grid-cols') && !className.contains("md:")) {
+          // print("className gapsss $classNames");
+          if (classNames.any((cls) => cls.startsWith("gap-"))) {
+              print("className gap $className");
+              gapVertical = getGap(classNames.firstWhere((cls) => cls.startsWith("gap-"))); 
+              print("className gap $gapVertical");
+          } 
+          colCount = int.parse(className.replaceAll('grid-cols-', ''));
+          grid = buildGridColumns(colCount ?? 1, widget.itemCount ?? 0 ,gapVertical ?? 0,0 ?? 0);
+        } else {
+          
+        }
+      } 
     }
 
-    return grid ?? 
-    buildGridRows(1, widget.itemCount ?? 0);
+    return grid ?? buildGridColumns(colCount ?? 1, widget.itemCount ?? 0,gapVertical ?? 0,gapHorizontal);
   }
 }

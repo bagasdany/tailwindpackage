@@ -24,8 +24,6 @@ class _FlexTWState extends State<FlexTW> {
     CrossAxisAlignment? crossAxisAlignment;
     MainAxisAlignment? mainAxisAlignment;
 
-    print("widget.mainClass flexx ${widget.mainClass} oe");
-
     // Cek apakah properti mainClass diberikan
     if (widget.mainClass != null) {
       // Split properti mainClass menjadi kelas-kelas warna
@@ -61,13 +59,13 @@ class _FlexTWState extends State<FlexTW> {
       ContainerTailwind(
         extClass: widget.mainClass ?? '',
         bgImage: widget.bgImage,
-        child: Flex( 
+        child: Flex(
           mainAxisSize: MainAxisSize.min,
           textBaseline: TextBaseline.alphabetic,
           crossAxisAlignment: crossAxisAlignment ?? (direction == Axis.vertical ?  CrossAxisAlignment.center: CrossAxisAlignment.start),
           mainAxisAlignment: mainAxisAlignment ?? (direction == Axis.vertical ? MainAxisAlignment.center: MainAxisAlignment.start),
           direction: widget.direction ?? direction ?? Axis.vertical, 
-          children:  widget.children
+          children:  widget.children,
         ),
       );
   }

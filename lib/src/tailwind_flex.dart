@@ -32,10 +32,7 @@ class _FlexTailwindState extends State<FlexTailwind> {
       for (final className in classes) {
         final color = getbgColorFromClassName(className);
         if (color != null) {
-
-          print("bgColor mainclass ${widget.mainClass}");
           bgColor = color;
-          print("bgColor $bgColor");
         }
         final colors = getTextColor(className);
         if (colors != null) {
@@ -62,27 +59,23 @@ class _FlexTailwindState extends State<FlexTailwind> {
       }
     }
 
-    return Flex(
-    direction: direction ?? Axis.vertical, 
-    children: [
-
-    direction == Axis.vertical ? SingleChildScrollView(
-      child: Column(
-        children: widget.children,
-      ),
-    ) : direction == Axis.horizontal ? 
-    Expanded(
-      child: ListView(
-        physics: const NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        children: widget.children),
-    ) 
-    
-    :  Column(
-      children: widget.children,
-    )
-     
-    ]
+      return Flex(
+      direction: direction ?? Axis.vertical, 
+      children: [
+        direction == Axis.vertical ? SingleChildScrollView(
+          child: Column(
+            children: widget.children,
+          ),
+        ) : direction == Axis.horizontal ? 
+        Expanded(
+          child: ListView(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            children: widget.children),
+        ) : Column(
+          children: widget.children,
+        )
+      ]
     );
   }
 }
