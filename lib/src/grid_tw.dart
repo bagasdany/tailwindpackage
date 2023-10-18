@@ -82,7 +82,7 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
       colDownCount,
       (rowIndex) {
         return Container(
-          color: Colors.green,
+          // color: Colors.green,
                         
           child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -97,25 +97,24 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
                   return Flexible(
                     fit: FlexFit.loose,
                     child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
 
-          color: Colors.indigo,
+                          // color: Colors.indigo,
                           child: Row(
-
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                              itemIndex % rightColCount != 0 ? Container(color: Colors.blue,width:gapRow?.toDouble() ?? 0.0,height: 10,):SizedBox(width: 0,),
                               
                               Flexible(
+                                flex: 1,
                                 // fit: FlexFit.tight,
                                 child: Container(
-
-          color: Colors.red,
                                 child: widget.child?.call(itemIndex) ?? Container())),
                               // itemIndex % 2 == 1 ? Gap(0):  Gap((20.0).toDouble(),crossAxisExtent: GapCol?.toDouble(),color: Colors.blue,)
                               // Gap(10) ,// membuat gap sebesar 10 logical pixels
