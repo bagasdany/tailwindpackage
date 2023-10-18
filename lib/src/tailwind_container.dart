@@ -109,25 +109,29 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
     if (classNames.any((cls) => cls.startsWith("m-"))) {
       margin = EdgeInsets.all( getMarginDouble("m-${int.parse(classNames.firstWhere((cls) => cls.startsWith("m-")).substring(2))}") ?? 0.0);  
     }
-    else if (classNames.any((cls) => cls.startsWith("mx-")) && classNames.any((cls) => cls.startsWith("my-") )) {
-      if(classNames.any((cls) => cls.startsWith("m") && cls.endsWith("auto"))){
-        dynamic horizontal,vertical,left,right,top,bottom,horizontalMarginValue,verticalMarginValue;
-        classNames.toString().contains("m-auto") ? margin = EdgeInsets.zero:null;
-        classNames.toString().contains("mx-auto") ? horizontal= getMarginDouble("mx-0") : horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0 ;
-        classNames.toString().contains("my-auto") ? vertical = getMarginDouble("my-0"):  verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0;
-        classNames.toString().contains("ml-auto") ? left = getMarginDouble("ml-0"):null;
-        classNames.toString().contains("mr-auto") ? right = getMarginDouble("mr-0"):null;
-        classNames.toString().contains("mt-auto") ? top = getMarginDouble("mt-0"):null;
-        classNames.toString().contains("mb-auto") ? bottom = getMarginDouble("mb-0"):null;
+    else if (classNames.any((cls) => cls.startsWith("mx-")) || classNames.any((cls) => cls.startsWith("my-") )) {
+      
+      // if(classNames.any((cls) => cls.startsWith("m") && cls.endsWith("auto"))){
+      dynamic horizontal,vertical,horizontalMarginValue,verticalMarginValue;
+      (classNames.any((cls) => cls == "mx-auto")) ? horizontal= getMarginDouble("mx-0") : classNames.any((cls) => cls.startsWith("mx-")) ?(horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0) : null;
+      (classNames.any((cls) => cls == "my-auto")) ? vertical = getMarginDouble("my-0"): classNames.any((cls) => cls.startsWith("my-")) ? (verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0) : null;
+      
+      //   classNames.toString().contains("m-auto") ? margin = EdgeInsets.zero:null;
+      //   classNames.toString().contains("mx-auto") ? horizontal= getMarginDouble("mx-0") : horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0 ;
+      //   classNames.toString().contains("my-auto") ? vertical = getMarginDouble("my-0"):  verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0;
+      //   classNames.toString().contains("ml-auto") ? left = getMarginDouble("ml-0"):null;
+      //   classNames.toString().contains("mr-auto") ? right = getMarginDouble("mr-0"):null;
+      //   classNames.toString().contains("mt-auto") ? top = getMarginDouble("mt-0"):null;
+      //   classNames.toString().contains("mb-auto") ? bottom = getMarginDouble("mb-0"):null;
         
-        margin = EdgeInsets.fromLTRB(left ?? horizontal ??  horizontalMarginValue.toDouble() ??0, top ?? vertical ??verticalMarginValue.toDouble()?? 0, right ?? horizontal ??horizontalMarginValue.toDouble() ?? 0, bottom ?? vertical ??verticalMarginValue.toDouble()?? 0); 
+        // margin = EdgeInsets.fromLTRB(horizontal ??  horizontalMarginValue.toDouble() ??0, vertical ??verticalMarginValue.toDouble()?? 0, horizontal ??horizontalMarginValue.toDouble() ?? 0,  vertical ??verticalMarginValue.toDouble()?? 0); 
         
-      }else{
+      // }else{
         
-        double horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0;
-        double verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0;
-        margin = EdgeInsets.symmetric(horizontal: horizontalMarginValue.toDouble(), vertical: verticalMarginValue.toDouble());
-      }
+      //   double horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0;
+      //   double verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0;
+      //   margin = EdgeInsets.symmetric(horizontal: horizontalMarginValue.toDouble(), vertical: verticalMarginValue.toDouble());
+      // }
       
     } 
     else if(classNames.any((cls) => cls.startsWith("m") && cls.endsWith("auto")) && !classNames.any((cls) => cls.startsWith("md:"))) {
@@ -139,8 +143,7 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
       classNames.toString().contains("mr-auto") ? right = getMarginDouble("mr-0"):null;
       classNames.toString().contains("mt-auto") ? top = getMarginDouble("mt-0"):null;
       classNames.toString().contains("mb-auto") ? bottom = getMarginDouble("mb-0"):null;
-      margin = EdgeInsets.fromLTRB(left ?? horizontal ?? 0, top ?? vertical ?? 0, right ?? horizontal ?? 0, bottom ?? vertical ?? 0); 
-      
+      margin = EdgeInsets.fromLTRB(left ?? horizontal ?? 0, top ?? vertical ?? 0, right ?? horizontal ?? 0, bottom ?? vertical ?? 0);
     }
     else if (classNames.any((cls) => cls.startsWith("mx-")) || classNames.any((cls) => cls.startsWith("my-")) ){
       double horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0;

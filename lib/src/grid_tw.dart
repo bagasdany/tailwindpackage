@@ -21,9 +21,10 @@ class GridTW extends StatefulWidget {
   final dynamic section;
   final String? bgImage;
   final int? itemCount;
+  final int? gap;
   final Widget Function(int)? child;
   final String? mainClass; // Tambahkan properti mainClass
-  const GridTW({super.key,this.child,this.itemCount, this.section,this.widget, this.mainClass,this.bgImage});
+  const GridTW({super.key,this.child,this.itemCount,this.gap, this.section,this.widget, this.mainClass,this.bgImage});
 
   @override
   State<GridTW> createState() => _GridTWState();
@@ -69,44 +70,52 @@ Widget buildGridRows(int rowCount, int itemCount) {
 Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow) {
   final int colDownCount = (itemCount / rightColCount).ceil();
   var gapRow;
-  if((GapCol ?? 0) > 2 ) {
+  if(((GapCol == 0 ? widget.gap : GapCol) ?? 0) > 2 ) {
     print("gapRow GapCol $GapCol");
-    gapRow = (GapCol ?? 2) / 2 ;
+    gapRow = (GapCol ?? widget.gap ?? 2) / 2 ;
     print("gapRow $gapRow");
   }
   return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
     children: List.generate(
       colDownCount,
       (rowIndex) {
         return Container(
+          color: Colors.green,
                         
           child: Row(
           mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
             children: List.generate(
+              
               rightColCount,
               (colIndex) {
-                print("rowIndex-rightColCount $rowIndex-$rowIndex");
                 final itemIndex = (rowIndex * rightColCount) + colIndex;
                 if (itemIndex < itemCount) {
                   return Flexible(
                     fit: FlexFit.loose,
                     child: Column(
+
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          // margin: rowIndex != (rightColCount - 1) ?EdgeInsets.only(right: 20) :  EdgeInsets.zero,
-          
-                              
+
+          color: Colors.indigo,
                           child: Row(
+
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // on dev for gap-x-8 gap-y-4
-                              // Gap(24,crossAxisExtent: 20,color: Colors.blue,),
-                              itemIndex % rightColCount != 0 ? Container(color: Colors.amber,width:gapRow?.toDouble() ?? 0.0,height: 10,):SizedBox(width: 0,),
+                             itemIndex % rightColCount != 0 ? Container(color: Colors.blue,width:gapRow?.toDouble() ?? 0.0,height: 10,):SizedBox(width: 0,),
                               
-                              Flexible(child: Container(
+                              Flexible(
+                                // fit: FlexFit.tight,
+                                child: Container(
+
+          color: Colors.red,
                                 child: widget.child?.call(itemIndex) ?? Container())),
                               // itemIndex % 2 == 1 ? Gap(0):  Gap((20.0).toDouble(),crossAxisExtent: GapCol?.toDouble(),color: Colors.blue,)
                               // Gap(10) ,// membuat gap sebesar 10 logical pixels
@@ -128,6 +137,7 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
                   return const SizedBox(width: 0, height: 0); // Placeholder untuk item yang tidak ada
                 }
               },
+              growable: false
             ),
           ),
         );
@@ -169,13 +179,13 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
               print("className gap $gapVertical");
           } 
           colCount = int.parse(className.replaceAll('grid-cols-', ''));
-          grid = buildGridColumns(colCount ?? 1, widget.itemCount ?? 0 ,gapVertical ?? 0,0 ?? 0);
+          grid = buildGridColumns(colCount ?? 1, widget.itemCount ?? 0 ,gapVertical ?? widget.gap ?? 0,0 ?? 0);
         } else {
           
         }
       } 
     }
 
-    return grid ?? buildGridColumns(colCount ?? 1, widget.itemCount ?? 0,gapVertical ?? 0,gapHorizontal);
+    return grid ?? buildGridColumns(colCount ?? 1, widget.itemCount ?? 0,gapVertical ?? widget.gap ?? 0,gapHorizontal);
   }
 }
