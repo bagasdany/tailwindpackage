@@ -104,14 +104,15 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
                             children: [
                               // on dev for gap-x-8 gap-y-4
                               // Gap(24,crossAxisExtent: 20,color: Colors.blue,),
-                              itemIndex % rightColCount != 0 ? Container(color: Colors.red,width:gapRow?.toDouble() ?? 0.0,height: 1,):SizedBox(width: 0,),
+                              itemIndex % rightColCount != 0 ? Container(color: Colors.amber,width:gapRow?.toDouble() ?? 0.0,height: 10,):SizedBox(width: 0,),
                               
                               Flexible(child: Container(
                                 child: widget.child?.call(itemIndex) ?? Container())),
                               // itemIndex % 2 == 1 ? Gap(0):  Gap((20.0).toDouble(),crossAxisExtent: GapCol?.toDouble(),color: Colors.blue,)
                               // Gap(10) ,// membuat gap sebesar 10 logical pixels
                               // Gap(24,crossAxisExtent: 20,color: Colors.red,),
-                              itemIndex % rightColCount == 0 ? Container(color: Colors.red,width: gapRow?.toDouble() ?? 0.0,height: 1,):SizedBox(width: 0,),
+                              rightColCount == 1 ? Container():
+                              itemIndex % rightColCount == 0 ? Container(color: Colors.red,width: gapRow?.toDouble() ?? 0.0,height: 12,):SizedBox(width: 0,),
                               // itemIndex == (rightColCount -1) ||
                               //  itemIndex == (itemCount -1) ? Container():  Gap(20,crossAxisExtent: 20,color: Colors.amber,)
                             ],
