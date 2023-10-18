@@ -79,7 +79,6 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
         classNames == "pt-auto" ? top = getPaddingDouble("pt-0"):null;
         classNames == "pb-auto" ? bottom = getPaddingDouble("pb-0"):null;
         margin = EdgeInsets.fromLTRB(left ?? horizontal ?? 0, top ?? vertical ?? 0, right ?? horizontal ?? 0, bottom ?? vertical ?? 0); 
-        print("ini padding auto ${margin} classnamenya adalah ${classNames} & widget.extClass");
         
       }
       else if (classNames.any((cls) => cls.startsWith("px-")) || classNames.any((cls) => cls.startsWith("py-"))) {
@@ -87,7 +86,6 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
         double horizontalPaddingValue =classNames.toString().contains("px-") ? getPaddingDouble("px-${(int.parse((classNames.firstWhere((cls) => (cls.startsWith("px-"))).substring(3))))}") ?? 0.0 : 0.0;
         double verticalPaddingValue =classNames.toString().contains("py-") ? getPaddingDouble("py-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("py-")).substring(3)))}") ?? 0.0 : 0.0;
         padding = EdgeInsets.symmetric(horizontal: horizontalPaddingValue.toDouble(), vertical: verticalPaddingValue.toDouble());
-        print("ini padding px ${margin} classnamenya adalah ${classNames} & widget.extClass");
         
       } 
       else if(classNames.any((cls) => cls.startsWith("pl-"))) {
@@ -96,11 +94,9 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
         var rightPadding = classNames.any((cls) => cls.startsWith("pr-")) ? getPaddingDouble("pr-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pr-")).substring(3)))}") ?? 0.0 : 0.0;
         var bottomPadding = classNames.any((cls) => cls.startsWith("pb-")) ? getPaddingDouble("pb-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pb-")).substring(3)))}") ?? 0.0 : 0.0;
         padding = EdgeInsets.fromLTRB(leftPadding, topPadding, rightPadding, bottomPadding);
-        print("ini padding pl ${margin} classnamenya adalah ${classNames} & widget.extClass");
         
       } 
       else{
-        print("ini padding ${widget.extClass}");
         padding = widget.padding ?? const EdgeInsets.all(0);
       }
     

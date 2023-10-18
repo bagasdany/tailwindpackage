@@ -71,9 +71,7 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
   final int colDownCount = (itemCount / rightColCount).ceil();
   var gapRow;
   if(((GapCol == 0 ? widget.gap : GapCol) ?? 0) > 2 ) {
-    print("gapRow GapCol $GapCol");
     gapRow = (GapCol ?? widget.gap ?? 2) / 2 ;
-    print("gapRow $gapRow");
   }
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
@@ -120,7 +118,7 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
                               // Gap(10) ,// membuat gap sebesar 10 logical pixels
                               // Gap(24,crossAxisExtent: 20,color: Colors.red,),
                               rightColCount == 1 ? Container():
-                              itemIndex % rightColCount == 0 ? Container(color: Colors.red,width: gapRow?.toDouble() ?? 0.0,height: 12,):SizedBox(width: 0,),
+                              ((itemIndex % rightColCount) == 0 && itemIndex < rightColCount) ? Container(color: Colors.red,width: gapRow?.toDouble() ?? 0.0,height: 12,):SizedBox(width: 0,),
                               // itemIndex == (rightColCount -1) ||
                               //  itemIndex == (itemCount -1) ? Container():  Gap(20,crossAxisExtent: 20,color: Colors.amber,)
                             ],
@@ -166,16 +164,13 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
       // Loop melalui setiap kelas warna dan cek apakah ada warna yang sesuai
       for (final className in classes) {
         if (className.startsWith('grid-rows')) {
-            // Ini adalah pengaturan grid baris
            rowCount = int.parse(className.replaceAll('grid-rows-', ''));
           grid = buildGridRows(rowCount,widget.itemCount ?? 0);
         }
         if (className.startsWith('grid-cols') && !className.contains("md:")) {
-          // print("className gapsss $classNames");
+          
           if (classNames.any((cls) => cls.startsWith("gap-"))) {
-              print("className gap $className");
               gapVertical = getGap(classNames.firstWhere((cls) => cls.startsWith("gap-"))); 
-              print("className gap $gapVertical");
           } 
           colCount = int.parse(className.replaceAll('grid-cols-', ''));
           grid = buildGridColumns(colCount ?? 1, widget.itemCount ?? 0 ,gapVertical ?? widget.gap ?? 0,0 ?? 0);
