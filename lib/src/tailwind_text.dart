@@ -79,7 +79,7 @@ class _TextTailwindState extends State<TextTailwind> {
 
     return Container(
       child: Text(
-        widget.text,
+        widget.text ?? "",
         style: TextStyle(
           decoration: textDecoration,
           fontSize: widget.fontSize ?? fontSize,
@@ -88,9 +88,7 @@ class _TextTailwindState extends State<TextTailwind> {
           fontWeight: widget.fontWeight ??  fontWeight,
           fontFeatures:  fontFeature,
           height: widget.height,
-          
-          // letterSpacing: get
-        ) ,textAlign: widget.textAlign?? textAlign ,
+        ) ,textAlign: widget.textAlign?? textAlign ,softWrap: true,maxLines: 2,overflow: TextOverflow.ellipsis,
         // maxLines: 50,
         // overflow: TextOverflow.ellipsis,
       ),

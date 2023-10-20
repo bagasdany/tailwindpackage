@@ -32,6 +32,7 @@ class GridTW extends StatefulWidget {
 
 class _GridTWState extends State<GridTW> {
   int? gapVertical,gapHorizontal;
+  dynamic width;
 Widget buildGridRows(int rowCount, int itemCount) {
   final int colCount = (itemCount / rowCount).ceil();
 
@@ -41,7 +42,7 @@ Widget buildGridRows(int rowCount, int itemCount) {
     shrinkWrap: true,
     itemBuilder: (context, rowIndex) {
       return Row(
-        // mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: List.generate(
           colCount,
           (colIndex) {
@@ -49,14 +50,9 @@ Widget buildGridRows(int rowCount, int itemCount) {
             
             if (itemIndex < itemCount) {
               return 
-              Expanded(child:  widget.child?.call(itemIndex) ?? Container(),
-              //   child: Row(
-              //   children: [
-                 
-
-              //        colIndex == (colCount -1) ? Gap(0): Gap((gapVertical ?? 0.0).toDouble())
-              //   ],
-              // )
+              Flexible(
+                fit: FlexFit.loose,
+                child:  widget.child?.call(itemIndex) ?? Container(),
               );
               } else {
               return const SizedBox(width: 0, height: 0); // Placeholder untuk item yang tidak ada
@@ -71,9 +67,10 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
   final int colDownCount = (itemCount / rightColCount).ceil();
   var gapRow;
   if(((GapCol == 0 ? widget.gap : GapCol) ?? 0) > 2 ) {
-    gapRow = (GapCol ?? widget.gap ?? 2) / 2 ;
+    gapRow = (GapCol ?? widget.gap ?? 2)  ;
   }
   return Column(
+    mainAxisSize: MainAxisSize.min,
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: List.generate(
@@ -87,7 +84,6 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
             children: List.generate(
-              
               rightColCount,
               (colIndex) {
                 final itemIndex = (rowIndex * rightColCount) + colIndex;
@@ -99,33 +95,30 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-
-                          // color: Colors.indigo,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                             itemIndex % rightColCount != 0 ? Container(color: Colors.blue,width:gapRow?.toDouble() ?? 0.0,height: 10,):SizedBox(width: 0,),
-                              
-                              Flexible(
-                                flex: 1,
-                                // fit: FlexFit.tight,
-                                child: Container(
-                                child: widget.child?.call(itemIndex) ?? Container())),
-                              // itemIndex % 2 == 1 ? Gap(0):  Gap((20.0).toDouble(),crossAxisExtent: GapCol?.toDouble(),color: Colors.blue,)
-                              // Gap(10) ,// membuat gap sebesar 10 logical pixels
-                              // Gap(24,crossAxisExtent: 20,color: Colors.red,),
-                              rightColCount == 1 ? Container():
-                              ((itemIndex % rightColCount) == 0 && itemIndex < rightColCount) ? Container(color: Colors.red,width: gapRow?.toDouble() ?? 0.0,height: 12,):SizedBox(width: 0,),
-                              // itemIndex == (rightColCount -1) ||
-                              //  itemIndex == (itemCount -1) ? Container():  Gap(20,crossAxisExtent: 20,color: Colors.amber,)
-                            ],
-                          ),
+                        LayoutBuilder(
+                          builder: (context,constraints) {
+                            width = itemIndex == 0 ? constraints.widthConstraints().maxWidth : width;
+                            return Container(
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                 itemIndex % rightColCount != 0 ? Container(width:gapRow?.toDouble() ?? 0.0,height: 10,):SizedBox(width: 0,),
+                                  
+                                  Flexible(
+                                    child: Container(
+                                      width: width,
+                                    child: widget.child?.call(itemIndex) ?? Container()),
+                                  ),
+                                 
+                                ],
+                              ),
+                            );
+                          }
                         ),
                         
-                        rowIndex == (colDownCount -1) ? Gap(0):  Gap((GapCol ?? 0.0).toDouble(),crossAxisExtent: 0,color: Colors.amber,)
+                        rowIndex == (colDownCount -1) ? Gap(0):  Gap((GapCol ?? 0.0).toDouble(),crossAxisExtent: 0,)
                       
                       //  Gap(30,crossAxisExtent: 10,color: Colors.black,)
                       ],
