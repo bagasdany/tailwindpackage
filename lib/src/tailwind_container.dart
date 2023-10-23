@@ -6,22 +6,21 @@ import 'package:tailwind_style/component/tailwind_style.dart';
 
 class ContainerTailwind extends StatefulWidget {
   final Widget? child;
+  final String? keys;
   final EdgeInsetsGeometry? padding,margin;
   final BorderRadiusGeometry? borderRadius;
   final Color? color,borderColor;
   final double? width,maxWidthContainer,borderWidth;
   final String? extClass,bgImage; // Tambahkan properti extClass
-  const ContainerTailwind({super.key,this.padding,this.borderWidth,this.maxWidthContainer, this.borderColor,this.color,this.width,this.borderRadius, this.margin,this.bgImage,  this.child, this.extClass});
+  const ContainerTailwind({super.key,this.padding,this.keys,this.borderWidth,this.maxWidthContainer, this.borderColor,this.color,this.width,this.borderRadius, this.margin,this.bgImage,  this.child, this.extClass});
 
   @override
   State<ContainerTailwind> createState() => _ContainerTailwindState();
 }
 
 class _ContainerTailwindState extends State<ContainerTailwind> {
-  @override
-  Widget build(BuildContext context) {
     Color? bgColor,textColor,borderColor;
-    // Color? textColor;
+      // Color? textColor;
     Map? paddingMap;
 
     BorderRadiusGeometry? borderRadius;
@@ -29,12 +28,23 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
     dynamic maxWidthContainer;
     dynamic widthContainer;
     EdgeInsetsGeometry? margin;
+    bool? hidden;
+  @override
+  Widget build(BuildContext context) {
+    
 
     // Cek apakah properti extClass diberikan
     if (widget.extClass != null) {
       // Split properti extClass menjadi kelas-kelas warna
       final classes = (widget.extClass ?? "").split(' ');
       for (final className in classes) {
+
+        final hiddens = className == "hidden";
+        if (hiddens == true) {
+          hidden = hiddens;
+          break;
+        }
+
         final color = getTextColor(className);
         if (color != null) {
           textColor = color;
@@ -112,22 +122,6 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
       (classNames.any((cls) => cls == "mx-auto")) ? horizontal= getMarginDouble("mx-0") : classNames.any((cls) => cls.startsWith("mx-")) ?(horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0) : null;
       (classNames.any((cls) => cls == "my-auto")) ? vertical = getMarginDouble("my-0"): classNames.any((cls) => cls.startsWith("my-")) ? (verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0) : null;
       
-      //   classNames.toString().contains("m-auto") ? margin = EdgeInsets.zero:null;
-      //   classNames.toString().contains("mx-auto") ? horizontal= getMarginDouble("mx-0") : horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0 ;
-      //   classNames.toString().contains("my-auto") ? vertical = getMarginDouble("my-0"):  verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0;
-      //   classNames.toString().contains("ml-auto") ? left = getMarginDouble("ml-0"):null;
-      //   classNames.toString().contains("mr-auto") ? right = getMarginDouble("mr-0"):null;
-      //   classNames.toString().contains("mt-auto") ? top = getMarginDouble("mt-0"):null;
-      //   classNames.toString().contains("mb-auto") ? bottom = getMarginDouble("mb-0"):null;
-        
-        // margin = EdgeInsets.fromLTRB(horizontal ??  horizontalMarginValue.toDouble() ??0, vertical ??verticalMarginValue.toDouble()?? 0, horizontal ??horizontalMarginValue.toDouble() ?? 0,  vertical ??verticalMarginValue.toDouble()?? 0); 
-        
-      // }else{
-        
-      //   double horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0;
-      //   double verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0;
-      //   margin = EdgeInsets.symmetric(horizontal: horizontalMarginValue.toDouble(), vertical: verticalMarginValue.toDouble());
-      // }
       
     } 
     else if(classNames.any((cls) => cls.startsWith("m") && cls.endsWith("auto")) && !classNames.any((cls) => cls.startsWith("md:"))) {
@@ -167,7 +161,8 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
     } 
 
 
-    return ClipRRect(
+    return hidden == true ? Container() :
+    ClipRRect(
       borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(0),
       child: Container(
         margin: margin,
