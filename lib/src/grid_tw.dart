@@ -67,7 +67,7 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
   final int colDownCount = (itemCount / rightColCount).ceil();
   var gapRow;
   if(((GapCol == 0 ? widget.gap : GapCol) ?? 0) > 2 ) {
-    gapRow = (GapCol ?? widget.gap ?? 2)  ;
+    gapRow = (GapCol ?? widget.gap ?? 2) /2 ;
   }
   return Column(
     mainAxisSize: MainAxisSize.min,
@@ -97,21 +97,30 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
                       children: [
                         LayoutBuilder(
                           builder: (context,constraints) {
-                            width = itemIndex == 0 ? constraints.widthConstraints().maxWidth : width;
+                            
                             return Container(
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                 itemIndex % rightColCount != 0 ? Container(width:gapRow?.toDouble() ?? 0.0,height: 10,):SizedBox(width: 0,),
+                                 itemIndex % rightColCount != 0 ? Container(width:gapRow?.toDouble() ?? 0.0,height: 10,color: Colors.red,): SizedBox(width: 0,),
                                   
                                   Flexible(
-                                    child: Container(
-                                      width: width,
-                                    child: widget.child?.call(itemIndex) ?? Container()),
+                                    
+                                    child: LayoutBuilder(
+                                      builder: (context,constraints)  {
+                                        width = itemIndex == 0 ? constraints.widthConstraints().maxWidth : width;
+                                        return Container(
+                                        width: width,
+                                        child: widget.child?.call(itemIndex) ?? Container());
+                                      }
+                                    ),
                                   ),
-                                 
+                                  Text("${itemIndex % rightColCount != 0}"),
+                                  Text("${itemIndex.toString()}${rightColCount.toString()} "),
+                                 rightColCount == 1 ? Container():
+                              ((itemIndex % rightColCount) == 0 ) ? Container(color: Colors.amber,width: gapRow?.toDouble() ?? 0.0,height: 10,):SizedBox(width: 0,),
                                 ],
                               ),
                             );

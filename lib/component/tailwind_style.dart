@@ -1969,6 +1969,38 @@ BorderRadius? getRadius(String className) {
     }
   }
 
+  dynamic getAspectRatio(String className){
+  double aspectRatio = 1.0; // Default aspect-ratio if no match is found
+  switch (className) {
+      case 'aspect-auto':
+        aspectRatio = 0.0;
+        break;
+      case 'aspect-square':
+        aspectRatio = 1 / 1;
+        break;
+      case 'aspect-video':
+        aspectRatio = 16 / 9;
+        break;
+  }
+  return aspectRatio;
+  }
+
+  double? getAspectRatioSplit(String className){
+  double aspectRatio = 0; // Default aspect-ratio if no match is found
+  switch (className) {
+      case 'aspect-auto':
+        aspectRatio = 0.0;
+        break;
+      case 'aspect-square':
+        aspectRatio = 1 / 1;
+        break;
+      case 'aspect-video':
+        aspectRatio = 16 / 9;
+        break;
+  }
+  return aspectRatio;
+  }
+
   double? getPaddingDouble(String? className){
     switch(className){
        case 'p-0': return 0;
@@ -2294,6 +2326,120 @@ BorderRadius? getRadius(String className) {
     }
     // return null;
   }
+
+  bool? getGrayscaleColorFilters(String className) {
+  bool isGrayscale;
+
+  switch (className) {
+    case "grayscale-0":
+      isGrayscale = false;
+      break;
+    case "grayscale":
+      isGrayscale = true;
+      break;
+    default:
+      isGrayscale = false;
+      break;
+  }
+  return isGrayscale;
+
+  }
+
+  ColorFilter getGrayscaleColorFilter(String className) {
+  var colorFilter = ColorFilter.mode(Colors.grey, BlendMode.saturation);
+  if (className.startsWith("grayscale-[")) {
+   
+    final match = RegExp(r'(\d+)%').firstMatch(className);
+    if (match != null) {
+      final grayscalePercentage = int.parse(match.group(1) ?? '0');
+      final isGrayscale = grayscalePercentage > 0;
+
+      colorFilter = isGrayscale
+          ? ColorFilter.mode(
+              Colors.grey.withAlpha((255 * grayscalePercentage / 100).round()),
+              BlendMode.saturation)
+          : ColorFilter.mode(Colors.transparent, BlendMode.saturation);
+    }
+  }else{
+    bool? colorFilters = getGrayscaleColorFilters(className);
+    return colorFilters == false? ColorFilter.mode(Colors.transparent, BlendMode.saturation) : ColorFilter.mode(Colors.grey, BlendMode.saturation);
+  }
+  return colorFilter;
+  
+}
+
+Map? getBlurTailwind(String className) {
+  dynamic sigmaX,sigmaY;
+  switch (className) {
+    case "blur-none":
+      sigmaX = 0.0;
+      sigmaY = 0.0;
+      return {
+        "sigmaX": sigmaX,
+        "sigmaY": sigmaY,
+      };
+      
+    case "blur-sm":
+      sigmaX = 4.0;
+      sigmaY = 4.0;
+      return {
+        "sigmaX": sigmaX,
+        "sigmaY": sigmaY,
+      };
+    case "blur":
+      sigmaX = 8.0;
+      sigmaY = 8.0;
+      return {
+        "sigmaX": sigmaX,
+        "sigmaY": sigmaY,
+      };
+    case "blur-md":
+      sigmaX = 12.0;
+      sigmaY = 12.0;
+      return {
+        "sigmaX": sigmaX,
+        "sigmaY": sigmaY,
+      };
+      
+    case "blur-lg":
+      sigmaX = 16.0;
+      sigmaY = 16.0;
+      return {
+        "sigmaX": sigmaX,
+        "sigmaY": sigmaY,
+      };
+      
+    case "blur-xl":
+      sigmaX = 24.0;
+      sigmaY = 24.0;
+      return {
+        "sigmaX": sigmaX,
+        "sigmaY": sigmaY,
+      };
+    case "blur-2xl":
+      sigmaX = 40.0;
+      sigmaY = 40.0;
+      return {
+        "sigmaX": sigmaX,
+        "sigmaY": sigmaY,
+      };
+      
+    case "blur-3xl":
+      sigmaX = 64.0;
+      sigmaY = 64.0;
+      return {
+        "sigmaX": sigmaX,
+        "sigmaY": sigmaY,
+      };
+      
+     default:
+      
+      return null;
+
+  }
+
+}
+  
 
   double? getMarginDouble(String? className){
     switch(className){

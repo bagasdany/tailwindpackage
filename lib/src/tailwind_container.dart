@@ -1,5 +1,7 @@
 library tailwind_style;
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:tailwind_style/component/tailwind_colors.dart';
 import 'package:tailwind_style/component/tailwind_style.dart';
@@ -12,7 +14,7 @@ class ContainerTailwind extends StatefulWidget {
   final Color? color,borderColor;
   final double? width,maxWidthContainer,borderWidth;
   final String? extClass,bgImage; // Tambahkan properti extClass
-  const ContainerTailwind({super.key,this.padding,this.keys,this.borderWidth,this.maxWidthContainer, this.borderColor,this.color,this.width,this.borderRadius, this.margin,this.bgImage,  this.child, this.extClass});
+  const ContainerTailwind({super.key,this.padding, this.keys,this.borderWidth,this.maxWidthContainer, this.borderColor,this.color,this.width,this.borderRadius, this.margin,this.bgImage,  this.child, this.extClass});
 
   @override
   State<ContainerTailwind> createState() => _ContainerTailwindState();
@@ -22,7 +24,9 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
     Color? bgColor,textColor,borderColor;
       // Color? textColor;
     Map? paddingMap;
+    ColorFilter? colorFilter;
 
+    Map? imageFilter;
     BorderRadiusGeometry? borderRadius;
     EdgeInsetsGeometry? padding;
     dynamic maxWidthContainer;
@@ -50,22 +54,47 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
           textColor = color;
           
         }
+
+        
+
         if (className.startsWith('bg-')) {
           // Ini adalah kelas latar belakang (background)
           bgColor = getbgColorFromClassName(className);
         }
+       
 
         final widths = getWidthFromTailwindClass(className);
         if (widths  != null) {
           widthContainer = widths;
           // break; 
         }
+         if (className.startsWith('grayscale')) {
+          // Ini adalah kelas latar belakang (background)
+           final colorFilters = getGrayscaleColorFilter(className);
+            if (colorFilters  != null) {
+              colorFilter = colorFilters;
+              // break; 
+            }
+        }
+
+        if (className.startsWith('blur')) {
+           final imageFilters = getBlurTailwind(className);
+            if (imageFilters  != null) {
+              imageFilter = imageFilters;
+              // break; 
+            }
+        }
+
+        
+       
 
         final maxwidths = getMaxWidthFromTailwindClass(className);
         if (maxwidths != null) {
           maxWidthContainer = maxwidths;
           // break; 
         }
+
+         
       }
     }
     List<String> classNames = (widget.extClass ?? "").split(" ").toList();
@@ -147,7 +176,6 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
       var rightMargin = classNames.any((cls) => cls.startsWith("mr-")) ? getMarginDouble("mr-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mr-")).substring(3)))}") ?? 0.0 : 0.0;
       var bottomMargin = classNames.any((cls) => cls.startsWith("mb-")) ? getMarginDouble("mb-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mb-")).substring(3)))}") ?? 0.0 : 0.0;
       margin = EdgeInsets.fromLTRB(leftMargin, topMargin, rightMargin, bottomMargin);
-      
     }
     else{
       margin = widget.margin  ?? const EdgeInsets.all(0);
@@ -163,19 +191,23 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
 
     return hidden == true ? Container() :
     ClipRRect(
-      borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(0),
-      child: Container(
-        margin: margin,
-        constraints: BoxConstraints(maxWidth: maxWidthContainer is int ? maxWidthContainer.toDouble(): maxWidthContainer ?? widget.maxWidthContainer ?? double.infinity),
-        width: widthContainer is int ? widthContainer.toDouble() : widthContainer is double ? MediaQuery.of(context).size.width * (widthContainer *0.01) :  widthContainer ?? widget.width,
-        padding: padding ?? widget.padding,
-        decoration: BoxDecoration(
-          borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(0),
-          color:  bgColor ??  widget.color,
-          border: Border.all(color: borderColor ?? widget.borderColor ?? Colors.transparent,width: widget.borderWidth ?? 1),
-          image: widget.bgImage == null ? null: DecorationImage(image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.cover),
+      borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(8),
+      child: ColorFiltered(
+        colorFilter: colorFilter ?? ColorFilter.mode(Colors.transparent, BlendMode.saturation) ,
+        child: Container(
+          margin: margin ?? EdgeInsets.zero,
+          constraints: BoxConstraints(maxWidth: maxWidthContainer is int ? maxWidthContainer.toDouble(): maxWidthContainer ?? widget.maxWidthContainer ?? double.infinity),
+          width: widthContainer is int ? widthContainer.toDouble() : widthContainer is double ? MediaQuery.of(context).size.width * (widthContainer *0.01) :  widthContainer ?? widget.width,
+          padding: padding ?? widget.padding ?? EdgeInsets.zero,
+          decoration: BoxDecoration(
+            borderRadius: widget.borderRadius ?? borderRadius ??BorderRadius.zero,
+            color:  bgColor ??  widget.color,
+            border: Border.all(color: borderColor ?? widget.borderColor ?? Colors.transparent,width: widget.borderWidth ?? 0),
+            image: widget.bgImage == null ? null: DecorationImage(image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.cover),
+            
+          ),
+          child: widget.child,
         ),
-        child: widget.child,
       ),
     );
   }
