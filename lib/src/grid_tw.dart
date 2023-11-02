@@ -104,7 +104,7 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                 itemIndex % rightColCount != 0 ? Container(width:gapRow?.toDouble() ?? 0.0,height: 10,color: Colors.red,): SizedBox(width: 0,),
+                                 itemIndex % rightColCount != 0 ? Container(width:gapRow?.toDouble() ?? 0.0,height: 10): SizedBox(width: 0,),
                                   
                                   Flexible(
                                     
@@ -117,10 +117,8 @@ Widget buildGridColumns(int rightColCount, int itemCount,int? GapCol,int? GapRow
                                       }
                                     ),
                                   ),
-                                  Text("${itemIndex % rightColCount != 0}"),
-                                  Text("${itemIndex.toString()}${rightColCount.toString()} "),
                                  rightColCount == 1 ? Container():
-                              ((itemIndex % rightColCount) == 0 ) ? Container(color: Colors.amber,width: gapRow?.toDouble() ?? 0.0,height: 10,):SizedBox(width: 0,),
+                              ((itemIndex % rightColCount) == 0 ) ? Container(width: gapRow?.toDouble() ?? 0.0,height: 10,):SizedBox(width: 0,),
                                 ],
                               ),
                             );
