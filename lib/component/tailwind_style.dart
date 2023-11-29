@@ -310,6 +310,8 @@ class TailwindStyle {
   
 }
 
+
+
 Color? getBorderColor(String className) {
   switch (className) {
     case 'border-inherit': return TailwindColors.inherit;
@@ -593,15 +595,26 @@ Color? getBorderColor(String className) {
   
 
 double? getFontSize(String tailwindSize) {
+  // static const double fontSize4Xl = 31.5; 
+  // static const double fontSize3Xl = 26.25;
+  // //onboarding
+  // static const double fontSize2Xl = 21;
+  // static const double fontSizeXl = 17.5;
+  // static const double fontSizeLg = 15.75;
+  // static const double fontSizeMd = 14;
+  // static const double fontSizeSm = 11.2;
+  // //ada yang 12.25 di article description di article thumbails
+  // //ada 11.2 di tenor m2w simulation2 bagian installments
+  // static const double fontSizeXs = 10.5;
   switch (tailwindSize) {
-    case 'text-xs': return 12.0;
-    case 'text-sm': return 14.0;
-    case 'text-base': return 16.0;
-    case 'text-lg': return 18.0;
-    case 'text-xl': return 20.0;
-    case 'text-2xl': return 24.0;
-    case 'text-3xl': return 30.0;
-    case 'text-4xl': return 36.0;
+    case 'text-xs': return 10.5;
+    case 'text-sm': return 11.2;
+    case 'text-base': return 14;
+    case 'text-lg': return 15.75;
+    case 'text-xl': return 17.5;
+    case 'text-2xl': return 21;
+    case 'text-3xl': return 26.5;
+    case 'text-4xl': return 31.5;
     case 'text-5xl': return 48.0;
     case 'text-6xl': return 60.0;
     case 'text-7xl': return 72.0;
@@ -1268,6 +1281,81 @@ EdgeInsetsGeometry? getMargin(String className) {
     case 'ml-auto': return const EdgeInsets.only(left:0);
     default: return null; // Default to no margin
   }
+}
+enum BorderStyles { solid, dashed, dotted, double, hidden, none }
+
+BorderStyles? getBorderStyle(String borderType) {
+  
+    switch (borderType) {
+      case 'border-solid':
+        return BorderStyles.values[0];
+      case 'border-dashed':
+        return BorderStyles.values[1];
+      case 'border-dotted':
+        return BorderStyles.values[2];
+      case 'border-double':
+        return BorderStyles.values[3];
+      case 'border-hidden':
+        return BorderStyles.values[4]; // Anda bisa menyesuaikan ini
+      case 'border-none':
+        return BorderStyles.values[5];
+      default:
+        return null;
+    }
+  }
+
+Radius? getRadiusDotted(String className) {
+    switch (className) {
+      case 'rounded-none':
+        return Radius.circular(0);
+      case 'rounded-sm':
+        return Radius.circular(2);
+      case 'rounded':
+        return Radius.circular(4);
+      case 'rounded-md':
+        return Radius.circular(6);
+      case 'rounded-lg':
+        return Radius.circular(8);
+      case 'rounded-xl':
+        return Radius.circular(12);
+      case 'rounded-2xl':
+        return Radius.circular(16);
+      case 'rounded-3xl':
+        return Radius.circular(24);
+      case 'rounded-full':
+        return Radius.circular(9999);
+      case 'rounded-s-none':
+        return Radius.circular(0);
+      case 'rounded-s-sm':
+        return Radius.circular(2);
+      case 'rounded-s':
+        return Radius.circular(4);
+       default: return null;
+       
+        // TODO : TAMBAH LAGI
+    }
+}
+
+
+double? getBorderWidth(String className) {
+    switch (className) {
+      case 'border-0':
+        return 0;
+      case 'border-2':
+        return 2;
+      case 'border-4':
+        return 4;
+      case 'border-8':
+        return 8;
+      case 'border':
+        return 1;
+      
+
+
+       default: return null;
+       
+        // TODO : TAMBAH LAGI
+    }
 }
 
 BorderRadius? getRadius(String className) {
@@ -1973,7 +2061,7 @@ BorderRadius? getRadius(String className) {
   double aspectRatio = 1.0; // Default aspect-ratio if no match is found
   switch (className) {
       case 'aspect-auto':
-        aspectRatio = 0.0;
+        aspectRatio = 0/0;
         break;
       case 'aspect-square':
         aspectRatio = 1 / 1;
@@ -1989,7 +2077,7 @@ BorderRadius? getRadius(String className) {
   double aspectRatio = 0; // Default aspect-ratio if no match is found
   switch (className) {
       case 'aspect-auto':
-        aspectRatio = 0.0;
+        aspectRatio = 0/0;
         break;
       case 'aspect-square':
         aspectRatio = 1 / 1;
@@ -2884,7 +2972,7 @@ MainAxisAlignment? convertAlignItemsToMainAxisAlignment(String alignItems) {
       case 'gap-80': return 320;
       case 'gap-96': return 384;
       default:
-        return null; // Default jika kode tidak cocok
+        return 0; // Default jika kode tidak cocok
     }
   }
 
@@ -2972,6 +3060,8 @@ TextDecoration? getTextDecoration(String tailwindDecoration) {
   }
   return null;
 }
+
+
 
 Color? getTextColor(String className) {
   switch (className) {

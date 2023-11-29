@@ -81,6 +81,7 @@ class _TextTailwindState extends State<TextTailwind> {
       child: Text(
         widget.text ?? "",
         style: TextStyle(
+          
           decoration: textDecoration,
           fontSize: widget.fontSize ?? fontSize,
           color: widget.fontColor ?? bgColor,

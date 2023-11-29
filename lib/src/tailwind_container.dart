@@ -1,10 +1,10 @@
 library tailwind_style;
 
-import 'dart:ui';
-
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:tailwind_style/component/tailwind_colors.dart';
 import 'package:tailwind_style/component/tailwind_style.dart';
+// import 'package:flutter/src/painting/borders.dart' as FlutterBorders;
 
 class ContainerTailwind extends StatefulWidget {
   final Widget? child;
@@ -14,7 +14,8 @@ class ContainerTailwind extends StatefulWidget {
   final Color? color,borderColor;
   final double? width,maxWidthContainer,borderWidth;
   final String? extClass,bgImage; // Tambahkan properti extClass
-  const ContainerTailwind({super.key,this.padding, this.keys,this.borderWidth,this.maxWidthContainer, this.borderColor,this.color,this.width,this.borderRadius, this.margin,this.bgImage,  this.child, this.extClass});
+  final double? height;
+  const ContainerTailwind({super.key,this.padding,this.height, this.keys,this.borderWidth,this.maxWidthContainer, this.borderColor,this.color,this.width,this.borderRadius, this.margin,this.bgImage,  this.child, this.extClass});
 
   @override
   State<ContainerTailwind> createState() => _ContainerTailwindState();
@@ -23,9 +24,13 @@ class ContainerTailwind extends StatefulWidget {
 class _ContainerTailwindState extends State<ContainerTailwind> {
     Color? bgColor,textColor,borderColor;
       // Color? textColor;
+    
     Map? paddingMap;
+    dynamic borderStyle;
     ColorFilter? colorFilter;
-
+    bool doubleDotted = false;
+    Radius? radius;
+    double? borderWidth;
     Map? imageFilter;
     BorderRadiusGeometry? borderRadius;
     EdgeInsetsGeometry? padding;
@@ -105,10 +110,8 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
         padding = EdgeInsets.all( getPaddingDouble("p-${int.parse(classNames.firstWhere((cls) => cls.startsWith("p-")).substring(2))}") ?? 0.0);  
       }
       
-
-
       else if(classNames.any((cls) => cls.startsWith("p") && cls.endsWith("auto") && !classNames.any((cls) => cls.startsWith("md:")) ) ) {
-        // margin = EdgeInsets.zero;
+        
         dynamic horizontal,vertical,left,right,top,bottom;
         classNames == "p-auto" ? margin = EdgeInsets.zero:null;
         classNames == "px-auto" ? horizontal= getPaddingDouble("px-0") :null;
@@ -145,13 +148,10 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
       margin = EdgeInsets.all( getMarginDouble("m-${int.parse(classNames.firstWhere((cls) => cls.startsWith("m-")).substring(2))}") ?? 0.0);  
     }
     else if (classNames.any((cls) => cls.startsWith("mx-")) || classNames.any((cls) => cls.startsWith("my-") )) {
-      
-      // if(classNames.any((cls) => cls.startsWith("m") && cls.endsWith("auto"))){
       dynamic horizontal,vertical,horizontalMarginValue,verticalMarginValue;
       (classNames.any((cls) => cls == "mx-auto")) ? horizontal= getMarginDouble("mx-0") : classNames.any((cls) => cls.startsWith("mx-")) ?(horizontalMarginValue = getMarginDouble("mx-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mx-")).substring(3)))}") ?? 0.0) : null;
       (classNames.any((cls) => cls == "my-auto")) ? vertical = getMarginDouble("my-0"): classNames.any((cls) => cls.startsWith("my-")) ? (verticalMarginValue = getMarginDouble("my-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("my-")).substring(3)))}") ?? 0.0) : null;
-      
-      
+      margin = EdgeInsets.symmetric(horizontal:horizontal ??  (horizontalMarginValue ?? 0).toDouble() ?? 0, vertical: vertical ?? (verticalMarginValue ?? 0).toDouble() ?? 0);
     } 
     else if(classNames.any((cls) => cls.startsWith("m") && cls.endsWith("auto")) && !classNames.any((cls) => cls.startsWith("md:"))) {
       dynamic horizontal,vertical,left,right,top,bottom,horizontalMarginValue,verticalMarginValue;;
@@ -181,32 +181,101 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
       margin = widget.margin  ?? const EdgeInsets.all(0);
     }
 
+    List<String> individualClasses = (widget.extClass ?? "").split(' ');
+
+
+  List<String> borderClasses = individualClasses
+      .where((cls) => cls.startsWith("border-"))
+      .toList();
+
+  if (borderClasses.isNotEmpty) {
+    for (String borderClass in borderClasses) {
+      
+      var borderStyles = getBorderStyle(borderClass);
+      if (borderStyles != null) {
+        borderStyle = borderStyles;
+             borderStyle = borderStyles;
+        print("borderStyles : $borderStyles");
+      }
+      var borderColors = getBorderColor(borderClass);
+      if(borderColors != null){
+          borderColor = borderColors;
+          print("borderColor class: $borderClass");
+        print("borderColor: $borderColor");
+      }
+      var borderWidths = getBorderWidth(borderClass);
+      if(borderWidths != null){
+        borderWidth = borderWidths;
+      }
+      if(borderClass == "border-double"){
+        doubleDotted = true;
+      }
+      
+
+
+    }
+  }
+
+    // if (classNames.any((cls) => cls.startsWith("border-"))) {
+    //  var borderStyles =( getBorderStyle((classNames.firstWhere((cls) => cls.startsWith("border-")))) );
+    //  if(borderStyles != null){
+    //     borderStyle = borderStyles;
+    //     print("borderStyles : $borderStyles");
+    //  }
+    // } 
+
     if (classNames.any((cls) => cls.startsWith("rounded-"))) {
-      borderRadius =( getRadius((classNames.firstWhere((cls) => cls.startsWith("rounded-")))) ); 
+     var borderRadiuss =( getRadius((classNames.firstWhere((cls) => cls.startsWith("rounded-")))) ); 
+      if(borderRadiuss != null){
+          borderRadius = borderRadiuss;
+      }
     } 
-    if (classNames.any((cls) => cls.startsWith("border-"))) {
-      borderColor =( getBorderColor((classNames.firstWhere((cls) => cls.startsWith("border-")))) );  
+    if (classNames.any((cls) => cls.startsWith("rounded-"))) {
+     var radiuss =( getRadiusDotted((classNames.firstWhere((cls) => cls.startsWith("rounded-")))) ); 
+      if(radiuss != null){
+          radius = radiuss;
+      }
     } 
-
-
     return hidden == true ? Container() :
-    ClipRRect(
-      borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(8),
-      child: ColorFiltered(
-        colorFilter: colorFilter ?? ColorFilter.mode(Colors.transparent, BlendMode.saturation) ,
-        child: Container(
-          margin: margin ?? EdgeInsets.zero,
-          constraints: BoxConstraints(maxWidth: maxWidthContainer is int ? maxWidthContainer.toDouble(): maxWidthContainer ?? widget.maxWidthContainer ?? double.infinity),
-          width: widthContainer is int ? widthContainer.toDouble() : widthContainer is double ? MediaQuery.of(context).size.width * (widthContainer *0.01) :  widthContainer ?? widget.width,
-          padding: padding ?? widget.padding ?? EdgeInsets.zero,
-          decoration: BoxDecoration(
-            borderRadius: widget.borderRadius ?? borderRadius ??BorderRadius.zero,
-            color:  bgColor ??  widget.color,
-            border: Border.all(color: borderColor ?? widget.borderColor ?? Colors.transparent,width: widget.borderWidth ?? 0),
-            image: widget.bgImage == null ? null: DecorationImage(image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.cover),
-            
+    DottedBorder(
+      borderType: BorderType.RRect,
+        radius: radius ?? Radius.circular(0),
+        strokeWidth: doubleDotted == false ? 0 : 3,
+        color: doubleDotted == false ? Colors.transparent: borderColor ?? Colors.black,
+        padding: doubleDotted == false ? EdgeInsets.all(0): EdgeInsets.all(borderWidth ?? 0),
+      child: DottedBorder(
+        // enum BorderStyles { solid, dashed, dotted, double, hidden, none }
+        dashPattern: borderStyle == BorderStyle.solid  ? [20, 0, 20, 0] :borderStyle ==  BorderStyles.values[1] ?  [20, 2, 20, 2] :borderStyle ==  BorderStyles.values[2] ?  [4,2] :borderStyle ==  BorderStyles.values[3] ? [3, 1]: [0, 1], 
+        borderType: BorderType.RRect,
+        radius: radius ?? Radius.circular(0),
+        strokeWidth: radius == null || borderStyle == null ? 0 : 3,
+        padding: EdgeInsets.all(borderWidth ?? 0),
+        color: borderStyle == null ? Colors.transparent:(borderColor ?? Colors.black),
+        child: ClipRRect(
+          borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(0),
+          child: ColorFiltered(
+            colorFilter: colorFilter ?? ColorFilter.mode(Colors.transparent, BlendMode.saturation) ,
+            child: Container(
+              height: widget.height,
+              margin: margin ?? EdgeInsets.zero,
+              constraints: BoxConstraints(maxWidth: maxWidthContainer is int ? maxWidthContainer.toDouble(): maxWidthContainer ?? widget.maxWidthContainer ?? double.infinity),
+              width: widthContainer is int ? widthContainer.toDouble() : widthContainer is double ? MediaQuery.of(context).size.width * (widthContainer *0.01) :  widthContainer ?? widget.width,
+              padding: padding ?? widget.padding ?? EdgeInsets.zero,
+              decoration: BoxDecoration(
+                borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.zero,
+                color:  bgColor ??  widget.color,
+                border: Border.all(color: borderColor ?? widget.borderColor ?? Colors.transparent,width: widget.borderWidth ?? 0),
+                image: widget.bgImage == null ? null: DecorationImage(
+                  alignment: Alignment.center,
+                  scale: 1,
+                  repeat: ImageRepeat.repeat,
+                  
+                  image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.none,),
+                
+              ),
+              child: widget.child ?? Container(),
+            ),
           ),
-          child: widget.child,
         ),
       ),
     );

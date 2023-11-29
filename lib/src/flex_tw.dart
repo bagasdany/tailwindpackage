@@ -23,7 +23,17 @@ class _FlexTWState extends State<FlexTW> {
     bool? hidden;
     CrossAxisAlignment? crossAxisAlignment;
     MainAxisAlignment? mainAxisAlignment;
-
+    dynamic aspectRatio,viewFraction;
+    dynamic width,height,gap;
+    
+    dynamic convertToDoubles(String itemRatio) {
+    
+    List<String> parts = itemRatio.substring(itemRatio.indexOf('[') + 1, itemRatio.indexOf(']')).split("/");
+    // aspectRatio = "${double.parse(parts[0])} / ${double.parse(parts[1])}" ;
+    height = double.parse(parts[1]);
+    width = double.parse(parts[0]);
+    // return aspectRatio;
+  }
     // Cek apakah properti mainClass diberikan
     if (widget.mainClass != null) {
       // Split properti mainClass menjadi kelas-kelas warna
@@ -32,6 +42,22 @@ class _FlexTWState extends State<FlexTW> {
       for (final className in classes) {
         // final color = getbgColorFromClassName(className);
         
+        if (className.startsWith('aspect-[')) {
+        
+           aspectRatio = convertToDoubles(className);
+        
+        }else if(className.startsWith('aspect-')){
+          aspectRatio = getAspectRatio(className);
+          if(aspectRatio == 1.0){
+            width=  1;
+            height = 1;
+          }
+          else{
+            width=  double.parse(aspectRatio.split('/')[0] ?? 8) ;
+            height = double.parse(aspectRatio.split('/')[1] ?? 5.6) ;
+          }
+        } 
+
         final directions = getFlexDirection(className);
         if (directions != null) {
           direction = directions;
@@ -54,18 +80,38 @@ class _FlexTWState extends State<FlexTW> {
         
       }
     }
+    
 
     return hidden == true ? Container() :
-      ContainerTailwind(
-        extClass: widget.mainClass ?? '',
-        bgImage: widget.bgImage,
-        child: Flex(
-          mainAxisSize: MainAxisSize.min,
-          textBaseline: TextBaseline.alphabetic,
-          crossAxisAlignment: crossAxisAlignment ?? (direction == Axis.vertical ?  CrossAxisAlignment.center: CrossAxisAlignment.start),
-          mainAxisAlignment: mainAxisAlignment ?? (direction == Axis.vertical ? MainAxisAlignment.center: MainAxisAlignment.start),
-          direction: widget.direction ?? direction ?? Axis.vertical, 
-          children:  widget.children,
+      SingleChildScrollView(
+        child: Column(
+          children: [
+            width != null || height != null ? AspectRatio(aspectRatio: width/height,child: ContainerTailwind(
+              extClass: widget.mainClass ?? '',
+              bgImage: widget.bgImage,
+              child: Flex(
+                mainAxisSize: MainAxisSize.min,
+                textBaseline: TextBaseline.alphabetic,
+                crossAxisAlignment: crossAxisAlignment ?? (direction == Axis.vertical ?  CrossAxisAlignment.start: CrossAxisAlignment.start),
+                mainAxisAlignment: mainAxisAlignment ?? (direction == Axis.vertical ? MainAxisAlignment.start: MainAxisAlignment.start),
+                direction: widget.direction ?? direction ?? Axis.vertical, 
+                children:  widget.children,
+              ),
+            ),):
+            ContainerTailwind(
+              extClass: widget.mainClass ?? '',
+              bgImage: widget.bgImage,
+              child: Flex(
+                mainAxisSize: MainAxisSize.min,
+                textBaseline: TextBaseline.alphabetic,
+                crossAxisAlignment: crossAxisAlignment ?? (direction == Axis.vertical ?  CrossAxisAlignment.start: CrossAxisAlignment.start),
+                mainAxisAlignment: mainAxisAlignment ?? (direction == Axis.vertical ? MainAxisAlignment.start: MainAxisAlignment.start),
+                direction: widget.direction ?? direction ?? Axis.vertical, 
+                children:  widget.children,
+              ),
+            ),
+            
+          ],
         ),
       );
   }
