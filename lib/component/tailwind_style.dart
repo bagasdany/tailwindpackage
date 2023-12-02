@@ -3061,6 +3061,22 @@ TextDecoration? getTextDecoration(String tailwindDecoration) {
   return null;
 }
 
+enum ButtonType { primary, secondary,red, minimal,outline }
+
+enum ButtonState { normal, disabled, loading }
+
+ButtonType? getButtonType(String buttonType) {
+  switch (buttonType) {
+    case 'primary': return ButtonType.primary;
+    case 'secondary': return ButtonType.secondary;
+    case 'red': return ButtonType.red;
+    case 'minimal': return ButtonType.minimal;
+    case 'outline': return ButtonType.outline;
+    default:
+      return ButtonType.primary;
+  }
+}
+
 
 
 Color? getTextColor(String className) {

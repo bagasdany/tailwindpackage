@@ -89,7 +89,7 @@ class _TextTailwindState extends State<TextTailwind> {
           fontWeight: widget.fontWeight ??  fontWeight,
           fontFeatures:  fontFeature,
           height: widget.height,
-        ) ,textAlign: widget.textAlign?? textAlign ,
+        ) ,textAlign: widget.textAlign?? textAlign ,overflow: TextOverflow.ellipsis,
         // maxLines: 50,
         // overflow: TextOverflow.ellipsis,
       ),

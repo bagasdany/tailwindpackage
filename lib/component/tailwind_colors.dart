@@ -4,9 +4,8 @@ class TailwindColors {
   static const Color inherit = Color(0);
   static const Color currentColor = Color(0);
   static const Color transparent = Colors.transparent;
-  static const Color black = Color(0xFF000);
+  static const Color black = Color(0xFF000000);
   static const Color white = Color(0xFFFFFFFF);
-
   static const Color slate50 = Color(0xFFF8FAFC);
   static const Color slate100 = Color(0xFFF1F5F9);
   static const Color slate200 = Color(0xFFE2E8F0);

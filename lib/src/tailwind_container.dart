@@ -1,6 +1,4 @@
 library tailwind_style;
-
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:tailwind_style/component/tailwind_colors.dart';
 import 'package:tailwind_style/component/tailwind_style.dart';
@@ -38,7 +36,7 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
     dynamic widthContainer;
     EdgeInsetsGeometry? margin;
     bool? hidden;
-  @override
+  @override 
   Widget build(BuildContext context) {
     
 
@@ -207,9 +205,9 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
       if(borderWidths != null){
         borderWidth = borderWidths;
       }
-      if(borderClass == "border-double"){
-        doubleDotted = true;
-      }
+      // if(borderClass == "border-double"){
+      //   doubleDotted = true;
+      // }
       
 
 
@@ -230,52 +228,36 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
           borderRadius = borderRadiuss;
       }
     } 
-    if (classNames.any((cls) => cls.startsWith("rounded-"))) {
-     var radiuss =( getRadiusDotted((classNames.firstWhere((cls) => cls.startsWith("rounded-")))) ); 
-      if(radiuss != null){
-          radius = radiuss;
-      }
-    } 
+    // if (classNames.any((cls) => cls.startsWith("rounded-"))) {
+    //  var radiuss =( getRadiusDotted((classNames.firstWhere((cls) => cls.startsWith("rounded-")))) ); 
+    //   if(radiuss != null){
+    //       radius = radiuss;
+    //   }
+    // } 
     return hidden == true ? Container() :
-    DottedBorder(
-      borderType: BorderType.RRect,
-        radius: radius ?? Radius.circular(0),
-        strokeWidth: doubleDotted == false ? 0 : 3,
-        color: doubleDotted == false ? Colors.transparent: borderColor ?? Colors.black,
-        padding: doubleDotted == false ? EdgeInsets.all(0): EdgeInsets.all(borderWidth ?? 0),
-      child: DottedBorder(
-        // enum BorderStyles { solid, dashed, dotted, double, hidden, none }
-        dashPattern: borderStyle == BorderStyle.solid  ? [20, 0, 20, 0] :borderStyle ==  BorderStyles.values[1] ?  [20, 2, 20, 2] :borderStyle ==  BorderStyles.values[2] ?  [4,2] :borderStyle ==  BorderStyles.values[3] ? [3, 1]: [0, 1], 
-        borderType: BorderType.RRect,
-        radius: radius ?? Radius.circular(0),
-        strokeWidth: radius == null || borderStyle == null ? 0 : 3,
-        padding: EdgeInsets.all(borderWidth ?? 0),
-        color: borderStyle == null ? Colors.transparent:(borderColor ?? Colors.black),
-        child: ClipRRect(
-          borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(0),
-          child: ColorFiltered(
-            colorFilter: colorFilter ?? ColorFilter.mode(Colors.transparent, BlendMode.saturation) ,
-            child: Container(
-              height: widget.height,
-              margin: margin ?? EdgeInsets.zero,
-              constraints: BoxConstraints(maxWidth: maxWidthContainer is int ? maxWidthContainer.toDouble(): maxWidthContainer ?? widget.maxWidthContainer ?? double.infinity),
-              width: widthContainer is int ? widthContainer.toDouble() : widthContainer is double ? MediaQuery.of(context).size.width * (widthContainer *0.01) :  widthContainer ?? widget.width,
-              padding: padding ?? widget.padding ?? EdgeInsets.zero,
-              decoration: BoxDecoration(
-                borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.zero,
-                color:  bgColor ??  widget.color,
-                border: Border.all(color: borderColor ?? widget.borderColor ?? Colors.transparent,width: widget.borderWidth ?? 0),
-                image: widget.bgImage == null ? null: DecorationImage(
-                  alignment: Alignment.center,
-                  scale: 1,
-                  repeat: ImageRepeat.repeat,
-                  
-                  image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.none,),
-                
-              ),
-              child: widget.child ?? Container(),
-            ),
+    ClipRRect(
+      borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.circular(0),
+      child: ColorFiltered(
+        colorFilter: colorFilter ?? ColorFilter.mode(Colors.transparent, BlendMode.saturation) ,
+        child: Container(
+          height: widget.height,
+          margin: margin ?? EdgeInsets.zero,
+          constraints: BoxConstraints(maxWidth: maxWidthContainer is int ? maxWidthContainer.toDouble(): maxWidthContainer ?? widget.maxWidthContainer ?? double.infinity),
+          width: widthContainer is int ? widthContainer.toDouble() : widthContainer is double ? MediaQuery.of(context).size.width * (widthContainer *0.01) :  widthContainer ?? widget.width,
+          padding: padding ?? widget.padding ?? EdgeInsets.zero,
+          decoration: BoxDecoration(
+            borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.zero,
+            color:  bgColor ??  widget.color,
+            border: Border.all(color: borderColor ?? widget.borderColor ?? Colors.transparent,width: widget.borderWidth ?? 0),
+            image: widget.bgImage == null ? null: DecorationImage(
+              alignment: Alignment.center,
+              scale: 1,
+              repeat: ImageRepeat.repeat,
+              
+              image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.none,),
+            
           ),
+          child: widget.child ?? Container(),
         ),
       ),
     );

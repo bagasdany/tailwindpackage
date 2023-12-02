@@ -6,6 +6,8 @@ import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:gap/gap.dart';
 import 'package:tailwind_style/component/tailwind_style.dart';
 import 'package:image/image.dart' as img;
+
+import '../tailwind_style.dart';
 class CarousselTW extends StatefulWidget {
   final List<dynamic>? items;
   final dynamic onImageTap;
@@ -13,7 +15,7 @@ class CarousselTW extends StatefulWidget {
   int? state,index;
   String? url;
   Map? section;
-  final dynamic Function(int)? child;
+  final dynamic Function(int,Map)? child;
    CarousselTW({super.key,this.child,this.items,this.onImageTap, this.section,this.state, this.index,this.url,this.aspectRatio,this.baseUrl});
 
   @override
@@ -41,10 +43,10 @@ class _CarousselTWState extends State<CarousselTW> {
             convertToDoubles(className);
         
         }else if(className.startsWith('aspect-')){
-          setState(() {
+          // setState(() {
             width=  double.parse(getAspectRatio(className).split('/')[0] ?? 8) ;
             height = double.parse(getAspectRatio(className).split('/')[1] ?? 5.6) ;
-          });
+          // });
           
         } 
         
@@ -59,7 +61,7 @@ class _CarousselTWState extends State<CarousselTW> {
         if(className.startsWith('gap-')){
           setState(() {
             gap = getGap(className)!.toDouble();
-            viewFraction = gap != null ? 1.00 - ((gap/2) / 100) : 1;
+            viewFraction = gap != null ? 1.00 - ((gap) / 100) : 1;
             print(viewFraction);
           });
         }
@@ -111,36 +113,22 @@ class _CarousselTWState extends State<CarousselTW> {
 
   dynamic convertToDoubles(String itemRatio) {
     List<String> parts = itemRatio.substring(itemRatio.indexOf('[') + 1, itemRatio.indexOf(']')).split("/");
-    setState(() {
+    // setState(() {
       height = double.parse(parts[1]);
       width = double.parse(parts[0]);
-    });
+    // });
   }
 
   @override
   Widget build(BuildContext context) {
     try { 
     return 
-//     ExpandableCarousel(
-      
-//   options:  CarouselOptions(
-//     viewportFraction: viewFraction ?? 1.0,
-//     physics: const AlwaysScrollableScrollPhysics(),
-//     // aspectRatio: width / height,
-//     autoPlay: true,
-    
-//     autoPlayInterval: const Duration(seconds: 2),
-//   ),
-//   items: (widget.items ?? []).asMap().map((key, value) {
-//               return MapEntry(
-//                 key,renderImage(index: key, ),
-//               );
-//             }).values.toList(),
-// );
-ExpandableCarousel.builder(
-  itemCount: (widget.items ?? []).length ,
-  itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
- renderImage(index: itemIndex, ), options: CarouselOptions(
+Container(
+  
+  child:   FlutterCarousel.builder(
+    itemCount: (widget.items ?? []).length ,
+    itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
+    renderImage(index: itemIndex, ), options: CarouselOptions(
       autoPlay: true,
       viewportFraction: viewFraction ?? 1,
       // aspectRatio: 2.0,
@@ -149,22 +137,8 @@ ExpandableCarousel.builder(
       aspectRatio: width/height
     
     ),
+  ),
 );
-// Container(
-//   child:   FlutterCarousel.builder(
-//     itemCount: (widget.items ?? []).length ,
-//     itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
-//     renderImage(index: itemIndex, ), options: CarouselOptions(
-//       autoPlay: true,
-//       viewportFraction: viewFraction ?? 1,
-//       // aspectRatio: 2.0,
-  
-//       // enlargeCenterPage: true,
-//       aspectRatio: width/height
-    
-//     ),
-//   ),
-// );
 //     LayoutBuilder(
 //       builder: (context,constraints) {
 //         width = width ?? constraints.maxWidth;
@@ -228,7 +202,10 @@ ExpandableCarousel.builder(
         child: Row(
           children: [
             Gap((gap) ?? 0.0),
-            Flexible(child: widget.child?.call(index ?? 0) ?? Container(),
+            Flexible(child: widget.child?.call(index ?? 0,{
+              width: width,
+              height: height,
+            }) ?? Container(),
             
             ),
             Gap((gap) ?? 0.0),
