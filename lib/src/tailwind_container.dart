@@ -11,9 +11,9 @@ class ContainerTailwind extends StatefulWidget {
   final BorderRadiusGeometry? borderRadius;
   final Color? color,borderColor;
   final double? width,maxWidthContainer,borderWidth;
-  final String? extClass,bgImage; // Tambahkan properti extClass
+  final String? extClass,bgImages,imageHost; // Tambahkan properti extClass
   final double? height;
-  const ContainerTailwind({super.key,this.padding,this.height, this.keys,this.borderWidth,this.maxWidthContainer, this.borderColor,this.color,this.width,this.borderRadius, this.margin,this.bgImage,  this.child, this.extClass});
+  const ContainerTailwind({super.key,this.padding,this.imageHost,this.height, this.keys,this.borderWidth,this.maxWidthContainer, this.borderColor,this.color,this.width,this.borderRadius, this.margin,this.bgImages,  this.child, this.extClass});
 
   @override
   State<ContainerTailwind> createState() => _ContainerTailwindState();
@@ -189,17 +189,15 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
   if (borderClasses.isNotEmpty) {
     for (String borderClass in borderClasses) {
       
-      var borderStyles = getBorderStyle(borderClass);
-      if (borderStyles != null) {
-        borderStyle = borderStyles;
-             borderStyle = borderStyles;
-        print("borderStyles : $borderStyles");
-      }
+      // var borderStyles = getBorderStyle(borderClass);
+      // if (borderStyles != null) {
+      //   borderStyle = borderStyles;
+      //        borderStyle = borderStyles;
+      //   print("borderStyles : $borderStyles");
+      // }
       var borderColors = getBorderColor(borderClass);
       if(borderColors != null){
           borderColor = borderColors;
-          print("borderColor class: $borderClass");
-        print("borderColor: $borderColor");
       }
       var borderWidths = getBorderWidth(borderClass);
       if(borderWidths != null){
@@ -249,12 +247,12 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
             borderRadius: widget.borderRadius ?? borderRadius ?? BorderRadius.zero,
             color:  bgColor ??  widget.color,
             border: Border.all(color: borderColor ?? widget.borderColor ?? Colors.transparent,width: widget.borderWidth ?? 0),
-            image: widget.bgImage == null ? null: DecorationImage(
+            image: widget.bgImages == null || widget.bgImages == "" || widget.bgImages == "null" || widget.bgImages == {} || widget.bgImages == [] ? null: DecorationImage(
               alignment: Alignment.center,
               scale: 1,
               repeat: ImageRepeat.repeat,
               
-              image:  NetworkImage(widget.bgImage ?? ""), fit: BoxFit.none,),
+              image:  NetworkImage("${widget.imageHost}/${widget.bgImages}" ?? ""), fit: BoxFit.cover,),
             
           ),
           child: widget.child ?? Container(),

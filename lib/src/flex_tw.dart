@@ -9,8 +9,8 @@ class FlexTW extends StatefulWidget {
   final List<Widget> children;
   Axis? direction;
 
-  final String? bgImage,mainClass; // Tambahkan properti mainClass
-  FlexTW({super.key, required this.children,this.direction, this.mainClass,this.bgImage});
+  final String? bgImages,mainClass,imageHost; // Tambahkan properti mainClass
+  FlexTW({super.key, required this.children,this.direction, this.mainClass,this.bgImages,this.imageHost,});
 
   @override
   State<FlexTW> createState() => _FlexTWState();
@@ -88,7 +88,8 @@ class _FlexTWState extends State<FlexTW> {
           children: [
             width != null || height != null ? AspectRatio(aspectRatio: width/height,child: ContainerTailwind(
               extClass: widget.mainClass ?? '',
-              bgImage: widget.bgImage,
+              bgImages: widget.bgImages ,
+              imageHost: widget.imageHost,
               child: Flex(
                 mainAxisSize: MainAxisSize.min,
                 textBaseline: TextBaseline.alphabetic,
@@ -100,7 +101,8 @@ class _FlexTWState extends State<FlexTW> {
             ),):
             ContainerTailwind(
               extClass: widget.mainClass ?? '',
-              bgImage: widget.bgImage,
+              bgImages: widget.bgImages,
+              imageHost: widget.imageHost,
               child: Flex(
                 mainAxisSize: MainAxisSize.min,
                 textBaseline: TextBaseline.alphabetic,

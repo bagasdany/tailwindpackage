@@ -14,7 +14,6 @@ library tailwind_style;
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:tailwind_style/component/tailwind_style.dart';
-import 'package:tailwind_style/tailwind_style.dart';
 
 class GridTW extends StatefulWidget {
   final Widget? widget;
@@ -33,6 +32,13 @@ class GridTW extends StatefulWidget {
 class _GridTWState extends State<GridTW> {
   int? gapVertical,gapHorizontal;
   dynamic width;
+
+     @override
+  void setState(fn) {
+    if (mounted) {
+      super.setState(fn);
+    }
+  }
 Widget buildGridRows(int rowCount, int itemCount) {
   final int colCount = (itemCount / rowCount).ceil();
 

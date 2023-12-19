@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
@@ -7,7 +9,6 @@ import 'package:gap/gap.dart';
 import 'package:tailwind_style/component/tailwind_style.dart';
 import 'package:image/image.dart' as img;
 
-import '../tailwind_style.dart';
 class CarousselTW extends StatefulWidget {
   final List<dynamic>? items;
   final dynamic onImageTap;
@@ -26,6 +27,8 @@ class _CarousselTWState extends State<CarousselTW> {
   dynamic viewFraction;
   dynamic width,height,gap;
 
+  Timer? _debounce;
+
 
   @override
   void setState(fn) {
@@ -37,16 +40,17 @@ class _CarousselTWState extends State<CarousselTW> {
   @override
   void initState() {
     super.initState();
+
+// change debouce duration accordingly
+    Duration _debouceDuration = const Duration(milliseconds: 3000);
     List<String> classes = widget.section?['class'].split(' ');
     for (final className in classes) {
         if (className.startsWith('aspect-[')) {
             convertToDoubles(className);
         
         }else if(className.startsWith('aspect-')){
-          // setState(() {
             width=  double.parse(getAspectRatio(className).split('/')[0] ?? 8) ;
             height = double.parse(getAspectRatio(className).split('/')[1] ?? 5.6) ;
-          // });
           
         } 
         
@@ -69,7 +73,10 @@ class _CarousselTWState extends State<CarousselTW> {
         
       }
     if(height == null || height == 1.0){
-      getImageDimensions(("${widget.baseUrl}${widget.items?[0]?['src'][0] ?? ""}"));
+    //   _debounce = Timer(_debouceDuration, () {
+    //     getImageDimensions(("${widget.baseUrl}${widget.items?[0]?['src'][0] ?? ""}"));
+    // });
+      
     }
     });
     
@@ -113,10 +120,8 @@ class _CarousselTWState extends State<CarousselTW> {
 
   dynamic convertToDoubles(String itemRatio) {
     List<String> parts = itemRatio.substring(itemRatio.indexOf('[') + 1, itemRatio.indexOf(']')).split("/");
-    // setState(() {
       height = double.parse(parts[1]);
       width = double.parse(parts[0]);
-    // });
   }
 
   @override
@@ -134,55 +139,11 @@ Container(
       // aspectRatio: 2.0,
   
       // enlargeCenterPage: true,
-      aspectRatio: width/height
+      aspectRatio: (width ?? 2)/(height ??1)
     
     ),
   ),
 );
-//     LayoutBuilder(
-//       builder: (context,constraints) {
-//         width = width ?? constraints.maxWidth;
-//         height = height ?? 1.0;
-//         return 
-//         ExpandableCarousel(
-//   options: CarouselOptions(
-//     viewportFraction: viewFraction ?? 1.0,
-//     physics: const AlwaysScrollableScrollPhysics(),
-//     aspectRatio: width / height,
-//     autoPlay: true,
-//     autoPlayInterval: const Duration(seconds: 2),
-//   ),
-//   items: (widget.items ?? []).asMap().map((key, value) {
-//               return MapEntry(
-//                 key,renderImage(index: key, ),
-//               );
-//             }).values.toList(),
-// );
-        // CarouselSlider(
-        //     options: CarouselOptions(
-        //       padEnds: false,
-        //       aspectRatio:  (width)/ (height),
-        //       viewportFraction: viewFraction ?? 1.0,
-        //       initialPage: 0,
-        //       enableInfiniteScroll:  (widget.items ?? []).length < 2 ? false : true,
-        //       reverse: false,
-        //       autoPlay: (widget.items ?? []).length < 2 ? false : true,
-        //       autoPlayInterval: const Duration(seconds: 3),
-        //       autoPlayAnimationDuration: const Duration(milliseconds: 800),
-        //       enlargeCenterPage: false,
-        //       autoPlayCurve : Curves.linearToEaseOut,
-        //       scrollDirection: Axis.horizontal,
-              
-        //     ),
-        //     items: (widget.items ?? []).asMap().map((key, value) {
-        //       return MapEntry(
-        //         key,renderImage(index: key, ),
-        //       );
-        //     }).values.toList(),
-        //   );
-      //   }
-      // );
-        // Kode widget Anda
       } catch (e) {
         // Tangani kesalahan di sini
         return Container(

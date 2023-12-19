@@ -3,19 +3,19 @@ library tailwind_style;
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:tailwind_style/component/tailwind_colors.dart';
 import 'package:tailwind_style/component/tailwind_style.dart';
 
 class TextTailwind extends StatefulWidget {
   final String text;
   final String? mainClass,fontFamily; // Tambahkan properti mainClass
   // final TextStyle? textStyle;
+  final dynamic maxlines;
   final TextAlign? textAlign;
   final Color? fontColor;
   final FontWeight? fontWeight;
   final double? fontSize,height;
   final FontStyle? fontStyle;
-  const TextTailwind({super.key, required this.text,this.textAlign,this.height, this.mainClass,this.fontFamily,this.fontStyle,this.fontColor,this.fontWeight,this.fontSize});
+  const TextTailwind({super.key, required this.text,this.maxlines,this.textAlign,this.height, this.mainClass,this.fontFamily,this.fontStyle,this.fontColor,this.fontWeight,this.fontSize});
 
   @override
   State<TextTailwind> createState() => _TextTailwindState();
@@ -89,7 +89,7 @@ class _TextTailwindState extends State<TextTailwind> {
           fontWeight: widget.fontWeight ??  fontWeight,
           fontFeatures:  fontFeature,
           height: widget.height,
-        ) ,textAlign: widget.textAlign?? textAlign ,overflow: TextOverflow.ellipsis,
+        ) ,textAlign: widget.textAlign?? textAlign ,overflow: TextOverflow.ellipsis,maxLines: widget.maxlines ?? 5,
         // maxLines: 50,
         // overflow: TextOverflow.ellipsis,
       ),
