@@ -102,8 +102,6 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
     }
     List<String> classNames = (widget.extClass ?? "").split(" ").toList();
       
-      //PADDING
-
       if (classNames.any((cls) => cls.startsWith("p-"))) {
         padding = EdgeInsets.all( getPaddingDouble("p-${int.parse(classNames.firstWhere((cls) => cls.startsWith("p-")).substring(2))}") ?? 0.0);  
       }
@@ -122,26 +120,20 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
         
       }
       else if (classNames.any((cls) => cls.startsWith("px-")) || classNames.any((cls) => cls.startsWith("py-"))) {
-      
         double horizontalPaddingValue =classNames.toString().contains("px-") ? getPaddingDouble("px-${(int.parse((classNames.firstWhere((cls) => (cls.startsWith("px-"))).substring(3))))}") ?? 0.0 : 0.0;
         double verticalPaddingValue =classNames.toString().contains("py-") ? getPaddingDouble("py-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("py-")).substring(3)))}") ?? 0.0 : 0.0;
         padding = EdgeInsets.symmetric(horizontal: horizontalPaddingValue.toDouble(), vertical: verticalPaddingValue.toDouble());
-        
       } 
-      else if(classNames.any((cls) => cls.startsWith("pl-"))) {
+      else if(classNames.any((cls) => cls.startsWith("pl-")) || classNames.any((cls) => cls.startsWith("pt-"))|| classNames.any((cls) => cls.startsWith("pr-")) || classNames.any((cls) => cls.startsWith("pb-"))) {
         var leftPadding = classNames.any((cls) => cls.startsWith("pl-")) ? getPaddingDouble("pl-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pl-")).substring(3)))}") ?? 0.0 : 0.0;
         var topPadding = classNames.any((cls) => cls.startsWith("pt-")) ? getPaddingDouble("pt-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pt-")).substring(3)))}") ?? 0.0 : 0.0;
         var rightPadding = classNames.any((cls) => cls.startsWith("pr-")) ? getPaddingDouble("pr-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pr-")).substring(3)))}") ?? 0.0 : 0.0;
         var bottomPadding = classNames.any((cls) => cls.startsWith("pb-")) ? getPaddingDouble("pb-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("pb-")).substring(3)))}") ?? 0.0 : 0.0;
         padding = EdgeInsets.fromLTRB(leftPadding, topPadding, rightPadding, bottomPadding);
-        
       } 
       else{
         padding = widget.padding ?? const EdgeInsets.all(0);
       }
-    
-    // MARGIN
-
     if (classNames.any((cls) => cls.startsWith("m-"))) {
       margin = EdgeInsets.all( getMarginDouble("m-${int.parse(classNames.firstWhere((cls) => cls.startsWith("m-")).substring(2))}") ?? 0.0);  
     }
@@ -168,7 +160,7 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
       margin = EdgeInsets.symmetric(horizontal: horizontalMarginValue.toDouble(), vertical: verticalMarginValue.toDouble());
       
     }
-    else if(classNames.any((cls) => cls.startsWith("ml-")) ) {
+    else if(classNames.any((cls) => cls.startsWith("ml-")) || classNames.any((cls) => cls.startsWith("mt-")) || classNames.any((cls) => cls.startsWith("mr-")) || classNames.any((cls) => cls.startsWith("mb-"))) {
       var leftMargin = classNames.any((cls) => cls.startsWith("ml-")) ? getMarginDouble("ml-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("ml-")).substring(3)))}") ?? 0.0 : 0.0;
       var topMargin = classNames.any((cls) => cls.startsWith("mt-")) ? getMarginDouble("mt-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mt-")).substring(3)))}") ?? 0.0 : 0.0;
       var rightMargin = classNames.any((cls) => cls.startsWith("mr-")) ? getMarginDouble("mr-${(int.parse(classNames.firstWhere((cls) => cls.startsWith("mr-")).substring(3)))}") ?? 0.0 : 0.0;
@@ -176,7 +168,7 @@ class _ContainerTailwindState extends State<ContainerTailwind> {
       margin = EdgeInsets.fromLTRB(leftMargin, topMargin, rightMargin, bottomMargin);
     }
     else{
-      margin = widget.margin  ?? const EdgeInsets.all(0);
+      margin = widget.margin ?? const EdgeInsets.all(0);
     }
 
     List<String> individualClasses = (widget.extClass ?? "").split(' ');

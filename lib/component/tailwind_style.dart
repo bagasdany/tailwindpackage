@@ -952,336 +952,6 @@ String? getFontFamily(String tailwindFont) {
   return null;
 }
 
-EdgeInsetsGeometry? getMargin(String className) {
-  switch (className) {
-    case 'm-0': return const EdgeInsets.all(0);
-    case 'mx-0': return const EdgeInsets.symmetric(horizontal: 0);
-    case 'my-0': return const EdgeInsets.symmetric(vertical: 0);
-    case 'ms-0': return const EdgeInsetsDirectional.only(start: 0);
-    case 'me-0': return const EdgeInsetsDirectional.only(end: 0);
-    case 'mt-0': return const EdgeInsets.only(top: 0);
-    case 'mr-0': return const EdgeInsets.only(right: 0);
-    case 'mb-0': return const EdgeInsets.only(bottom: 0);
-    case 'ml-0': return const EdgeInsets.only(left: 0);
-    case 'm-px': return const EdgeInsets.all(1);
-    case 'mx-px': return const EdgeInsets.symmetric(horizontal: 1);
-    case 'my-px': return const EdgeInsets.symmetric(vertical: 1);
-    case 'ms-px': return const EdgeInsetsDirectional.only(start: 1);
-    case 'me-px': return const EdgeInsetsDirectional.only(end: 1);
-    case 'mt-px': return const EdgeInsets.only(top: 1);
-    case 'mr-px': return const EdgeInsets.only(right: 1);
-    case 'mb-px': return const EdgeInsets.only(bottom: 1);
-    case 'ml-px': return const EdgeInsets.only(left: 1);
-    case 'm-0.5': return const EdgeInsets.all(2);
-    case 'mx-0.5': return const EdgeInsets.symmetric(horizontal: 2);
-    case 'my-0.5': return const EdgeInsets.symmetric(vertical: 2);
-    case 'ms-0.5': return const EdgeInsetsDirectional.only(start: 2);
-    case 'me-0.5': return const EdgeInsetsDirectional.only(end: 2);
-    case 'mt-0.5': return const EdgeInsets.only(top: 2);
-    case 'mr-0.5': return const EdgeInsets.only(right: 2);
-    case 'mb-0.5': return const EdgeInsets.only(bottom: 2);
-    case 'ml-0.5': return const EdgeInsets.only(left: 2);
-    case 'm-1': return const EdgeInsets.all(4);
-    case 'mx-1': return const EdgeInsets.symmetric(horizontal: 4);
-    case 'my-1': return const EdgeInsets.symmetric(vertical: 4);
-    case 'ms-1': return const EdgeInsetsDirectional.only(start: 4);
-    case 'me-1': return const EdgeInsetsDirectional.only(end: 4);
-    case 'mt-1': return const EdgeInsets.only(top: 4);
-    case 'mr-1': return const EdgeInsets.only(right: 4);
-    case 'mb-1': return const EdgeInsets.only(bottom: 4);
-    case 'ml-1': return const EdgeInsets.only(left: 4);
-    case 'm-1.5': return const EdgeInsets.all(6);
-    case 'mx-1.5': return const EdgeInsets.symmetric(horizontal: 6);
-    case 'my-1.5': return const EdgeInsets.symmetric(vertical: 6);
-    case 'ms-1.5': return const EdgeInsetsDirectional.only(start: 6);
-    case 'me-1.5': return const EdgeInsetsDirectional.only(end: 6);
-    case 'mt-1.5': return const EdgeInsets.only(top: 6);
-    case 'mr-1.5': return const EdgeInsets.only(right: 6);
-    case 'mb-1.5': return const EdgeInsets.only(bottom: 6);
-    case 'ml-1.5': return const EdgeInsets.only(left: 6);
-    case 'm-2': return const EdgeInsets.all(8);
-    case 'mx-2': return const EdgeInsets.symmetric(horizontal: 8);
-    case 'my-2': return const EdgeInsets.symmetric(vertical: 8);
-    case 'ms-2': return const EdgeInsetsDirectional.only(start: 8);
-    case 'me-2': return const EdgeInsetsDirectional.only(end: 8);
-    case 'mt-2': return const EdgeInsets.only(top: 8);
-    case 'mr-2': return const EdgeInsets.only(right: 8);
-    case 'mb-2': return const EdgeInsets.only(bottom: 8);
-    case 'ml-2': return const EdgeInsets.only(left: 8);
-    case 'm-2.5': return const EdgeInsets.all(10);
-    case 'mx-2.5': return const EdgeInsets.symmetric(horizontal: 10);
-    case 'my-2.5': return const EdgeInsets.symmetric(vertical: 10);
-    case 'ms-2.5': return const EdgeInsetsDirectional.only(start: 10);
-    case 'me-2.5': return const EdgeInsetsDirectional.only(end: 10);
-    case 'mt-2.5': return const EdgeInsets.only(top: 10);
-    case 'mr-2.5': return const EdgeInsets.only(right: 10);
-    case 'mb-2.5': return const EdgeInsets.only(bottom: 10);
-    case 'ml-2.5': return const EdgeInsets.only(left: 10);
-    case 'm-3': return const EdgeInsets.all(12);
-    case 'mx-3': return const EdgeInsets.symmetric(horizontal: 12);
-    case 'my-3': return const EdgeInsets.symmetric(vertical: 12);
-    case 'ms-3': return const EdgeInsetsDirectional.only(start: 12);
-    case 'me-3': return const EdgeInsetsDirectional.only(end: 12);
-    case 'mt-3': return const EdgeInsets.only(top: 12);
-    case 'mr-3': return const EdgeInsets.only(right: 12);
-    case 'mb-3': return const EdgeInsets.only(bottom: 12);
-    case 'ml-3': return const EdgeInsets.only(left: 12);
-    case 'm-3.5': return const EdgeInsets.all(14);
-    case 'mx-3.5': return const EdgeInsets.symmetric(horizontal: 14);
-    case 'my-3.5': return const EdgeInsets.symmetric(vertical: 14);
-    case 'ms-3.5': return const EdgeInsetsDirectional.only(start: 14);
-    case 'me-3.5': return const EdgeInsetsDirectional.only(end: 14);
-    case 'mt-3.5': return const EdgeInsets.only(top: 14);
-    case 'mr-3.5': return const EdgeInsets.only(right: 14);
-    case 'mb-3.5': return const EdgeInsets.only(bottom: 14);
-    case 'ml-3.5': return const EdgeInsets.only(left: 14);
-    case 'm-4': return const EdgeInsets.all(16);
-    case 'mx-4': return const EdgeInsets.symmetric(horizontal: 16);
-    case 'my-4': return const EdgeInsets.symmetric(vertical: 16);
-    case 'ms-4': return const EdgeInsetsDirectional.only(start: 16);
-    case 'me-4': return const EdgeInsetsDirectional.only(end: 16);
-    case 'mt-4': return const EdgeInsets.only(top: 16);
-    case 'mr-4': return const EdgeInsets.only(right: 16);
-    case 'mb-4': return const EdgeInsets.only(bottom: 16);
-    case 'ml-4': return const EdgeInsets.only(left: 16);
-    case 'm-5': return const EdgeInsets.all(20);
-    case 'mx-5': return const EdgeInsets.symmetric(horizontal: 20);
-    case 'my-5': return const EdgeInsets.symmetric(vertical: 20);
-    case 'ms-5': return const EdgeInsetsDirectional.only(start: 20);
-    case 'me-5': return const EdgeInsetsDirectional.only(end: 20);
-    case 'mt-5': return const EdgeInsets.only(top: 20);
-    case 'mr-5': return const EdgeInsets.only(right: 20);
-    case 'mb-5': return const EdgeInsets.only(bottom: 20);
-    case 'ml-5': return const EdgeInsets.only(left: 20);
-    case 'm-6': return const EdgeInsets.all(24);
-    case 'mx-6': return const EdgeInsets.symmetric(horizontal: 24);
-    case 'my-6': return const EdgeInsets.symmetric(vertical: 24);
-    case 'ms-6': return const EdgeInsetsDirectional.only(start: 24);
-    case 'me-6': return const EdgeInsetsDirectional.only(end: 24);
-    case 'mt-6': return const EdgeInsets.only(top: 24);
-    case 'mr-6': return const EdgeInsets.only(right: 24);
-    case 'mb-6': return const EdgeInsets.only(bottom: 24);
-    case 'ml-6': return const EdgeInsets.only(left: 24);
-    case 'm-7': return const EdgeInsets.all(28);
-    case 'mx-7': return const EdgeInsets.symmetric(horizontal: 28);
-    case 'my-7': return const EdgeInsets.symmetric(vertical: 28);
-    case 'ms-7': return const EdgeInsetsDirectional.only(start: 28);
-    case 'me-7': return const EdgeInsetsDirectional.only(end: 28);
-    case 'mt-7': return const EdgeInsets.only(top: 28);
-    case 'mr-7': return const EdgeInsets.only(right: 28);
-    case 'mb-7': return const EdgeInsets.only(bottom: 28);
-    case 'ml-7': return const EdgeInsets.only(left: 28);
-    case 'm-8': return const EdgeInsets.all(32);
-    case 'mx-8': return const EdgeInsets.symmetric(horizontal: 32);
-    case 'my-8': return const EdgeInsets.symmetric(vertical: 32);
-    case 'ms-8': return const EdgeInsetsDirectional.only(start: 32);
-    case 'me-8': return const EdgeInsetsDirectional.only(end: 32);
-    case 'mt-8': return const EdgeInsets.only(top: 32);
-    case 'mr-8': return const EdgeInsets.only(right: 32);
-    case 'mb-8': return const EdgeInsets.only(bottom: 32);
-    case 'ml-8': return const EdgeInsets.only(left: 32);
-    case 'm-9': return const EdgeInsets.all(36);
-    case 'mx-9': return const EdgeInsets.symmetric(horizontal: 36);
-    case 'my-9': return const EdgeInsets.symmetric(vertical: 36);
-    case 'ms-9': return const EdgeInsetsDirectional.only(start: 36);
-    case 'me-9': return const EdgeInsetsDirectional.only(end: 36);
-    case 'mt-9': return const EdgeInsets.only(top: 36);
-    case 'mr-9': return const EdgeInsets.only(right: 36);
-    case 'mb-9': return const EdgeInsets.only(bottom: 36);
-    case 'ml-9': return const EdgeInsets.only(left: 36);
-    case 'm-10': return const EdgeInsets.all(40);
-    case 'mx-10': return const EdgeInsets.symmetric(horizontal: 40);
-    case 'my-10': return const EdgeInsets.symmetric(vertical: 40);
-    case 'ms-10': return const EdgeInsetsDirectional.only(start: 40);
-    case 'me-10': return const EdgeInsetsDirectional.only(end: 40);
-    case 'mt-10': return const EdgeInsets.only(top: 40);
-    case 'mr-10': return const EdgeInsets.only(right: 40);
-    case 'mb-10': return const EdgeInsets.only(bottom: 40);
-    case 'ml-10': return const EdgeInsets.only(left: 40);
-    case 'm-11': return const EdgeInsets.all(44);
-    case 'mx-11': return const EdgeInsets.symmetric(horizontal: 44);
-    case 'my-11': return const EdgeInsets.symmetric(vertical: 44);
-    case 'ms-11': return const EdgeInsetsDirectional.only(start: 44);
-    case 'me-11': return const EdgeInsetsDirectional.only(end: 44);
-    case 'mt-11': return const EdgeInsets.only(top: 44);
-    case 'mr-11': return const EdgeInsets.only(right: 44);
-    case 'mb-11': return const EdgeInsets.only(bottom: 44);
-    case 'ml-11': return const EdgeInsets.only(left: 44);
-    case 'm-12': return const EdgeInsets.all(48);
-    case 'mx-12': return const EdgeInsets.symmetric(horizontal: 48);
-    case 'my-12': return const EdgeInsets.symmetric(vertical: 48);
-    case 'ms-12': return const EdgeInsetsDirectional.only(start: 48);
-    case 'me-12': return const EdgeInsetsDirectional.only(end: 48);
-    case 'mt-12': return const EdgeInsets.only(top: 48);
-    case 'mr-12': return const EdgeInsets.only(right: 48);
-    case 'mb-12': return const EdgeInsets.only(bottom: 48);
-    case 'ml-12': return const EdgeInsets.only(left: 48);
-    case 'm-14': return const EdgeInsets.all(56);
-    case 'mx-14': return const EdgeInsets.symmetric(horizontal: 56);
-    case 'my-14': return const EdgeInsets.symmetric(vertical: 56);
-    case 'ms-14': return const EdgeInsetsDirectional.only(start: 56);
-    case 'me-14': return const EdgeInsetsDirectional.only(end: 56);
-    case 'mt-14': return const EdgeInsets.only(top: 56);
-    case 'mr-14': return const EdgeInsets.only(right: 56);
-    case 'mb-14': return const EdgeInsets.only(bottom: 56);
-    case 'ml-14': return const EdgeInsets.only(left: 56);
-    case 'm-16': return const EdgeInsets.all(64);
-    case 'mx-16': return const EdgeInsets.symmetric(horizontal: 64);
-    case 'my-16': return const EdgeInsets.symmetric(vertical: 64);
-    case 'ms-16': return const EdgeInsetsDirectional.only(start: 64);
-    case 'me-16': return const EdgeInsetsDirectional.only(end: 64);
-    case 'mt-16': return const EdgeInsets.only(top: 64);
-    case 'mr-16': return const EdgeInsets.only(right: 64);
-    case 'mb-16': return const EdgeInsets.only(bottom: 64);
-    case 'ml-16': return const EdgeInsets.only(left: 64);
-    case 'm-20': return const EdgeInsets.all(80);
-    case 'mx-20': return const EdgeInsets.symmetric(horizontal: 80);
-    case 'my-20': return const EdgeInsets.symmetric(vertical: 80);
-    case 'ms-20': return const EdgeInsetsDirectional.only(start: 80);
-    case 'me-20': return const EdgeInsetsDirectional.only(end: 80);
-    case 'mt-20': return const EdgeInsets.only(top: 80);
-    case 'mr-20': return const EdgeInsets.only(right: 80);
-    case 'mb-20': return const EdgeInsets.only(bottom: 80);
-    case 'ml-20': return const EdgeInsets.only(left: 80);
-    case 'm-24': return const EdgeInsets.all(96);
-    case 'mx-24': return const EdgeInsets.symmetric(horizontal: 96);
-    case 'my-24': return const EdgeInsets.symmetric(vertical: 96);
-    case 'ms-24': return const EdgeInsetsDirectional.only(start: 96);
-    case 'me-24': return const EdgeInsetsDirectional.only(end: 96);
-    case 'mt-24': return const EdgeInsets.only(top: 96);
-    case 'mr-24': return const EdgeInsets.only(right: 96);
-    case 'mb-24': return const EdgeInsets.only(bottom: 96);
-    case 'ml-24': return const EdgeInsets.only(left: 96);
-    case 'm-28': return const EdgeInsets.all(112);
-    case 'mx-28': return const EdgeInsets.symmetric(horizontal: 112);
-    case 'my-28': return const EdgeInsets.symmetric(vertical: 112);
-    case 'ms-28': return const EdgeInsetsDirectional.only(start: 112);
-    case 'me-28': return const EdgeInsetsDirectional.only(end: 112);
-    case 'mt-28': return const EdgeInsets.only(top: 112);
-    case 'mr-28': return const EdgeInsets.only(right: 112);
-    case 'mb-28': return const EdgeInsets.only(bottom: 112);
-    case 'ml-28': return const EdgeInsets.only(left: 112);
-    case 'm-32': return const EdgeInsets.all(128);
-    case 'mx-32': return const EdgeInsets.symmetric(horizontal: 128);
-    case 'my-32': return const EdgeInsets.symmetric(vertical: 128);
-    case 'ms-32': return const EdgeInsetsDirectional.only(start: 128);
-    case 'me-32': return const EdgeInsetsDirectional.only(end: 128);
-    case 'mt-32': return const EdgeInsets.only(top: 128);
-    case 'mr-32': return const EdgeInsets.only(right: 128);
-    case 'mb-32': return const EdgeInsets.only(bottom: 128);
-    case 'ml-32': return const EdgeInsets.only(left: 128);
-    case 'm-36': return const EdgeInsets.all(144);
-    case 'mx-36': return const EdgeInsets.symmetric(horizontal: 144);
-    case 'my-36': return const EdgeInsets.symmetric(vertical: 144);
-    case 'ms-36': return const EdgeInsetsDirectional.only(start: 144);
-    case 'me-36': return const EdgeInsetsDirectional.only(end: 144);
-    case 'mt-36': return const EdgeInsets.only(top: 144);
-    case 'mr-36': return const EdgeInsets.only(right: 144);
-    case 'mb-36': return const EdgeInsets.only(bottom: 144);
-    case 'ml-36': return const EdgeInsets.only(left: 144);
-    case 'm-40': return const EdgeInsets.all(160);
-    case 'mx-40': return const EdgeInsets.symmetric(horizontal: 160);
-    case 'my-40': return const EdgeInsets.symmetric(vertical: 160);
-    case 'ms-40': return const EdgeInsetsDirectional.only(start: 160);
-    case 'me-40': return const EdgeInsetsDirectional.only(end: 160);
-    case 'mt-40': return const EdgeInsets.only(top: 160);
-    case 'mr-40': return const EdgeInsets.only(right: 160);
-    case 'mb-40': return const EdgeInsets.only(bottom: 160);
-    case 'ml-40': return const EdgeInsets.only(left: 160);
-    case 'm-44': return const EdgeInsets.all(176);
-    case 'mx-44': return const EdgeInsets.symmetric(horizontal: 176);
-    case 'my-44': return const EdgeInsets.symmetric(vertical: 176);
-    case 'ms-44': return const EdgeInsetsDirectional.only(start: 176);
-    case 'me-44': return const EdgeInsetsDirectional.only(end: 176);
-    case 'mt-44': return const EdgeInsets.only(top: 176);
-    case 'mr-44': return const EdgeInsets.only(right: 176);
-    case 'mb-44': return const EdgeInsets.only(bottom: 176);
-    case 'ml-44': return const EdgeInsets.only(left: 176);
-    case 'm-48': return const EdgeInsets.all(192);
-    case 'mx-48': return const EdgeInsets.symmetric(horizontal: 192);
-    case 'my-48': return const EdgeInsets.symmetric(vertical: 192);
-    case 'ms-48': return const EdgeInsetsDirectional.only(start: 192);
-    case 'me-48': return const EdgeInsetsDirectional.only(end: 192);
-    case 'mt-48': return const EdgeInsets.only(top: 192);
-    case 'mr-48': return const EdgeInsets.only(right: 192);
-    case 'mb-48': return const EdgeInsets.only(bottom: 192);
-    case 'ml-48': return const EdgeInsets.only(left: 192);
-    case 'm-52': return const EdgeInsets.all(208);
-    case 'mx-52': return const EdgeInsets.symmetric(horizontal: 208);
-    case 'my-52': return const EdgeInsets.symmetric(vertical: 208);
-    case 'ms-52': return const EdgeInsetsDirectional.only(start: 208);
-    case 'me-52': return const EdgeInsetsDirectional.only(end: 208);
-    case 'mt-52': return const EdgeInsets.only(top: 208);
-    case 'mr-52': return const EdgeInsets.only(right: 208);
-    case 'mb-52': return const EdgeInsets.only(bottom: 208);
-    case 'ml-52': return const EdgeInsets.only(left: 208);
-    case 'm-56': return const EdgeInsets.all(224);
-    case 'mx-56': return const EdgeInsets.symmetric(horizontal: 224);
-    case 'my-56': return const EdgeInsets.symmetric(vertical: 224);
-    case 'ms-56': return const EdgeInsetsDirectional.only(start: 224);
-    case 'me-56': return const EdgeInsetsDirectional.only(end: 224);
-    case 'mt-56': return const EdgeInsets.only(top: 224);
-    case 'mr-56': return const EdgeInsets.only(right: 224);
-    case 'mb-56': return const EdgeInsets.only(bottom: 224);
-    case 'ml-56': return const EdgeInsets.only(left: 224);
-    case 'm-60': return const EdgeInsets.all(240);
-    case 'mx-60': return const EdgeInsets.symmetric(horizontal: 240);
-    case 'my-60': return const EdgeInsets.symmetric(vertical: 240);
-    case 'ms-60': return const EdgeInsetsDirectional.only(start: 240);
-    case 'me-60': return const EdgeInsetsDirectional.only(end: 240);
-    case 'mt-60': return const EdgeInsets.only(top: 240);
-    case 'mr-60': return const EdgeInsets.only(right: 240);
-    case 'mb-60': return const EdgeInsets.only(bottom: 240);
-    case 'ml-60': return const EdgeInsets.only(left: 240);
-    case 'm-64': return const EdgeInsets.all(256);
-    case 'mx-64': return const EdgeInsets.symmetric(horizontal: 256);
-    case 'my-64': return const EdgeInsets.symmetric(vertical: 256);
-    case 'ms-64': return const EdgeInsetsDirectional.only(start: 256);  
-    case 'me-64': return const EdgeInsetsDirectional.only(end: 256);
-    case 'mt-64': return const EdgeInsets.only(top: 256);
-    case 'mr-64': return const EdgeInsets.only(right: 256);
-    case 'mb-64': return const EdgeInsets.only(bottom: 256);
-    case 'ml-64': return const EdgeInsets.only(left: 256);
-    case 'm-72': return const EdgeInsets.all(288);
-    case 'mx-72': return const EdgeInsets.symmetric(horizontal: 288);
-    case 'my-72': return const EdgeInsets.symmetric(vertical: 288);
-    case 'ms-72': return const EdgeInsetsDirectional.only(start: 288);
-    case 'me-72': return const EdgeInsetsDirectional.only(end: 288);
-    case 'mt-72': return const EdgeInsets.only(top: 288);
-    case 'mr-72': return const EdgeInsets.only(right: 288);
-    case 'mb-72': return const EdgeInsets.only(bottom: 288);
-    case 'ml-72': return const EdgeInsets.only(left: 288);
-    case 'm-80': return const EdgeInsets.all(320);
-    case 'mx-80': return const EdgeInsets.symmetric(horizontal: 320);
-    case 'my-80': return const EdgeInsets.symmetric(vertical: 320);
-    case 'ms-80': return const EdgeInsetsDirectional.only(start: 320);
-    case 'me-80': return const EdgeInsetsDirectional.only(end: 320);
-    case 'mt-80': return const EdgeInsets.only(top: 320);
-    case 'mr-80': return const EdgeInsets.only(right: 320);
-    case 'mb-80': return const EdgeInsets.only(bottom: 320);
-    case 'ml-80': return const EdgeInsets.only(left: 320);
-    case 'm-96': return const EdgeInsets.all(384);
-    case 'mx-96': return const EdgeInsets.symmetric(horizontal: 384);
-    case 'my-96': return const EdgeInsets.symmetric(vertical: 384);
-    case 'ms-96': return const EdgeInsetsDirectional.only(start: 384);
-    case 'me-96': return const EdgeInsetsDirectional.only(end: 384);
-    case 'mt-96': return const EdgeInsets.only(top: 384);
-    case 'mr-96': return const EdgeInsets.only(right: 384);
-    case 'mb-96': return const EdgeInsets.only(bottom: 384);
-    case 'ml-96': return const EdgeInsets.only(left: 384);
-    //auto tidak sesuai konsep flutter
-    case 'm-auto': return const EdgeInsets.all(0);
-    case 'mx-auto': return const EdgeInsets.symmetric(horizontal:0);
-    case 'my-auto': return const EdgeInsets.symmetric(vertical:0);
-    case 'ms-auto': return const EdgeInsetsDirectional.only(start:0);
-    case 'me-auto': return const EdgeInsetsDirectional.only(end:0);
-    case 'mt-auto': return const EdgeInsets.only(top:0);
-    case 'mr-auto': return const EdgeInsets.only(right:0);
-    case 'mb-auto': return const EdgeInsets.only(bottom:0);
-    case 'ml-auto': return const EdgeInsets.only(left:0);
-    default: return null; // Default to no margin
-  }
-}
 enum BorderStyles { solid, dashed, dotted, double, hidden, none }
 
 BorderStyles? getBorderStyle(String borderType) {
@@ -1719,356 +1389,167 @@ BorderRadius? getRadius(String className) {
           bottomLeft: Radius.circular(9999.0),
           topRight: Radius.circular(9999.0),
         );
-      
-
-        
-      
-        
-
-      
-
       default: return null; // Default radius
     }
   }
-  EdgeInsetsGeometry? getPadding(String tailwindPadding) {
 
-    // function untuk menentukan symetric / only / all / fromltrb
-    // mperlu main class, 
-    // cek if p-1
-    switch (tailwindPadding) {
-      case 'p-0': return const EdgeInsets.all(0);
-      case 'px-0': return const EdgeInsets.symmetric(horizontal: 0);
-      case 'py-0': return const EdgeInsets.symmetric(vertical: 0);
-      case 'ps-0': return const EdgeInsetsDirectional.only(start: 0);
-      case 'pe-0': return const EdgeInsetsDirectional.only(end: 0);
-      case 'pt-0': return const EdgeInsets.only(top: 0);
-      case 'pr-0': return const EdgeInsets.only(right: 0);
-      case 'pb-0': return const EdgeInsets.only(bottom: 0);
-      case 'pl-0': return const EdgeInsets.only(left: 0);
-      case 'p-px': return const EdgeInsets.all(1);
-      case 'px-px': return const EdgeInsets.symmetric(horizontal: 1);
-      case 'py-px': return const EdgeInsets.symmetric(vertical: 1);
-      case 'ps-px': return const EdgeInsetsDirectional.only(start: 1);
-      case 'pe-px': return const EdgeInsetsDirectional.only(end: 1);
-      case 'pt-px': return const EdgeInsets.only(top: 1);
-      case 'pr-px': return const EdgeInsets.only(right: 1);
-      case 'pb-px': return const EdgeInsets.only(bottom: 1);
-      case 'pl-px': return const EdgeInsets.only(left: 1);
-      case 'p-0.5': return const EdgeInsets.all(2);
-      case 'px-0.5': return const EdgeInsets.symmetric(horizontal: 2);
-      case 'py-0.5': return const EdgeInsets.symmetric(vertical: 2);
-      case 'ps-0.5': return const EdgeInsetsDirectional.only(start: 2);
-      case 'pe-0.5': return const EdgeInsetsDirectional.only(end: 2);
-      case 'pt-0.5': return const EdgeInsets.only(top: 2);
-      case 'pr-0.5': return const EdgeInsets.only(right: 2);
-      case 'pb-0.5': return const EdgeInsets.only(bottom: 2);
-      case 'pl-0.5': return const EdgeInsets.only(left: 2);
-      case 'p-1': return const EdgeInsets.all(4);
-      case 'px-1': return const EdgeInsets.symmetric(horizontal: 4);
-      case 'py-1': return const EdgeInsets.symmetric(vertical: 4);
-      case 'ps-1': return const EdgeInsetsDirectional.only(start: 4);
-      case 'pe-1': return const EdgeInsetsDirectional.only(end: 4);
-      case 'pt-1': return const EdgeInsets.only(top: 4);
-      case 'pr-1': return const EdgeInsets.only(right: 4);
-      case 'pb-1': return const EdgeInsets.only(bottom: 4);
-      case 'pl-1': return const EdgeInsets.only(left: 4);
-      case 'p-1.5': return const EdgeInsets.all(6);
-      case 'px-1.5': return const EdgeInsets.symmetric(horizontal: 6);
-      case 'py-1.5': return const EdgeInsets.symmetric(vertical: 6);
-      case 'ps-1.5': return const EdgeInsetsDirectional.only(start: 6);
-      case 'pe-1.5': return const EdgeInsetsDirectional.only(end: 6);
-      case 'pt-1.5': return const EdgeInsets.only(top: 6);
-      case 'pr-1.5': return const EdgeInsets.only(right: 6);
-      case 'pb-1.5': return const EdgeInsets.only(bottom: 6);
-      case 'pl-1.5': return const EdgeInsets.only(left: 6);
-      case 'p-2': return const EdgeInsets.all(8);
-      case 'px-2': return const EdgeInsets.symmetric(horizontal: 8);
-      case 'py-2': return const EdgeInsets.symmetric(vertical: 8);
-      case 'ps-2': return const EdgeInsetsDirectional.only(start: 8);
-      case 'pe-2': return const EdgeInsetsDirectional.only(end: 8);
-      case 'pt-2': return const EdgeInsets.only(top: 8);
-      case 'pr-2': return const EdgeInsets.only(right: 8);
-      case 'pb-2': return const EdgeInsets.only(bottom: 8);
-      case 'pl-2': return const EdgeInsets.only(left: 8);
-      case 'p-2.5': return const EdgeInsets.all(10);
-      case 'px-2.5': return const EdgeInsets.symmetric(horizontal: 10);
-      case 'py-2.5': return const EdgeInsets.symmetric(vertical: 10);
-      case 'ps-2.5': return const EdgeInsetsDirectional.only(start: 10);
-      case 'pe-2.5': return const EdgeInsetsDirectional.only(end: 10);
-      case 'pt-2.5': return const EdgeInsets.only(top: 10);
-      case 'pr-2.5': return const EdgeInsets.only(right: 10);
-      case 'pb-2.5': return const EdgeInsets.only(bottom: 10);
-      case 'pl-2.5': return const EdgeInsets.only(left: 10);
-      case 'p-3': return const EdgeInsets.all(12);
-      case 'px-3': return const EdgeInsets.symmetric(horizontal: 12);
-      case 'py-3': return const EdgeInsets.symmetric(vertical: 12);
-      case 'ps-3': return const EdgeInsetsDirectional.only(start: 12);
-      case 'pe-3': return const EdgeInsetsDirectional.only(end: 12);
-      case 'pt-3': return const EdgeInsets.only(top: 12);
-      case 'pr-3': return const EdgeInsets.only(right: 12);
-      case 'pb-3': return const EdgeInsets.only(bottom: 12);
-      case 'pl-3': return const EdgeInsets.only(left: 12);
-      case 'p-3.5': return const EdgeInsets.all(14);
-      case 'px-3.5': return const EdgeInsets.symmetric(horizontal: 14);
-      case 'py-3.5': return const EdgeInsets.symmetric(vertical: 14);
-      case 'ps-3.5': return const EdgeInsetsDirectional.only(start: 14);
-      case 'pe-3.5': return const EdgeInsetsDirectional.only(end: 14);
-      case 'pt-3.5': return const EdgeInsets.only(top: 14);
-      case 'pr-3.5': return const EdgeInsets.only(right: 14);
-      case 'pb-3.5': return const EdgeInsets.only(bottom: 14);
-      case 'pl-3.5': return const EdgeInsets.only(left: 14);
-      case 'p-4': return const EdgeInsets.all(16);
-      case 'px-4': return const EdgeInsets.symmetric(horizontal: 16);
-      case 'py-4': return const EdgeInsets.symmetric(vertical: 16);
-      case 'ps-4': return const EdgeInsetsDirectional.only(start: 16);
-      case 'pe-4': return const EdgeInsetsDirectional.only(end: 16);
-      case 'pt-4': return const EdgeInsets.only(top: 16);
-      case 'pr-4': return const EdgeInsets.only(right: 16);
-      case 'pb-4': return const EdgeInsets.only(bottom: 16);
-      case 'pl-4': return const EdgeInsets.only(left: 16);
-      case 'p-5': return const EdgeInsets.all(20);
-      case 'px-5': return const EdgeInsets.symmetric(horizontal: 20);
-      case 'py-5': return const EdgeInsets.symmetric(vertical: 20);
-      case 'ps-5': return const EdgeInsetsDirectional.only(start: 20);
-      case 'pe-5': return const EdgeInsetsDirectional.only(end: 20);
-      case 'pt-5': return const EdgeInsets.only(top: 20);
-      case 'pr-5': return const EdgeInsets.only(right: 20);
-      case 'pb-5': return const EdgeInsets.only(bottom: 20);
-      case 'pl-5': return const EdgeInsets.only(left: 20);
-      case 'p-6': return const EdgeInsets.all(24);
-      case 'px-6': return const EdgeInsets.symmetric(horizontal: 24);
-      case 'py-6': return const EdgeInsets.symmetric(vertical: 24);
-      case 'ps-6': return const EdgeInsetsDirectional.only(start: 24);
-      case 'pe-6': return const EdgeInsetsDirectional.only(end: 24);
-      case 'pt-6': return const EdgeInsets.only(top: 24);
-      case 'pr-6': return const EdgeInsets.only(right: 24);
-      case 'pb-6': return const EdgeInsets.only(bottom: 24);
-      case 'pl-6': return const EdgeInsets.only(left: 24);
-      case 'p-7': return const EdgeInsets.all(28);
-      case 'px-7': return const EdgeInsets.symmetric(horizontal: 28);
-      case 'py-7': return const EdgeInsets.symmetric(vertical: 28);
-      case 'ps-7': return const EdgeInsetsDirectional.only(start: 28);
-      case 'pe-7': return const EdgeInsetsDirectional.only(end: 28);
-      case 'pt-7': return const EdgeInsets.only(top: 28);
-      case 'pr-7': return const EdgeInsets.only(right: 28);
-      case 'pb-7': return const EdgeInsets.only(bottom: 28);
-      case 'pl-7': return const EdgeInsets.only(left: 28);
-      case 'p-8': return const EdgeInsets.all(32);
-      case 'px-8': return const EdgeInsets.symmetric(horizontal: 32);
-      case 'py-8': return const EdgeInsets.symmetric(vertical: 32);
-      case 'ps-8': return const EdgeInsetsDirectional.only(start: 32);
-      case 'pe-8': return const EdgeInsetsDirectional.only(end: 32);
-      case 'pt-8': return const EdgeInsets.only(top: 32);
-      case 'pr-8': return const EdgeInsets.only(right: 32);
-      case 'pb-8': return const EdgeInsets.only(bottom: 32);
-      case 'pl-8': return const EdgeInsets.only(left: 32);
-      case 'p-9': return const EdgeInsets.all(36);
-      case 'px-9': return const EdgeInsets.symmetric(horizontal: 36);
-      case 'py-9': return const EdgeInsets.symmetric(vertical: 36);
-      case 'ps-9': return const EdgeInsetsDirectional.only(start: 36);
-      case 'pe-9': return const EdgeInsetsDirectional.only(end: 36);
-      case 'pt-9': return const EdgeInsets.only(top: 36);
-      case 'pr-9': return const EdgeInsets.only(right: 36);
-      case 'pb-9': return const EdgeInsets.only(bottom: 36);
-      case 'pl-9': return const EdgeInsets.only(left: 36);
-      case 'p-10': return const EdgeInsets.all(40);
-      case 'px-10': return const EdgeInsets.symmetric(horizontal: 40);
-      case 'py-10': return const EdgeInsets.symmetric(vertical: 40);
-      case 'ps-10': return const EdgeInsetsDirectional.only(start: 40);
-      case 'pe-10': return const EdgeInsetsDirectional.only(end: 40);
-      case 'pt-10': return const EdgeInsets.only(top: 40);
-      case 'pr-10': return const EdgeInsets.only(right: 40);
-      case 'pb-10': return const EdgeInsets.only(bottom: 40);
-      case 'pl-10': return const EdgeInsets.only(left: 40);
-      case 'p-11': return const EdgeInsets.all(44);
-      case 'px-11': return const EdgeInsets.symmetric(horizontal: 44);
-      case 'py-11': return const EdgeInsets.symmetric(vertical: 44);
-      case 'ps-11': return const EdgeInsetsDirectional.only(start: 44);
-      case 'pe-11': return const EdgeInsetsDirectional.only(end: 44);
-      case 'pt-11': return const EdgeInsets.only(top: 44);
-      case 'pr-11': return const EdgeInsets.only(right: 44);
-      case 'pb-11': return const EdgeInsets.only(bottom: 44);
-      case 'pl-11': return const EdgeInsets.only(left: 44);
-      case 'p-12': return const EdgeInsets.all(48);
-      case 'px-12': return const EdgeInsets.symmetric(horizontal: 48);
-      case 'py-12': return const EdgeInsets.symmetric(vertical: 48);
-      case 'ps-12': return const EdgeInsetsDirectional.only(start: 48);
-      case 'pe-12': return const EdgeInsetsDirectional.only(end: 48);
-      case 'pt-12': return const EdgeInsets.only(top: 48);
-      case 'pr-12': return const EdgeInsets.only(right: 48);
-      case 'pb-12': return const EdgeInsets.only(bottom: 48);
-      case 'pl-12': return const EdgeInsets.only(left: 48);
-      case 'p-14': return const EdgeInsets.all(56);
-      case 'px-14': return const EdgeInsets.symmetric(horizontal: 56);
-      case 'py-14': return const EdgeInsets.symmetric(vertical: 56);
-      case 'ps-14': return const EdgeInsetsDirectional.only(start: 56);
-      case 'pe-14': return const EdgeInsetsDirectional.only(end: 56);
-      case 'pt-14': return const EdgeInsets.only(top: 56);
-      case 'pr-14': return const EdgeInsets.only(right: 56);
-      case 'pb-14': return const EdgeInsets.only(bottom: 56);
-      case 'pl-14': return const EdgeInsets.only(left: 56);
-      case 'p-16': return const EdgeInsets.all(64);
-      case 'px-16': return const EdgeInsets.symmetric(horizontal: 64);
-      case 'py-16': return const EdgeInsets.symmetric(vertical: 64);
-      case 'ps-16': return const EdgeInsetsDirectional.only(start: 64);
-      case 'pe-16': return const EdgeInsetsDirectional.only(end: 64);
-      case 'pt-16': return const EdgeInsets.only(top: 64);
-      case 'pr-16': return const EdgeInsets.only(right: 64);
-      case 'pb-16': return const EdgeInsets.only(bottom: 64);
-      case 'pl-16': return const EdgeInsets.only(left: 64);
-      case 'pl-18': return const EdgeInsets.only(left: 72);
-      case 'p-20': return const EdgeInsets.all(80);
-      case 'px-20': return const EdgeInsets.symmetric(horizontal: 80);
-      case 'py-20': return const EdgeInsets.symmetric(vertical: 80);
-      case 'ps-20': return const EdgeInsetsDirectional.only(start: 80);
-      case 'pe-20': return const EdgeInsetsDirectional.only(end: 80);
-      case 'pt-20': return const EdgeInsets.only(top: 80);
-      case 'pr-20': return const EdgeInsets.only(right: 80);
-      case 'pb-20': return const EdgeInsets.only(bottom: 80);
-      case 'pl-20': return const EdgeInsets.only(left: 80);
-      case 'p-24': return const EdgeInsets.all(96);
-      case 'px-24': return const EdgeInsets.symmetric(horizontal: 96);
-      case 'py-24': return const EdgeInsets.symmetric(vertical: 96);
-      case 'ps-24': return const EdgeInsetsDirectional.only(start: 96);
-      case 'pe-24': return const EdgeInsetsDirectional.only(end: 96);
-      case 'pt-24': return const EdgeInsets.only(top: 96);
-      case 'pr-24': return const EdgeInsets.only(right: 96);
-      case 'pb-24': return const EdgeInsets.only(bottom: 96);
-      case 'pl-24': return const EdgeInsets.only(left: 96);
-      case 'p-28': return const EdgeInsets.all(112);
-      case 'px-28': return const EdgeInsets.symmetric(horizontal: 112);
-      case 'py-28': return const EdgeInsets.symmetric(vertical: 112);
-      case 'ps-28': return const EdgeInsetsDirectional.only(start: 112);
-      case 'pe-28': return const EdgeInsetsDirectional.only(end: 112);
-      case 'pt-28': return const EdgeInsets.only(top: 112);
-      case 'pr-28': return const EdgeInsets.only(right: 112);
-      case 'pb-28': return const EdgeInsets.only(bottom: 112);
-      case 'pl-28': return const EdgeInsets.only(left: 112);
-      case 'p-32': return const EdgeInsets.all(128);
-      case 'px-32': return const EdgeInsets.symmetric(horizontal: 128);
-      case 'py-32': return const EdgeInsets.symmetric(vertical: 128);
-      case 'ps-32': return const EdgeInsetsDirectional.only(start: 128);
-      case 'pe-32': return const EdgeInsetsDirectional.only(end: 128);
-      case 'pt-32': return const EdgeInsets.only(top: 128);
-      case 'pr-32': return const EdgeInsets.only(right: 128);
-      case 'pb-32': return const EdgeInsets.only(bottom: 128);
-      case 'pl-32': return const EdgeInsets.only(left: 128);
-      case 'p-36': return const EdgeInsets.all(144);
-      case 'px-36': return const EdgeInsets.symmetric(horizontal: 144);
-      case 'py-36': return const EdgeInsets.symmetric(vertical: 144);
-      case 'ps-36': return const EdgeInsetsDirectional.only(start: 144);
-      case 'pe-36': return const EdgeInsetsDirectional.only(end: 144);
-      case 'pt-36': return const EdgeInsets.only(top: 144);
-      case 'pr-36': return const EdgeInsets.only(right: 144);
-      case 'pb-36': return const EdgeInsets.only(bottom: 144);
-      case 'pl-36': return const EdgeInsets.only(left: 144);
-      case 'p-40': return const EdgeInsets.all(160);
-      case 'px-40': return const EdgeInsets.symmetric(horizontal: 160);
-      case 'py-40': return const EdgeInsets.symmetric(vertical: 160);
-      case 'ps-40': return const EdgeInsetsDirectional.only(start: 160);
-      case 'pe-40': return const EdgeInsetsDirectional.only(end: 160);
-      case 'pt-40': return const EdgeInsets.only(top: 160);
-      case 'pr-40': return const EdgeInsets.only(right: 160);
-      case 'pb-40': return const EdgeInsets.only(bottom: 160);
-      case 'pl-40': return const EdgeInsets.only(left: 160);
-      case 'p-44': return const EdgeInsets.all(176);
-      case 'px-44': return const EdgeInsets.symmetric(horizontal: 176);
-      case 'py-44': return const EdgeInsets.symmetric(vertical: 176);
-      case 'ps-44': return const EdgeInsetsDirectional.only(start: 176);
-      case 'pe-44': return const EdgeInsetsDirectional.only(end: 176);
-      case 'pt-44': return const EdgeInsets.only(top: 176);
-      case 'pr-44': return const EdgeInsets.only(right: 176);
-      case 'pb-44': return const EdgeInsets.only(bottom: 176);
-      case 'pl-44': return const EdgeInsets.only(left: 176);
-      case 'p-48': return const EdgeInsets.all(192);
-      case 'px-48': return const EdgeInsets.symmetric(horizontal: 192);
-      case 'py-48': return const EdgeInsets.symmetric(vertical: 192);
-      case 'ps-48': return const EdgeInsetsDirectional.only(start: 192);
-      case 'pe-48': return const EdgeInsetsDirectional.only(end: 192);
-      case 'pt-48': return const EdgeInsets.only(top: 192);
-      case 'pr-48': return const EdgeInsets.only(right: 192);
-      case 'pb-48': return const EdgeInsets.only(bottom: 192);
-      case 'pl-48': return const EdgeInsets.only(left: 192);
-      case 'p-52': return const EdgeInsets.all(208);
-      case 'px-52': return const EdgeInsets.symmetric(horizontal: 208);
-      case 'py-52': return const EdgeInsets.symmetric(vertical: 208);
-      case 'ps-52': return const EdgeInsetsDirectional.only(start: 208);
-      case 'pe-52': return const EdgeInsetsDirectional.only(end: 208);
-      case 'pt-52': return const EdgeInsets.only(top: 208);
-      case 'pr-52': return const EdgeInsets.only(right: 208);
-      case 'pb-52': return const EdgeInsets.only(bottom: 208);
-      case 'pl-52': return const EdgeInsets.only(left: 208);
-      case 'p-56': return const EdgeInsets.all(224);
-      case 'px-56': return const EdgeInsets.symmetric(horizontal: 224);
-      case 'py-56': return const EdgeInsets.symmetric(vertical: 224);
-      case 'ps-56': return const EdgeInsetsDirectional.only(start: 224);
-      case 'pe-56': return const EdgeInsetsDirectional.only(end: 224);
-      case 'pt-56': return const EdgeInsets.only(top: 224);
-      case 'pr-56': return const EdgeInsets.only(right: 224);
-      case 'pb-56': return const EdgeInsets.only(bottom: 224);
-      case 'pl-56': return const EdgeInsets.only(left: 224);
-      case 'p-60': return const EdgeInsets.all(240);
-      case 'px-60': return const EdgeInsets.symmetric(horizontal: 240);
-      case 'py-60': return const EdgeInsets.symmetric(vertical: 240);
-      case 'ps-60': return const EdgeInsetsDirectional.only(start: 240);
-      case 'pe-60': return const EdgeInsetsDirectional.only(end: 240);
-      case 'pt-60': return const EdgeInsets.only(top: 240);
-      case 'pr-60': return const EdgeInsets.only(right: 240);
-      case 'pb-60': return const EdgeInsets.only(bottom: 240);
-      case 'pl-60': return const EdgeInsets.only(left: 240);
-      case 'p-64': return const EdgeInsets.all(256);
-      case 'px-64': return const EdgeInsets.symmetric(horizontal: 256);
-      case 'py-64': return const EdgeInsets.symmetric(vertical: 256);
-      case 'ps-64': return const EdgeInsetsDirectional.only(start: 256);
-      case 'pe-64': return const EdgeInsetsDirectional.only(end: 256);
-      case 'pt-64': return const EdgeInsets.only(top: 256);
-      case 'pr-64': return const EdgeInsets.only(right: 256);
-      case 'pb-64': return const EdgeInsets.only(bottom: 256);
-      case 'pl-64': return const EdgeInsets.only(left: 256);
-      case 'p-72': return const EdgeInsets.all(288);
-      case 'px-72': return const EdgeInsets.symmetric(horizontal: 288);
-      case 'py-72': return const EdgeInsets.symmetric(vertical: 288);
-      case 'ps-72': return const EdgeInsetsDirectional.only(start: 288);
-      case 'pe-72': return const EdgeInsetsDirectional.only(end: 288);
-      case 'pt-72': return const EdgeInsets.only(top: 288);
-      case 'pr-72': return const EdgeInsets.only(right: 288);
-      case 'pb-72': return const EdgeInsets.only(bottom: 288);
-      case 'pl-72': return const EdgeInsets.only(left: 288);
-      case 'p-80': return const EdgeInsets.all(320);
-      case 'px-80': return const EdgeInsets.symmetric(horizontal: 320);
-      case 'py-80': return const EdgeInsets.symmetric(vertical: 320);
-      case 'ps-80': return const EdgeInsetsDirectional.only(start: 320);
-      case 'pe-80': return const EdgeInsetsDirectional.only(end: 320);
-      case 'pt-80': return const EdgeInsets.only(top: 320);
-      case 'pr-80': return const EdgeInsets.only(right: 320);
-      case 'pb-80': return const EdgeInsets.only(bottom: 320);
-      case 'pl-80': return const EdgeInsets.only(left: 320);
-      case 'p-96': return const EdgeInsets.all(384);
-      case 'px-96': return const EdgeInsets.symmetric(horizontal: 384);
-      case 'py-96': return const EdgeInsets.symmetric(vertical: 384);
-      case 'ps-96': return const EdgeInsetsDirectional.only(start: 384);
-      case 'pe-96': return const EdgeInsetsDirectional.only(end: 384);
-      case 'pt-96': return const EdgeInsets.only(top: 384);
-      case 'pr-96': return const EdgeInsets.only(right: 384);
-      case 'pb-96': return const EdgeInsets.only(bottom: 384);
-      case 'pl-96': return const EdgeInsets.only(left: 384);
-      
-      default: return null;// Default jika kode tidak cocok
-    }
+  EdgeInsetsGeometry? getMargin(String tailwindPadding,{int? defaultValue}) {
+  defaultValue ??= 14;
+  Map<String, double> paddingValues = {
+    '0': 0,
+    'px': 1,
+    '0.5': 0.125,
+    '1': 0.25,
+    '1.5': 0.375,
+    '2': 0.5,
+    '2.5': 0.625,
+    '3': 0.75,
+    '3.5': 0.875,
+    '4': 1,
+    '5': 1.25,
+    '6': 1.5,
+    '7': 1.75,
+    '8': 2,
+    '9': 2.25,
+    '10': 2.5,
+    '11': 2.75,
+    '12': 3,
+    '14': 3.5,
+    '16': 4,
+    '18': 4.5,
+    '20': 5,
+    '24': 6,
+    '28': 7,
+    '32': 8,
+    '36': 9,
+    '40': 10,
+    '44': 11,
+    '48': 12,
+    '52': 13,
+    '56': 14,
+    '60': 15,
+    '64': 16,
+    '72': 18,
+    '80': 20,
+    '96': 24,
+  };
+
+  final List<String> parts = tailwindPadding.split('-');
+  if (parts.length != 2) return null;
+
+  final double? value = (paddingValues[parts.last] ?? 0) * defaultValue;
+  if (value == null) return null;
+
+  final EdgeInsetsGeometry padding = EdgeInsets.all(value);
+  switch (parts.first) {
+    case 'm':
+      return padding;
+    case 'mx':
+      return EdgeInsets.symmetric(horizontal: value ?? 0);
+    case 'my':
+      return EdgeInsets.symmetric(vertical: value ?? 0);
+    case 'ms':
+      return EdgeInsetsDirectional.only(start: value ?? 0);
+    case 'me':
+      return EdgeInsetsDirectional.only(end: value ?? 0);
+    case 'mt':
+      return EdgeInsets.only(top: value ?? 0);
+    case 'mr':
+      return EdgeInsets.only(right: value ?? 0);
+    case 'mb':
+      return EdgeInsets.only(bottom: value ?? 0);
+    case 'ml':
+      return EdgeInsets.only(left: value ?? 0);
+    default:
+      return null;
   }
+}
+  EdgeInsetsGeometry? getPadding(String tailwindPadding,{int? defaultValue}) {
+  defaultValue ??= 14;
+  Map<String, double> paddingValues = {
+    '0': 0,
+    'px': 1,
+    '0.5': 0.125,
+    '1': 0.25,
+    '1.5': 0.375,
+    '2': 0.5,
+    '2.5': 0.625,
+    '3': 0.75,
+    '3.5': 0.875,
+    '4': 1,
+    '5': 1.25,
+    '6': 1.5,
+    '7': 1.75,
+    '8': 2,
+    '9': 2.25,
+    '10': 2.5,
+    '11': 2.75,
+    '12': 3,
+    '14': 3.5,
+    '16': 4,
+    '18': 4.5,
+    '20': 5,
+    '24': 6,
+    '28': 7,
+    '32': 8,
+    '36': 9,
+    '40': 10,
+    '44': 11,
+    '48': 12,
+    '52': 13,
+    '56': 14,
+    '60': 15,
+    '64': 16,
+    '72': 18,
+    '80': 20,
+    '96': 24,
+  };
+
+  final List<String> parts = tailwindPadding.split('-');
+  if (parts.length != 2) return null;
+
+  final double? value = paddingValues[parts.last]! * defaultValue;
+  if (value == null) return null;
+
+  final EdgeInsetsGeometry padding = EdgeInsets.all(value);
+  switch (parts.first) {
+    case 'p':
+      return padding;
+    case 'px':
+      return EdgeInsets.symmetric(horizontal: value);
+    case 'py':
+      return EdgeInsets.symmetric(vertical: value);
+    case 'ps':
+      return EdgeInsetsDirectional.only(start: value);
+    case 'pe':
+      return EdgeInsetsDirectional.only(end: value);
+    case 'pt':
+      return EdgeInsets.only(top: value);
+    case 'pr':
+      return EdgeInsets.only(right: value);
+    case 'pb':
+      return EdgeInsets.only(bottom: value);
+    case 'pl':
+      return EdgeInsets.only(left: value);
+    default:
+      return null;
+  }
+}
+
+
 
   dynamic getAspectRatio(String className){
   double aspectRatio = 1.0; // Default aspect-ratio if no match is found
   switch (className) {
-      case 'aspect-auto':
-        aspectRatio = 0/0;
-        break;
-      case 'aspect-square':
-        aspectRatio = 1 / 1;
-        break;
-      case 'aspect-video':
-        aspectRatio = 16 / 9;
-        break;
+    case 'aspect-auto':
+      aspectRatio = 0/0;
+      break;
+    case 'aspect-square':
+      aspectRatio = 1 / 1;
+      break;
+    case 'aspect-video':
+      aspectRatio = 16 / 9;
+      break;
   }
   return aspectRatio;
   }
@@ -2089,331 +1570,112 @@ BorderRadius? getRadius(String className) {
   return aspectRatio;
   }
 
-  double? getPaddingDouble(String? className){
-    switch(className){
-       case 'p-0': return 0;
-      case 'px-0': return  0;
-      case 'py-0': return  0;
-      case 'ps-0': return 0;
-      case 'pe-0': return  0;
-      case 'pt-0': return  0;
-      case 'pr-0': return  0;
-      case 'pb-0': return  0;
-      case 'pl-0': return  0;
-      case 'p-px': return  1;
-      case 'px-px': return  1;
-      case 'py-px': return  1;
-      case 'ps-px': return  1;
-      case 'pe-px': return  1;
-      case 'pt-px': return  1;
-      case 'pr-px': return  1;
-      case 'pb-px': return  1;
-      case 'pl-px': return  1;
-      case 'p-0.5': return  2;
-      case 'px-0.5': return  2;
-      case 'py-0.5': return  2;
-      case 'ps-0.5': return  2;
-      case 'pe-0.5': return  2;
-      case 'pt-0.5': return  2;
-      case 'pr-0.5': return  2;
-      case 'pb-0.5': return  2;
-      case 'pl-0.5': return  2;
-      case 'p-1': return  4;
-      case 'px-1': return  4;
-      case 'py-1': return  4;
-      case 'ps-1': return  4;
-      case 'pe-1': return  4;
-      case 'pt-1': return  4;
-      case 'pr-1': return  4;
-      case 'pb-1': return  4;
-      case 'pl-1': return  4;
-      case 'p-1.5': return  6;
-      case 'px-1.5': return  6;
-      case 'py-1.5': return  6;
-      case 'ps-1.5': return  6;
-      case 'pe-1.5': return  6;
-      case 'pt-1.5': return  6;
-      case 'pr-1.5': return  6;
-      case 'pb-1.5': return  6;
-      case 'pl-1.5': return  6;
-      case 'p-2': return  8;
-      case 'px-2': return  8;
-      case 'py-2': return  8;
-      case 'ps-2': return  8;
-      case 'pe-2': return  8;
-      case 'pt-2': return  8;
-      case 'pr-2': return  8;
-      case 'pb-2': return  8;
-      case 'pl-2': return  8;
-      case 'p-2.5': return  10;
-      case 'px-2.5': return  10;
-      case 'py-2.5': return  10;
-      case 'ps-2.5': return  10;
-      case 'pe-2.5': return  10;
-      case 'pt-2.5': return  10;
-      case 'pr-2.5': return  10;
-      case 'pb-2.5': return  10;
-      case 'pl-2.5': return  10;
-      case 'p-3': return  12;
-      case 'px-3': return  12;
-      case 'py-3': return  12;
-      case 'ps-3': return  12;
-      case 'pe-3': return  12;
-      case 'pt-3': return  12;
-      case 'pr-3': return  12;
-      case 'pb-3': return  12;
-      case 'pl-3': return  12;
-      case 'p-3.5': return  14;
-      case 'px-3.5': return  14;
-      case 'py-3.5': return  14;
-      case 'ps-3.5': return  14;
-      case 'pe-3.5': return  14;
-      case 'pt-3.5': return  14;
-      case 'pr-3.5': return  14;
-      case 'pb-3.5': return  14;
-      case 'pl-3.5': return  14;
-      case 'p-4': return  16;
-      case 'px-4': return  16;
-      case 'py-4': return  16;
-      case 'ps-4': return  16;
-      case 'pe-4': return  16;
-      case 'pt-4': return  16;
-      case 'pr-4': return  16;
-      case 'pb-4': return  16;
-      case 'pl-4': return  16;
-      case 'p-5': return  20;
-      case 'px-5': return  20;
-      case 'py-5': return  20;
-      case 'ps-5': return  20;
-      case 'pe-5': return  20;
-      case 'pt-5': return  20;
-      case 'pr-5': return  20;
-      case 'pb-5': return  20;
-      case 'pl-5': return  20;
-      case 'p-6': return  24;
-      case 'px-6': return  24;
-      case 'py-6': return  24;
-      case 'ps-6': return  24;
-      case 'pe-6': return  24;
-      case 'pt-6': return  24;
-      case 'pr-6': return  24;
-      case 'pb-6': return  24;
-      case 'pl-6': return  24;
-      case 'p-7': return  28;
-      case 'px-7': return  28;
-      case 'py-7': return  28;
-      case 'ps-7': return  28;
-      case 'pe-7': return  28;
-      case 'pt-7': return  28;
-      case 'pr-7': return  28;
-      case 'pb-7': return  28;
-      case 'pl-7': return  28;
-      case 'p-8': return  32;
-      case 'px-8': return  32;
-      case 'py-8': return  32;
-      case 'ps-8': return  32;
-      case 'pe-8': return  32;
-      case 'pt-8': return  32;
-      case 'pr-8': return  32;
-      case 'pb-8': return  32;
-      case 'pl-8': return  32;
-      case 'p-9': return  36;
-      case 'px-9': return  36;
-      case 'py-9': return  36;
-      case 'ps-9': return  36;
-      case 'pe-9': return  36;
-      case 'pt-9': return  36;
-      case 'pr-9': return  36;
-      case 'pb-9': return  36;
-      case 'pl-9': return  36;
-      case 'p-10': return  40;
-      case 'px-10': return  40;
-      case 'py-10': return  40;
-      case 'ps-10': return  40;
-      case 'pe-10': return  40;
-      case 'pt-10': return  40;
-      case 'pr-10': return  40;
-      case 'pb-10': return  40;
-      case 'pl-10': return  40;
-      case 'p-11': return  44;
-      case 'px-11': return  44;
-      case 'py-11': return  44;
-      case 'ps-11': return  44;
-      case 'pe-11': return  44;
-      case 'pt-11': return  44;
-      case 'pr-11': return  44;
-      case 'pb-11': return  44;
-      case 'pl-11': return  44;
-      case 'p-12': return  48;
-      case 'px-12': return  48;
-      case 'py-12': return  48;
-      case 'ps-12': return  48;
-      case 'pe-12': return  48;
-      case 'pt-12': return  48;
-      case 'pr-12': return  48;
-      case 'pb-12': return  48;
-      case 'pl-12': return  48;
-      case 'p-14': return  56;
-      case 'px-14': return  56;
-      case 'py-14': return  56;
-      case 'ps-14': return  56;
-      case 'pe-14': return  56;
-      case 'pt-14': return  56;
-      case 'pr-14': return  56;
-      case 'pb-14': return  56;
-      case 'pl-14': return  56;
-      case 'p-16': return  64;
-      case 'px-16': return  64;
-      case 'py-16': return  64;
-      case 'ps-16': return  64;
-      case 'pe-16': return  64;
-      case 'pt-16': return  64;
-      case 'pr-16': return  64;
-      case 'pb-16': return  64;
-      case 'pl-16': return  64;
-      case 'pl-18': return  72;
-      case 'p-20': return  80;
-      case 'px-20': return  80;
-      case 'py-20': return  80;
-      case 'ps-20': return  80;
-      case 'pe-20': return  80;
-      case 'pt-20': return  80;
-      case 'pr-20': return  80;
-      case 'pb-20': return  80;
-      case 'pl-20': return  80;
-      case 'p-24': return  96;
-      case 'px-24': return  96;
-      case 'py-24': return  96;
-      case 'ps-24': return  96;
-      case 'pe-24': return  96;
-      case 'pt-24': return  96;
-      case 'pr-24': return  96;
-      case 'pb-24': return  96;
-      case 'pl-24': return  96;
-      case 'p-28': return  112;
-      case 'px-28': return  112;
-      case 'py-28': return  112;
-      case 'ps-28': return  112;
-      case 'pe-28': return  112;
-      case 'pt-28': return  112;
-      case 'pr-28': return  112;
-      case 'pb-28': return  112;
-      case 'pl-28': return  112;
-      case 'p-32': return  128;
-      case 'px-32': return  128;
-      case 'py-32': return  128;
-      case 'ps-32': return  128;
-      case 'pe-32': return  128;
-      case 'pt-32': return  128;
-      case 'pr-32': return  128;
-      case 'pb-32': return  128;
-      case 'pl-32': return  128;
-      case 'p-36': return  144;
-      case 'px-36': return  144;
-      case 'py-36': return  144;
-      case 'ps-36': return  144;
-      case 'pe-36': return  144;
-      case 'pt-36': return  144;
-      case 'pr-36': return  144;
-      case 'pb-36': return  144;
-      case 'pl-36': return  144;
-      case 'p-40': return  160;
-      case 'px-40': return  160;
-      case 'py-40': return  160;
-      case 'ps-40': return  160;
-      case 'pe-40': return  160;
-      case 'pt-40': return  160;
-      case 'pr-40': return  160;
-      case 'pb-40': return  160;
-      case 'pl-40': return  160;
-      case 'p-44': return  176;
-      case 'px-44': return  176;
-      case 'py-44': return  176;
-      case 'ps-44': return  176;
-      case 'pe-44': return  176;
-      case 'pt-44': return  176;
-      case 'pr-44': return  176;
-      case 'pb-44': return  176;
-      case 'pl-44': return  176;
-      case 'p-48': return  192;
-      case 'px-48': return  192;
-      case 'py-48': return  192;
-      case 'ps-48': return  192;
-      case 'pe-48': return  192;
-      case 'pt-48': return  192;
-      case 'pr-48': return  192;
-      case 'pb-48': return  192;
-      case 'pl-48': return  192;
-      case 'p-52': return  208;
-      case 'px-52': return  208;
-      case 'py-52': return  208;
-      case 'ps-52': return  208;
-      case 'pe-52': return  208;
-      case 'pt-52': return  208;
-      case 'pr-52': return  208;
-      case 'pb-52': return  208;
-      case 'pl-52': return  208;
-      case 'p-56': return  224;
-      case 'px-56': return  224;
-      case 'py-56': return  224;
-      case 'ps-56': return  224;
-      case 'pe-56': return  224;
-      case 'pt-56': return  224;
-      case 'pr-56': return  224;
-      case 'pb-56': return  224;
-      case 'pl-56': return  224;
-      case 'p-60': return  240;
-      case 'px-60': return  240;
-      case 'py-60': return  240;
-      case 'ps-60': return  240;
-      case 'pe-60': return  240;
-      case 'pt-60': return  240;
-      case 'pr-60': return  240;
-      case 'pb-60': return  240;
-      case 'pl-60': return  240;
-      case 'p-64': return  256;
-      case 'px-64': return  256;
-      case 'py-64': return  256;
-      case 'ps-64': return  256;
-      case 'pe-64': return  256;
-      case 'pt-64': return  256;
-      case 'pr-64': return  256;
-      case 'pb-64': return  256;
-      case 'pl-64': return  256;
-      case 'p-72': return  288;
-      case 'px-72': return  288;
-      case 'py-72': return  288;
-      case 'ps-72': return  288;
-      case 'pe-72': return  288;
-      case 'pt-72': return  288;
-      case 'pr-72': return  288;
-      case 'pb-72': return  288;
-      case 'pl-72': return  288;
-      case 'p-80': return  320;
-      case 'px-80': return  320;
-      case 'py-80': return  320;
-      case 'ps-80': return  320;
-      case 'pe-80': return  320;
-      case 'pt-80': return  320;
-      case 'pr-80': return  320;
-      case 'pb-80': return  320;
-      case 'pl-80': return  320;
-      case 'p-96': return  384;
-      case 'px-96': return  384;
-      case 'py-96': return  384;
-      case 'ps-96': return  384;
-      case 'pe-96': return  384;
-      case 'pt-96': return  384;
-      case 'pr-96': return  384;
-      case 'pb-96': return  384;
-      case 'pl-96': return  384;
-      default: return null;// Default jika kode tidak cocok
-      
-      
+  double? getPaddingDouble(String? className,{double? defaultValue}){
+    defaultValue ??= 14;
+    Map<String, double> multipliers = {
+    '0': 0,
+    'px': 1,
+    '0.5': 0.125,
+    '1': 0.25,
+    '1.5': 0.375,
+    '2': 0.5,
+    '2.5': 0.625,
+    '3': 0.75,
+    '3.5': 0.875,
+    '4': 1,
+    '5': 1.25,
+    '6': 1.5,
+    '7': 1.75,
+    '8': 2,
+    '9': 2.25,
+    '10': 2.5,
+    '11': 2.75,
+    '12': 3,
+    '14': 3.5,
+    '16': 4,
+    '18': 4.5,
+    '20': 5,
+    '24': 6,
+    '28': 7,
+    '32': 8,
+    '36': 9,
+    '40': 10,
+    '44': 11,
+    '48': 12,
+    '52': 13,
+    '56': 14,
+    '60': 15,
+    '64': 16,
+    '72': 18,
+    '80': 20,
+    '96': 24,
+  };
 
-    }
+  List<String> parts = (className ?? "").split('-');
+  String multiplier = parts.last;
+  // String key = parts.sublist(0, parts.length - 1).join('-');
+
+  if (multipliers.containsKey(multiplier)) {
+    return defaultValue * multipliers[multiplier]!;
+  } else {
+    return 0; // Return default value or any other default behavior
+  }
     // return null;
   }
+
+  double? getMarginDouble(String? className,{double? defaultValue}){
+    defaultValue ??= 14;
+    Map<String, double> multipliers = {
+    '0': 0,
+    'px': 1,
+    '0.5': 0.125,
+    '1': 0.25,
+    '1.5': 0.375,
+    '2': 0.5,
+    '2.5': 0.625,
+    '3': 0.75,
+    '3.5': 0.875,
+    '4': 1,
+    '5': 1.25,
+    '6': 1.5,
+    '7': 1.75,
+    '8': 2,
+    '9': 2.25,
+    '10': 2.5,
+    '11': 2.75,
+    '12': 3,
+    '14': 3.5,
+    '16': 4,
+    '18': 4.5,
+    '20': 5,
+    '24': 6,
+    '28': 7,
+    '32': 8,
+    '36': 9,
+    '40': 10,
+    '44': 11,
+    '48': 12,
+    '52': 13,
+    '56': 14,
+    '60': 15,
+    '64': 16,
+    '72': 18,
+    '80': 20,
+    '96': 24,
+  };
+
+  List<String> parts = (className ?? "").split('-');
+  String multiplier = parts.last;
+  // String key = parts.sublist(0, parts.length - 1).join('-');
+
+  if (multipliers.containsKey(multiplier)) {
+    return defaultValue * multipliers[multiplier]!;
+  } else {
+    return 0; // Return default value or any other default behavior
+  }
+    // return null;
+  }
+
 
   bool? getGrayscaleColorFilters(String className) {
   bool isGrayscale;
@@ -2529,341 +1791,7 @@ Map? getBlurTailwind(String className) {
 }
   
 
-  double? getMarginDouble(String? className){
-    switch(className){
-       case 'm-0': return 0;
-      case 'mx-0': return  0;
-      case 'my-0': return  0;
-      case 'ms-0': return 0;
-      case 'me-0': return  0;
-      case 'mt-0': return  0;
-      case 'mr-0': return  0;
-      case 'mb-0': return  0;
-      case 'ml-0': return  0;
-      case 'm-px': return  1;
-      case 'mx-px': return  1;
-      case 'my-px': return  1;
-      case 'ms-px': return  1;
-      case 'me-px': return  1;
-      case 'mt-px': return  1;
-      case 'mr-px': return  1;
-      case 'mb-px': return  1;
-      case 'ml-px': return  1;
-      case 'm-0.5': return  2;
-      case 'mx-0.5': return  2;
-      case 'my-0.5': return  2;
-      case 'ms-0.5': return  2;
-      case 'me-0.5': return  2;
-      case 'mt-0.5': return  2;
-      case 'mr-0.5': return  2;
-      case 'mb-0.5': return  2;
-      case 'ml-0.5': return  2;
-      case 'm-1': return  4;
-      case 'mx-1': return  4;
-      case 'my-1': return  4;
-      case 'ms-1': return  4;
-      case 'me-1': return  4;
-      case 'mt-1': return  4;
-      case 'mr-1': return  4;
-      case 'mb-1': return  4;
-      case 'ml-1': return  4;
-      case 'm-1.5': return  6;
-      case 'mx-1.5': return  6;
-      case 'my-1.5': return  6;
-      case 'ms-1.5': return  6;
-      case 'me-1.5': return  6;
-      case 'mt-1.5': return  6;
-      case 'mr-1.5': return  6;
-      case 'mb-1.5': return  6;
-      case 'ml-1.5': return  6;
-      case 'm-2': return  8;
-      case 'mx-2': return  8;
-      case 'my-2': return  8;
-      case 'ms-2': return  8;
-      case 'me-2': return  8;
-      case 'mt-2': return  8;
-      case 'mr-2': return  8;
-      case 'mb-2': return  8;
-      case 'ml-2': return  8;
-      case 'm-2.5': return  10;
-      case 'mx-2.5': return  10;
-      case 'my-2.5': return  10;
-      case 'ms-2.5': return  10;
-      case 'me-2.5': return  10;
-      case 'mt-2.5': return  10;
-      case 'mr-2.5': return  10;
-      case 'mb-2.5': return  10;
-      case 'ml-2.5': return  10;
-      case 'm-3': return  12;
-      case 'mx-3': return  12;
-      case 'my-3': return  12;
-      case 'ms-3': return  12;
-      case 'me-3': return  12;
-      case 'mt-3': return  12;
-      case 'mr-3': return  12;
-      case 'mb-3': return  12;
-      case 'ml-3': return  12;
-      case 'm-3.5': return  14;
-      case 'mx-3.5': return  14;
-      case 'my-3.5': return  14;
-      case 'ms-3.5': return  14;
-      case 'me-3.5': return  14;
-      case 'mt-3.5': return  14;
-      case 'mr-3.5': return  14;
-      case 'mb-3.5': return  14;
-      case 'ml-3.5': return  14;
-      case 'm-4': return  16;
-      case 'mx-4': return  16;
-      case 'my-4': return  16;
-      case 'ms-4': return  16;
-      case 'me-4': return  16;
-      case 'mt-4': return  16;
-      case 'mr-4': return  16;
-      case 'mb-4': return  16;
-      case 'ml-4': return  16;
-      case 'm-5': return  20;
-      case 'mx-5': return  20;
-      case 'my-5': return  20;
-      case 'ms-5': return  20;
-      case 'me-5': return  20;
-      case 'mt-5': return  20;
-      case 'mr-5': return  20;
-      case 'mb-5': return  20;
-      case 'ml-5': return  20;
-      case 'm-6': return  24;
-      case 'mx-6': return  24;
-      case 'my-6': return  24;
-      case 'ms-6': return  24;
-      case 'me-6': return  24;
-      case 'mt-6': return  24;
-      case 'mr-6': return  24;
-      case 'mb-6': return  24;
-      case 'ml-6': return  24;
-      case 'm-7': return  28;
-      case 'mx-7': return  28;
-      case 'my-7': return  28;
-      case 'ms-7': return  28;
-      case 'me-7': return  28;
-      case 'mt-7': return  28;
-      case 'mr-7': return  28;
-      case 'mb-7': return  28;
-      case 'ml-7': return  28;
-      case 'm-8': return  32;
-      case 'mx-8': return  32;
-      case 'my-8': return  32;
-      case 'ms-8': return  32;
-      case 'me-8': return  32;
-      case 'mt-8': return  32;
-      case 'mr-8': return  32;
-      case 'mb-8': return  32;
-      case 'ml-8': return  32;
-      case 'm-9': return  36;
-      case 'mx-9': return  36;
-      case 'my-9': return  36;
-      case 'ms-9': return  36;
-      case 'me-9': return  36;
-      case 'mt-9': return  36;
-      case 'mr-9': return  36;
-      case 'mb-9': return  36;
-      case 'ml-9': return  36;
-      case 'm-10': return  40;
-      case 'mx-10': return  40;
-      case 'my-10': return  40;
-      case 'ms-10': return  40;
-      case 'me-10': return  40;
-      case 'mt-10': return  40;
-      case 'mr-10': return  40;
-      case 'mb-10': return  40;
-      case 'ml-10': return  40;
-      case 'm-11': return  44;
-      case 'mx-11': return  44;
-      case 'my-11': return  44;
-      case 'ms-11': return  44;
-      case 'me-11': return  44;
-      case 'mt-11': return  44;
-      case 'mr-11': return  44;
-      case 'mb-11': return  44;
-      case 'ml-11': return  44;
-      case 'm-12': return  48;
-      case 'mx-12': return  48;
-      case 'my-12': return  48;
-      case 'ms-12': return  48;
-      case 'me-12': return  48;
-      case 'mt-12': return  48;
-      case 'mr-12': return  48;
-      case 'mb-12': return  48;
-      case 'ml-12': return  48;
-      case 'm-14': return  56;
-      case 'mx-14': return  56;
-      case 'my-14': return  56;
-      case 'ms-14': return  56;
-      case 'me-14': return  56;
-      case 'mt-14': return  56;
-      case 'mr-14': return  56;
-      case 'mb-14': return  56;
-      case 'ml-14': return  56;
-      case 'm-16': return  64;
-      case 'mx-16': return  64;
-      case 'my-16': return  64;
-      case 'ms-16': return  64;
-      case 'me-16': return  64;
-      case 'mt-16': return  64;
-      case 'mr-16': return  64;
-      case 'mb-16': return  64;
-      case 'ml-16': return  64;
-      case 'ml-18': return  72;
-      case 'm-20': return  80;
-      case 'mx-20': return  80;
-      case 'my-20': return  80;
-      case 'ms-20': return  80;
-      case 'me-20': return  80;
-      case 'mt-20': return  80;
-      case 'mr-20': return  80;
-      case 'mb-20': return  80;
-      case 'ml-20': return  80;
-      case 'm-24': return  96;
-      case 'mx-24': return  96;
-      case 'my-24': return  96;
-      case 'ms-24': return  96;
-      case 'me-24': return  96;
-      case 'mt-24': return  96;
-      case 'mr-24': return  96;
-      case 'mb-24': return  96;
-      case 'ml-24': return  96;
-      case 'm-28': return  112;
-      case 'mx-28': return  112;
-      case 'my-28': return  112;
-      case 'ms-28': return  112;
-      case 'me-28': return  112;
-      case 'mt-28': return  112;
-      case 'mr-28': return  112;
-      case 'mb-28': return  112;
-      case 'ml-28': return  112;
-      case 'm-32': return  128;
-      case 'mx-32': return  128;
-      case 'my-32': return  128;
-      case 'ms-32': return  128;
-      case 'me-32': return  128;
-      case 'mt-32': return  128;
-      case 'mr-32': return  128;
-      case 'mb-32': return  128;
-      case 'ml-32': return  128;
-      case 'm-36': return  144;
-      case 'mx-36': return  144;
-      case 'my-36': return  144;
-      case 'ms-36': return  144;
-      case 'me-36': return  144;
-      case 'mt-36': return  144;
-      case 'mr-36': return  144;
-      case 'mb-36': return  144;
-      case 'ml-36': return  144;
-      case 'm-40': return  160;
-      case 'mx-40': return  160;
-      case 'my-40': return  160;
-      case 'ms-40': return  160;
-      case 'me-40': return  160;
-      case 'mt-40': return  160;
-      case 'mr-40': return  160;
-      case 'mb-40': return  160;
-      case 'ml-40': return  160;
-      case 'm-44': return  176;
-      case 'mx-44': return  176;
-      case 'my-44': return  176;
-      case 'ms-44': return  176;
-      case 'me-44': return  176;
-      case 'mt-44': return  176;
-      case 'mr-44': return  176;
-      case 'mb-44': return  176;
-      case 'ml-44': return  176;
-      case 'm-48': return  192;
-      case 'mx-48': return  192;
-      case 'my-48': return  192;
-      case 'ms-48': return  192;
-      case 'me-48': return  192;
-      case 'mt-48': return  192;
-      case 'mr-48': return  192;
-      case 'mb-48': return  192;
-      case 'ml-48': return  192;
-      case 'm-52': return  208;
-      case 'mx-52': return  208;
-      case 'my-52': return  208;
-      case 'ms-52': return  208;
-      case 'me-52': return  208;
-      case 'mt-52': return  208;
-      case 'mr-52': return  208;
-      case 'mb-52': return  208;
-      case 'ml-52': return  208;
-      case 'm-56': return  224;
-      case 'mx-56': return  224;
-      case 'my-56': return  224;
-      case 'ms-56': return  224;
-      case 'me-56': return  224;
-      case 'mt-56': return  224;
-      case 'mr-56': return  224;
-      case 'mb-56': return  224;
-      case 'ml-56': return  224;
-      case 'm-60': return  240;
-      case 'mx-60': return  240;
-      case 'my-60': return  240;
-      case 'ms-60': return  240;
-      case 'me-60': return  240;
-      case 'mt-60': return  240;
-      case 'mr-60': return  240;
-      case 'mb-60': return  240;
-      case 'ml-60': return  240;
-      case 'm-64': return  256;
-      case 'mx-64': return  256;
-      case 'my-64': return  256;
-      case 'ms-64': return  256;
-      case 'me-64': return  256;
-      case 'mt-64': return  256;
-      case 'mr-64': return  256;
-      case 'mb-64': return  256;
-      case 'ml-64': return  256;
-      case 'm-72': return  288;
-      case 'mx-72': return  288;
-      case 'my-72': return  288;
-      case 'ms-72': return  288;
-      case 'me-72': return  288;
-      case 'mt-72': return  288;
-      case 'mr-72': return  288;
-      case 'mb-72': return  288;
-      case 'ml-72': return  288;
-      case 'm-80': return  320;
-      case 'mx-80': return  320;
-      case 'my-80': return  320;
-      case 'ms-80': return  320;
-      case 'me-80': return  320;
-      case 'mt-80': return  320;
-      case 'mr-80': return  320;
-      case 'mb-80': return  320;
-      case 'ml-80': return  320;
-      case 'm-96': return  384;
-      case 'mx-96': return  384;
-      case 'my-96': return  384;
-      case 'ms-96': return  384;
-      case 'me-96': return  384;
-      case 'mt-96': return  384;
-      case 'mr-96': return  384;
-      case 'mb-96': return  384;
-      case 'ml-96': return  384;
-      case 'mx-auto' : return 0.0;
-      case 'my-auto' : return 0;
-      case 'ms-auto' : return 0;
-      case 'me-auto' : return 0;
-      case 'mt-auto' : return 0;
-      case 'mr-auto' : return 0;
-      case 'mb-auto' : return 0;
-      case 'ml-auto' : return 0;
-
-      
-      default: return null;// Default jika kode tidak cocok
-      
-      
-
-    }
-    // return null;
-  }
+  
 
   TextAlign? getTextAlignment(String tailwindClass) {
   switch (tailwindClass) {
@@ -2933,8 +1861,6 @@ MainAxisAlignment? convertAlignItemsToMainAxisAlignment(String alignItems) {
       case 'font-bold': return FontWeight.w700;
       case 'font-extrabold': return FontWeight.w800;
       case 'font-black': return FontWeight.w900;
-      // default:
-      //   return null; // Default font weight
     }
     return null;
   }
